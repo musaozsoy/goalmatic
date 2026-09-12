@@ -24,7 +24,7 @@ Levels stay fixed for the week. Every Monday the week is reviewed per level: ≥
 
 ## Updating the game
 
-1. Edit `index.html` and bump the version in two places: `<span id="appVer">v17</span>` and `const APP_VERSION='v17'`.
+1. Edit `index.html` and bump the version in two places: `<span id="appVer">v18</span>` and `const APP_VERSION='v18'`.
 2. Commit and push to `main`. GitHub Pages redeploys in about a minute.
 3. On the phone the game checks for a newer version on every open and shows a "tap to update" banner. Force it by opening `https://musaozsoy.github.io/goalmatic/?v=13`.
 
