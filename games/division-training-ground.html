@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Division Training Ground – Yigit Ali</title>
+<style>
+  :root{
+    --pitch:#1f7a3a; --pitch2:#23874a; --line:#e9f5ec; --navy:#0d1b3d; --gold:#e6b422;
+    --white:#ffffff; --red:#d8322f; --ink:#122036; --paper:#f7f7f2; --good:#2aa14b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--navy);color:var(--ink);
+    font-family:"Trebuchet MS","Segoe UI",Verdana,sans-serif;}
+  .wrap{max-width:720px;margin:0 auto;padding:16px 12px 60px}
+  header{display:flex;align-items:center;gap:14px;color:var(--white);padding:8px 4px 18px}
+  header img{width:64px;height:64px;border-radius:50%;border:3px solid var(--gold);object-fit:cover}
+  header h1{margin:0;font-size:22px;line-height:1.1}
+  header p{margin:4px 0 0;font-size:14px;opacity:.85}
+  .score{margin-left:auto;text-align:right}
+  .score b{display:block;font-size:30px;color:var(--gold);line-height:1}
+  .score span{font-size:12px;opacity:.85}
+
+  .stage{display:none;background:var(--paper);border-radius:18px;padding:18px 16px 22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .stage.on{display:block}
+  .stage h2{margin:0 0 6px;font-size:24px;color:var(--navy)}
+  .stage .sub{margin:0 0 14px;font-size:16px;color:#3d4a63}
+  .coach{background:var(--white);border-left:6px solid var(--gold);padding:10px 14px;
+    border-radius:8px;margin:12px 0;font-size:17px;line-height:1.45}
+  .btn{background:var(--red);color:var(--white);border:0;border-radius:999px;padding:13px 22px;
+    font-size:18px;font-weight:700;cursor:pointer;margin-top:8px;font-family:inherit}
+  .btn:hover{filter:brightness(1.08)}
+  .btn:disabled{opacity:.4;cursor:default}
+  .btn.alt{background:var(--navy)}
+  .btn:focus-visible{outline:3px solid var(--gold)}
+
+  /* pitch with three squads */
+  .pitch{background:repeating-linear-gradient(90deg,var(--pitch) 0 40px,var(--pitch2) 40px 80px);
+    border:3px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
+  .pile{display:flex;flex-wrap:wrap;gap:4px;min-height:44px;justify-content:center;
+    padding:8px;background:rgba(255,255,255,.12);border-radius:10px;margin-bottom:10px}
+  .pile-label{color:var(--white);text-align:center;font-weight:700;margin-bottom:6px;font-size:18px}
+  .squads{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .squad{background:rgba(255,255,255,.14);border:2px dashed var(--line);border-radius:10px;
+    padding:8px;min-height:90px}
+  .squad h4{margin:0 0 6px;color:var(--white);font-size:14px;text-align:center}
+  .squad .balls{display:flex;flex-wrap:wrap;gap:3px;justify-content:center}
+  .squad .n{color:var(--gold);font-weight:800;text-align:center;font-size:22px;margin-top:6px}
+  .ball{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0 30%,#333 31% 45%,#fff 46%);
+    box-shadow:0 1px 2px rgba(0,0,0,.4);transition:transform .3s}
+  .ball.new{animation:pop .4s}
+  @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+
+  /* bus stop */
+  .bus{display:grid;grid-template-columns:70px 70px 70px;justify-content:center;gap:0;
+    font-size:38px;font-weight:800;color:var(--navy);margin:16px auto;font-family:"Courier New",monospace}
+  .bus div{text-align:center;height:60px;line-height:60px;position:relative}
+  .bus .ans{color:var(--red)}
+  .bus .top-row div{border-bottom:4px solid var(--navy)}
+  .bus .top-row .blank{border:0}
+  .bus .dv{border-right:4px solid var(--navy);border-radius:0 0 0 14px}
+  .bus .carry{position:absolute;left:4px;top:-2px;font-size:18px;color:var(--red);line-height:1}
+  .bus input{width:54px;height:54px;font-size:32px;text-align:center;border:3px solid var(--gold);
+    border-radius:10px;font-family:inherit;font-weight:800;color:var(--red);background:#fffbe6}
+  .bus input:focus{outline:3px solid var(--navy)}
+  .q{font-size:20px;text-align:center;margin:10px 0;font-weight:700;color:var(--navy)}
+  .q small{display:block;font-size:15px;font-weight:400;color:#3d4a63;margin-top:4px}
+  .fb{text-align:center;font-size:18px;font-weight:700;min-height:26px;margin:6px 0}
+  .fb.ok{color:var(--good)} .fb.no{color:var(--red)}
+  .progress{display:flex;gap:6px;margin:6px 0 12px}
+  .progress i{flex:1;height:10px;border-radius:5px;background:#d5d8de}
+  .progress i.done{background:var(--good)} .progress i.cur{background:var(--gold)}
+
+  .tables{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0;font-size:14px}
+  .tables span{background:var(--white);border-radius:6px;padding:5px;text-align:center;border:1px solid #dde}
+  .tables span.hit{background:var(--gold);font-weight:800}
+
+  .result{text-align:center}
+  .result .big{font-size:56px;color:var(--gold);font-weight:900;line-height:1;margin:8px 0}
+  .level{display:inline-block;background:var(--navy);color:var(--gold);padding:8px 18px;border-radius:999px;
+    font-weight:800;font-size:20px;margin:8px 0}
+  textarea{width:100%;height:110px;font-family:monospace;font-size:12px;margin-top:10px;border-radius:8px;border:1px solid #ccc}
+  .center{text-align:center}
+  @media(max-width:480px){.bus{grid-template-columns:56px 56px 56px;font-size:32px}.bus input{width:46px;height:46px;font-size:26px}}
+  @media(prefers-reduced-motion:reduce){.ball.new{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="data:image/jpeg;base64,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" alt="Yigit Ali">
+  <div>
+    <h1>Division Training Ground</h1>
+    <p>Yigit Ali · Coach Ancelotti's Passing Drill</p>
+  </div>
+  <div class="score"><b id="pts">0</b><span>points</span></div>
+</header>
+
+<!-- STAGE 1: share the balls -->
+<section class="stage on" id="s1">
+  <h2>Drill 1 – Share the balls</h2>
+  <p class="sub">51 balls. 3 squads. Everyone must get the same number. No arguing!</p>
+  <div class="coach" id="c1">Coach says: 51 is a big pile. Don't count one by one – a pro splits it into chunks.
+    Start with 10 balls for each squad. Tap the button.</div>
+  <div class="pitch">
+    <div class="pile-label">Ball bag: <span id="bag">51</span></div>
+    <div class="pile" id="pile"></div>
+    <div class="squads">
+      <div class="squad"><h4>Squad A</h4><div class="balls" id="sqA"></div><div class="n" id="nA">0</div></div>
+      <div class="squad"><h4>Squad B</h4><div class="balls" id="sqB"></div><div class="n" id="nB">0</div></div>
+      <div class="squad"><h4>Squad C</h4><div class="balls" id="sqC"></div><div class="n" id="nC">0</div></div>
+    </div>
+  </div>
+  <div class="center">
+    <button class="btn" id="pass10" onclick="pass(10)">Pass 10 to each squad</button>
+    <button class="btn" id="pass7" onclick="pass(7)" style="display:none">Pass 7 to each squad</button>
+  </div>
+  <div class="fb" id="fb1"></div>
+  <div class="center"><button class="btn alt" id="go2" style="display:none" onclick="show('s2')">Next drill ▶</button></div>
+</section>
+
+<!-- STAGE 2: bus stop, guided -->
+<section class="stage" id="s2">
+  <h2>Drill 2 – The Bus Stop</h2>
+  <p class="sub">Same problem, 51 ÷ 3, but the fast way you use at school.</p>
+  <div class="coach" id="c2">Coach says: The 3 waits at the bus stop. The number 51 gets on – one digit at a time.
+    Start with the first digit: <b>5</b>.</div>
+  <div class="bus" id="bus2">
+    <div class="top-row" style="display:contents">
+      <div class="blank"></div><div class="ans" id="a2t">&nbsp;</div><div class="ans" id="a2o">&nbsp;</div>
+    </div>
+    <div class="dv">3</div><div id="d2t">5</div><div id="d2o">1</div>
+  </div>
+  <div class="tables" id="t2"></div>
+  <div class="q" id="q2">How many 3s fit into 5?<small>Look at the 3 times table above. Find the biggest one that is not more than 5.</small></div>
+  <div class="center"><input class="busin" id="in2" type="number" inputmode="numeric" style="width:70px;height:56px;font-size:30px;text-align:center;border:3px solid var(--gold);border-radius:10px;font-weight:800;color:var(--red)">
+    <button class="btn" id="chk2" onclick="check2()">Shoot!</button></div>
+  <div class="fb" id="fb2"></div>
+  <div class="center"><button class="btn alt" id="go3" style="display:none" onclick="show('s3')">Start the match ▶</button></div>
+</section>
+
+<!-- STAGE 3: match -->
+<section class="stage" id="s3">
+  <h2>Drill 3 – Matchday</h2>
+  <p class="sub">8 shots. 10 points a goal, +5 if you score first time. Fill the top of the bus stop.</p>
+  <div class="progress" id="prog"></div>
+  <div class="bus">
+    <div class="blank"></div>
+    <div class="ans"><input id="mt" type="number" inputmode="numeric" maxlength="1"></div>
+    <div class="ans"><input id="mo" type="number" inputmode="numeric" maxlength="1"></div>
+    <div class="dv" id="mdv">3</div><div id="mdt">5</div><div id="mdo">1<span class="carry" id="mcarry"></span></div>
+  </div>
+  <div class="q" id="q3"></div>
+  <div class="tables" id="t3"></div>
+  <div class="center"><button class="btn" id="chk3" onclick="check3()">Shoot!</button>
+    <button class="btn alt" id="hint3" onclick="hint()">Hint</button></div>
+  <div class="fb" id="fb3"></div>
+</section>
+
+<!-- STAGE 4: result -->
+<section class="stage" id="s4">
+  <div class="result">
+    <h2>Full time!</h2>
+    <div class="big" id="finalPts">0</div>
+    <div>points</div>
+    <div class="level" id="lvl"></div>
+    <p id="verdict" style="font-size:17px"></p>
+    <button class="btn" onclick="copyReport()">Copy report for Coach</button>
+    <textarea id="rep" readonly></textarea>
+  </div>
+</section>
+</div>
+
+<script>
+let pts=0;
+const P=v=>{pts+=v;document.getElementById('pts').textContent=pts};
+function show(id){document.querySelectorAll('.stage').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo(0,0)}
+
+/* ---------- stage 1 ---------- */
+let bag=51,got=0;
+function ballEl(){const b=document.createElement('i');b.className='ball new';return b}
+function drawPile(){const p=document.getElementById('pile');p.innerHTML='';for(let i=0;i<bag;i++){const b=document.createElement('i');b.className='ball';p.appendChild(b)}document.getElementById('bag').textContent=bag}
+drawPile();
+function pass(n){
+  bag-=n*3;got+=n;
+  ['A','B','C'].forEach(s=>{const el=document.getElementById('sq'+s);for(let i=0;i<n;i++)el.appendChild(ballEl());document.getElementById('n'+s).textContent=got});
+  drawPile();
+  if(n===10){
+    document.getElementById('pass10').style.display='none';
+    document.getElementById('c1').innerHTML='Coach says: 3 squads × 10 balls = 30 gone. <b>21</b> left in the bag. Which number in the 3 times table is 21? <b>3 × 7</b>. So pass 7 to each squad.';
+    document.getElementById('pass7').style.display='';
+    P(10);
+  }else{
+    document.getElementById('pass7').style.display='none';
+    document.getElementById('c1').innerHTML='Coach says: Bag empty, every squad has <b>17</b>. That is the answer: <b>51 ÷ 3 = 17</b>.<br>Check it like a pro: 17 × 3 = 51 ✔';
+    document.getElementById('fb1').className='fb ok';document.getElementById('fb1').textContent='GOAL! 10 + 7 = 17 each.';
+    document.getElementById('go2').style.display='';
+    P(10);
+  }
+}
+
+/* ---------- tables helper ---------- */
+function tables(d,into,hit){const t=document.getElementById(into);t.innerHTML='';for(let i=1;i<=12;i++){const s=document.createElement('span');s.textContent=`${d}×${i}=${d*i}`;if(hit!==undefined&&i===hit)s.className='hit';t.appendChild(s)}}
+tables(3,'t2');
+
+/* ---------- stage 2 ---------- */
+let step2=1,tries2=0;
+function check2(){
+  const v=+document.getElementById('in2').value;const fb=document.getElementById('fb2');
+  if(step2===1){
+    tries2++;
+    if(v===1){
+      P(tries2===1?15:10);
+      document.getElementById('a2t').textContent='1';
+      fb.className='fb ok';fb.textContent='Yes! One 3 fits into 5. Write 1 on top.';
+      document.getElementById('c2').innerHTML='Coach says: 1 × 3 = 3. But we had 5. <b>5 − 3 = 2</b> left over.<br>That 2 does NOT get thrown away – it runs to the next digit and stands in front of the 1. Now the 1 becomes <b>21</b>.';
+      document.getElementById('d2o').innerHTML='1<span class="carry">2</span>';
+      document.getElementById('q2').innerHTML='How many 3s fit into 21?<small>The little red 2 turned the 1 into 21.</small>';
+      tables(3,'t2',7);
+      document.getElementById('in2').value='';step2=2;tries2=0;
+    }else{fb.className='fb no';fb.textContent=v>1?'Too many! 3 × '+v+' = '+(3*v)+', that is more than 5. Try smaller.':'Try again – can a 3 fit into 5 at all?';}
+  }else{
+    tries2++;
+    if(v===7){
+      P(tries2===1?15:10);
+      document.getElementById('a2o').textContent='7';
+      fb.className='fb ok';fb.textContent='GOAL! 3 × 7 = 21, nothing left over. Answer: 17.';
+      document.getElementById('c2').innerHTML='Coach says: Read the top of the bus stop: <b>1 7</b>. Same answer as the ball bag. 51 ÷ 3 = 17.<br>Remember the rule: <b>leftover runs to the next digit.</b>';
+      document.getElementById('in2').disabled=true;document.getElementById('chk2').disabled=true;
+      document.getElementById('go3').style.display='';
+    }else{fb.className='fb no';fb.textContent='Not yet. Find 21 in the 3 times table.';}
+  }
+}
+
+/* ---------- stage 3 ---------- */
+const qs=[[72,3],[65,5],[84,4],[96,6],[91,7],[78,6],[85,5],[92,4]];
+let qi=0,tries3=0,hints=0,log=[];
+function loadQ(){
+  const [n,d]=qs[qi];const t=Math.floor(n/10),o=n%10;
+  document.getElementById('mdv').textContent=d;document.getElementById('mdt').textContent=t;
+  document.getElementById('mdo').innerHTML=o+'<span class="carry" id="mcarry"></span>';
+  document.getElementById('mt').value='';document.getElementById('mo').value='';
+  document.getElementById('fb3').textContent='';document.getElementById('t3').innerHTML='';
+  document.getElementById('q3').innerHTML=`Shot ${qi+1}: <b>${n} ÷ ${d}</b><small>First: how many ${d}s in ${t}? Leftover runs to the ${o}.</small>`;
+  tries3=0;
+  const pr=document.getElementById('prog');pr.innerHTML='';for(let i=0;i<qs.length;i++){const s=document.createElement('i');if(i<qi)s.className='done';if(i===qi)s.className='cur';pr.appendChild(s)}
+  document.getElementById('mt').focus();
+}
+function hint(){const [n,d]=qs[qi];const t=Math.floor(n/10);const q1=Math.floor(t/d);hints++;
+  tables(d,'t3');document.getElementById('mcarry').textContent=t-q1*d;
+  document.getElementById('fb3').className='fb';document.getElementById('fb3').textContent=`Hint: ${q1} × ${d} = ${q1*d}, leftover ${t-q1*d} runs across. Now the last digit is ${(t-q1*d)}${n%10}.`}
+function check3(){
+  const [n,d]=qs[qi];const ans=n/d;const got=+((document.getElementById('mt').value||'')+(document.getElementById('mo').value||''));
+  const fb=document.getElementById('fb3');tries3++;
+  if(got===ans){
+    const gain=tries3===1?15:10;P(gain);log.push(`${n}÷${d}=${ans} ✔ tries:${tries3}`);
+    fb.className='fb ok';fb.textContent=`GOAL! ${n} ÷ ${d} = ${ans}. Check: ${ans} × ${d} = ${n}.`;
+    document.getElementById('chk3').disabled=true;
+    setTimeout(()=>{document.getElementById('chk3').disabled=false;qi++;if(qi<qs.length)loadQ();else finish()},1400);
+  }else{
+    fb.className='fb no';
+    const t=Math.floor(n/10);const q1=Math.floor(t/d);const first=+document.getElementById('mt').value;
+    if(first!==q1)fb.textContent=`Saved by the keeper. Start again: how many ${d}s in ${t}? ${d} × ${q1} = ${q1*d}.`;
+    else fb.textContent=`Close! First digit ${q1} is right. Leftover ${t-q1*d} runs across – now divide ${(t-q1*d)}${n%10} by ${d}.`;
+    if(tries3>=3){log.push(`${n}÷${d}=${ans} ✘ (3 misses)`);fb.textContent=`Answer was ${ans}. Next shot.`;setTimeout(()=>{qi++;if(qi<qs.length)loadQ();else finish()},1600)}
+  }
+}
+function finish(){
+  show('s4');document.getElementById('finalPts').textContent=pts;
+  const lv=pts>=150?'Ballon d\'Or':pts>=120?'Captain':pts>=90?'First XI':'Castilla';
+  document.getElementById('lvl').textContent='Level: '+lv;
+  document.getElementById('verdict').textContent=pts>=120?'Coach Ancelotti: "Leftover runs to the next digit" – you have got it. Starting eleven on Saturday.':'Coach Ancelotti: Good session. Do the drill once more tomorrow and the leftovers will not escape you.';
+  document.getElementById('rep').value=`DIVISION TRAINING – ${new Date().toLocaleDateString('en-GB')}\nPoints: ${pts} | Level: ${lv} | Hints used: ${hints}\n`+log.join('\n');
+}
+function copyReport(){const t=document.getElementById('rep');t.select();document.execCommand('copy');alert('Copied! Send it to Coach.')}
+document.getElementById('mt').addEventListener('input',e=>{if(e.target.value.length>=1)document.getElementById('mo').focus()});
+document.getElementById('mo').addEventListener('keydown',e=>{if(e.key==='Enter')check3()});
+document.getElementById('in2').addEventListener('keydown',e=>{if(e.key==='Enter')check2()});
+loadQ();
+</script>
+</body>
+</html>

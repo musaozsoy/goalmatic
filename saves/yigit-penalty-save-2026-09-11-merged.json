@@ -1,0 +1,1471 @@
+{
+  "format": "yigit-penalty-save",
+  "version": 1,
+  "player": "Yigit Ali",
+  "savedAt": "2026-09-11T21:01:34.715Z",
+  "kit": "bw",
+  "days": {
+    "2026-09-08": {
+      "pts": 606,
+      "goals": 66,
+      "level": 7,
+      "left": 408,
+      "plays": 3
+    },
+    "2026-09-09": {
+      "pts": 425,
+      "goals": 31,
+      "level": 7,
+      "left": 341,
+      "plays": 1
+    },
+    "2026-09-11": {
+      "pts": 495,
+      "goals": 57,
+      "level": 7,
+      "left": 324,
+      "plays": 1
+    }
+  },
+  "practice": [
+    {
+      "txt": "9 × 8",
+      "ans": 72,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "7 × 7",
+      "ans": 49,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "6 × 3",
+      "ans": 18,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "8 × 12",
+      "ans": 96,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "7 × 9",
+      "ans": 63,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "121 ÷ 11",
+      "ans": 11,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "48 ÷ 6",
+      "ans": 8,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "54 ÷ 9",
+      "ans": 6,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "120 ÷ 12",
+      "ans": 10,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "48 ÷ 8",
+      "ans": 6,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "105 ÷ 7",
+      "ans": 15,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "36 ÷ 3",
+      "ans": 12,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    },
+    {
+      "txt": "140 ÷ 7",
+      "ans": 20,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-11"
+    }
+  ],
+  "parked": [
+    {
+      "txt": "209 ÷ 11",
+      "ans": 19,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-09"
+    },
+    {
+      "txt": "17 × 12",
+      "ans": 204,
+      "misses": 1,
+      "streak": 0,
+      "added": "2026-09-09"
+    },
+    {
+      "txt": "187 ÷ 11",
+      "ans": 17,
+      "misses": 1,
+      "streak": 1,
+      "added": "2026-09-09"
+    },
+    {
+      "txt": "216 ÷ 12",
+      "ans": 18,
+      "misses": 2,
+      "streak": 0,
+      "added": "2026-09-09"
+    },
+    {
+      "txt": "156 ÷ 12",
+      "ans": 13,
+      "misses": 2,
+      "streak": 0,
+      "added": "2026-09-09"
+    }
+  ],
+  "facts": {
+    "6x10": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "10x11": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "5x9": {
+      "seen": 3,
+      "fast": 3,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "10x12": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x10": {
+      "seen": 6,
+      "fast": 4,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x10": {
+      "seen": 2,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x4": {
+      "seen": 7,
+      "fast": 3,
+      "miss": 2,
+      "lastCorrect": "2026-09-09"
+    },
+    "9x10": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "7x10": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x7": {
+      "seen": 4,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x3": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x11": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x4": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "3x3": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "3x12": {
+      "seen": 4,
+      "fast": 2,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "5x11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "8x12": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "8x8": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "7x8": {
+      "seen": 5,
+      "fast": 3,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "7x11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "6x8": {
+      "seen": 4,
+      "fast": 2,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "6x6": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "3x6": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "2x8": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "9x12": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "8x9": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "50/5": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "36/4": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "18/2": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "24/2": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "30/10": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "10/2": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "110/10": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "12/4": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "40/10": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "80/10": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "22/11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "45/9": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "108/9": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "42/6": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "77/11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "28/7": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "30/6": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "72/8": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "96/12": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "132/12": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "3x10": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x6": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "36/9": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "48/12": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "64/8": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "24/8": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x25": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x14": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "8x21": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "33/3": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "90/6": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "9x19": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "10x17": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x17": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "10x19": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x16": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "10x15": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x14": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "10x13": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "2x14": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "2x16": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x18": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "2x18": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "2x19": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "4x19": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "3x13": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "3x18": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "3x14": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "3x19": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "3x17": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "2x15": {
+      "seen": 5,
+      "fast": 0,
+      "miss": 2,
+      "lastCorrect": "2026-09-09"
+    },
+    "3x16": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "9x14": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "7x16": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "8x18": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "7x19": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "6x19": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "6x16": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "9x18": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "8x14": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "9x17": {
+      "seen": 3,
+      "fast": 0,
+      "miss": 2,
+      "lastCorrect": ""
+    },
+    "8x17": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "9x15": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "170/10": {
+      "seen": 2,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "160/10": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "80/5": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "60/3": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "75/5": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "65/5": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "42/3": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "56/4": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "209/11": {
+      "seen": 3,
+      "fast": 0,
+      "miss": 2,
+      "lastCorrect": ""
+    },
+    "143/11": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "152/8": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "165/11": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "108/6": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "114/6": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "133/7": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "144/8": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "84/6": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "135/9": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "120/6": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "39/3": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "7x14": {
+      "seen": 3,
+      "fast": 0,
+      "miss": 2,
+      "lastCorrect": ""
+    },
+    "4x13": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "126/7": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "52/4": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "48/3": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "12x17": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "119/7": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "8x25": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "84/7": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "7x15": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "8x20": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x6": {
+      "seen": 4,
+      "fast": 3,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x12": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x5": {
+      "seen": 2,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "3x9": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x9": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "3x5": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 2,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x5": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 1,
+      "lastCorrect": "2026-09-08"
+    },
+    "6x7": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 2,
+      "lastCorrect": "2026-09-09"
+    },
+    "8x11": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x10": {
+      "seen": 3,
+      "fast": 3,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x5": {
+      "seen": 2,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "3x7": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "10x10": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "3x11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "2x2": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "5x8": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "7x9": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "6x11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "9x11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "4x8": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "32/4": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "100/10": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "8/4": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "12/2": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "35/5": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "20/10": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "25/5": {
+      "seen": 2,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "45/5": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "35/7": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "48/8": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "18/9": {
+      "seen": 2,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "16/8": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "60/6": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "24/12": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "63/9": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "90/9": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "55/11": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "6x12": {
+      "seen": 3,
+      "fast": 2,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "15/3": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "140/7": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "6x15": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-08"
+    },
+    "6x25": {
+      "seen": 3,
+      "fast": 1,
+      "miss": 2,
+      "lastCorrect": "2026-09-09"
+    },
+    "60/4": {
+      "seen": 2,
+      "fast": 1,
+      "miss": 1,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x19": {
+      "seen": 4,
+      "fast": 0,
+      "miss": 3,
+      "lastCorrect": "2026-09-09"
+    },
+    "5x17": {
+      "seen": 3,
+      "fast": 0,
+      "miss": 3,
+      "lastCorrect": ""
+    },
+    "5x13": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "10x18": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "4x15": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "4x16": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "2x13": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "6x18": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "6x14": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "9x13": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "8x15": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "8x13": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "7x18": {
+      "seen": 2,
+      "fast": 2,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "20/5": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "60/5": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "10/5": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "12/3": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "18/3": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "30/5": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "48/4": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "117/9": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "120/8": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "187/11": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "216/12": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "144/9": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "136/8": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "156/12": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "70/7": {
+      "seen": 1,
+      "fast": 1,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "4x7": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "6x9": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "90/5": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "7x20": {
+      "seen": 2,
+      "fast": 0,
+      "miss": 0,
+      "lastCorrect": "2026-09-09"
+    },
+    "7x7": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "54/9": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "48/6": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "121/11": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "105/7": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "36/3": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    },
+    "120/12": {
+      "seen": 1,
+      "fast": 0,
+      "miss": 1,
+      "lastCorrect": ""
+    }
+  },
+  "logs": {
+    "2026-09-08": [
+      "MATCH 1: 606 pts = 66 goals×3 + 408 min | shots 70 | reached L7 (all levels) | streak 26 | L1 ↑ harder, L2 ↑ harder, L3 ↑ harder, L4 ↑ harder, L5 ↑ harder, L6 ↑ harder | saved: 8 × 8, 45 ÷ 9, 30 ÷ 6, 64 ÷ 8",
+      "EXTRA TRAINING: goals 9/11 | cleared 4 | remaining 0",
+      "MATCH 2: 9 pts = 3 goals×3 + 0 min | shots 4 | reached L1 (time out) | streak 3 | saved: none",
+      "EXTRA TRAINING: goals 18/20 | cleared 9 | remaining 0",
+      "MATCH 2: 561 pts = 55 goals×3 + 396 min | shots 70 | reached L7 (all levels) | streak 15 | L1 ↑ harder, L2 ↑ harder, L3 ↑ harder, L5 ↑ harder | saved: 5 × 5, 5 × 3, 9 × 7, 8 × 9, 32 ÷ 4, 12 ÷ 2, 35 ÷ 5, 35 ÷ 7, 16 ÷ 8, 12 × 6, 15 ÷ 3, 4 × 9, 25 × 6, 25 × 6, 60 ÷ 4",
+      "EXTRA TRAINING: goals 28/36 | cleared 14 | remaining 0"
+    ],
+    "2026-09-09": [
+      "MATCH 1: 348 pts = 31 goals×3 + 255 min | shots 70 | reached L7 (all levels) | streak 4 | L2 ↓ normal, L3 ↓ normal, L4 ↓ normal, L5 ↓ normal, L6 ↓ normal | saved: 5 × 16, 10 × 15, 14 × 5, 5 × 18, 13 × 3, 3 × 18, 14 × 3, 14 × 4, 2 × 15, 16 × 3, 15 × 2, 7 × 16, 19 × 6, 9 × 18, 8 × 14, 17 × 9, 8 × 17, 160 ÷ 10, 80 ÷ 5, 60 ÷ 3, 75 ÷ 5, 65 ÷ 5, 42 ÷ 3, 209 ÷ 11, 152 ÷ 8, 114 ÷ 6, 133 ÷ 7, 144 ÷ 8, 84 ÷ 6, 120 ÷ 6, 39 ÷ 3, 7 × 14, 126 ÷ 7, 52 ÷ 4, 48 ÷ 3, 17 × 12, 119 ÷ 7, 25 × 8, 17 × 9",
+      "WARM-UP: 15/16 goals",
+      "MATCH 1: 425 pts = 28 goals×3 + 341 min | shots 70 | reached L7 (all levels) | streak 9 | L1 ↓ normal, L2 ↓ normal, L3 ↓ normal, L5 ↓ normal | saved: 19 × 5, 15 × 2, 15 × 2, 5 × 17, 5 × 19, 16 × 5, 5 × 13, 18 × 2, 19 × 5, 5 × 17, 15 × 4, 4 × 16, 18 × 3, 10 × 17, 4 × 13, 13 × 2, 3 × 19, 5 × 17, 4 × 14, 6 × 18, 17 × 8, 6 × 14, 9 × 17, 13 × 9, 8 × 15, 13 × 8, 14 × 7, 60 ÷ 5, 117 ÷ 9, 209 ÷ 11, 187 ÷ 11, 216 ÷ 12, 209 ÷ 11, 144 ÷ 9, 136 ÷ 8, 156 ÷ 12, 7 × 4, 132 ÷ 12, 9 × 6, 48 ÷ 3, 90 ÷ 5, 14 × 7",
+      "EXTRA TRAINING: goals 7/24 | cleared 5 | remaining 31"
+    ],
+    "2026-09-10": [
+      "EXTRA TRAINING: goals 25/27 | cleared 12 | remaining 24",
+      "EXTRA TRAINING: goals 24/36 | cleared 12 | remaining 12",
+      "EXTRA TRAINING: goals 21/24 | cleared 12 | remaining 0",
+      "WARM-UP: 15/16 goals"
+    ],
+    "2026-09-11": [
+      "WARM-UP: 15/15 goals",
+      "MATCH 1: 495 pts = 57 goals×3 + 324 min | shots 70 | reached L7 (all levels) | streak 24 | saved: 9 × 8, 7 × 7, 6 × 3, 8 × 12, 7 × 9, 121 ÷ 11, 48 ÷ 6, 54 ÷ 9, 120 ÷ 12, 48 ÷ 8, 105 ÷ 7, 36 ÷ 3, 140 ÷ 7"
+    ]
+  },
+  "tiers": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "week": {
+    "start": "2026-09-07",
+    "number": 1,
+    "tiers": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "notes": []
+  },
+  "weekStats": {
+    "2026-09-07": [
+      {
+        "shots": 37,
+        "goals": 29,
+        "fast": 24
+      },
+      {
+        "shots": 37,
+        "goals": 29,
+        "fast": 21
+      },
+      {
+        "shots": 37,
+        "goals": 24,
+        "fast": 16
+      },
+      {
+        "shots": 31,
+        "goals": 23,
+        "fast": 17
+      },
+      {
+        "shots": 31,
+        "goals": 20,
+        "fast": 17
+      },
+      {
+        "shots": 24,
+        "goals": 18,
+        "fast": 11
+      },
+      {
+        "shots": 18,
+        "goals": 12,
+        "fast": 6
+      }
+    ]
+  },
+  "warm": {
+    "2026-09-09": true,
+    "2026-09-10": true,
+    "2026-09-11": true
+  },
+  "cleared": {
+    "2026-09-10": 36,
+    "2026-09-11": 0
+  }
+}
