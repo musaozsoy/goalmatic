@@ -1,0 +1,944 @@
+{
+ "season": "2026/27",
+ "player": "Yigit Ali",
+ "updated": "2026-10-18",
+ "levels": [
+  [
+   "Castilla",
+   0,
+   500
+  ],
+  [
+   "First XI",
+   500,
+   1500
+  ],
+  [
+   "Captain",
+   1500,
+   3000
+  ],
+  [
+   "Ballon d'Or",
+   3000,
+   5000
+  ]
+ ],
+ "days": {
+  "md1": {
+   "n": 1,
+   "date": "2026-09-07",
+   "title": "Pre-season Trials",
+   "total": 320,
+   "words": [
+    "cautiously",
+    "peculiar",
+    "ominous"
+   ],
+   "sections": {
+    "Reading": "6/6",
+    "Words": "3/3",
+    "Maths": "9/10",
+    "Grammar": "6/8",
+    "Science": "5/5",
+    "Writing VAR": "3/6"
+   },
+   "note": "Ideas GD; accuracy below expected. Q3 percentages blank."
+  },
+  "md2": {
+   "n": 2,
+   "date": "2026-09-08",
+   "title": "VAR Training",
+   "total": 210,
+   "words": [
+    "muffled",
+    "frantically",
+    "deserted"
+   ],
+   "sections": {
+    "Notebook": "1/3",
+    "Drills": "7/8",
+    "Words": "3/3",
+    "Writing VAR": "5/6",
+    "Honest VAR": "+50"
+   },
+   "note": "All 4 speech rules applied. Rule 5 missing. '!?' repeat. 45 words, no new word."
+  },
+  "md3": {
+   "n": 3,
+   "date": "2026-09-09",
+   "title": "Chapter 2",
+   "total": 180,
+   "words": [
+    "eerie",
+    "rivalry",
+    "loyal"
+   ],
+   "sections": {
+    "VAR": "3/3",
+    "Reading": "5/5",
+    "WW1 causes": "6/6",
+    "Words": "3/3",
+    "Point+Evidence": "1/3",
+    "Referee": "—"
+   },
+   "note": "17/17 quizzes. Q6 2/2, Q7 evidence without point. Late finish 22:07."
+  },
+  "md4": {
+   "n": 4,
+   "date": "2026-09-10",
+   "title": "Numbers Day",
+   "total": 250,
+   "words": [
+    "glimpse",
+    "bewildered",
+    "reluctantly"
+   ],
+   "sections": {
+    "VAR": "2/2",
+    "Arithmetic": "9/10",
+    "Percentages": "4/6",
+    "Apostrophes": "5/6",
+    "Words": "3/3",
+    "Notebook": "2/2",
+    "Referee": "—"
+   },
+   "note": "Percentages gap remains. Notebook unverified (no referee/photo)."
+  },
+  "md5": {
+   "n": 5,
+   "date": "2026-09-11",
+   "title": "Science Day",
+   "total": 240,
+   "words": [
+    "hesitate",
+    "fragile",
+    "vanished"
+   ],
+   "sections": {
+    "VAR": "3/3",
+    "The heart": "7/8",
+    "Britain at war": "4/4",
+    "Chapter 3": "4/4",
+    "Words": "3/3",
+    "Notebook": "3/3",
+    "Referee": "—"
+   },
+   "note": "Q5 first full Point+Evidence. Pulse experiment numbers implausible (22/31) — re-run Sunday. Heart Q3 arteries/veins."
+  },
+  "md6": {
+   "n": 6,
+   "date": "2026-09-12",
+   "title": "Big Write",
+   "total": 220,
+   "words": [],
+   "sections": {
+    "Warm-up": "6/6",
+    "Model text": "4/4",
+    "VAR (8 criteria)": "7/8",
+    "Referee": "+50"
+   },
+   "note": "Simile, 2 perfect speech lines, rhetorical question, formal vocab. Wrong date (wrote 12 Sept not 15 Nov 1940), ~150 words (target 200-250), para 3 thin, fragment 'siren sound still audible', wailing/reassuring spelling."
+  },
+  "md7": {
+   "n": 7,
+   "date": "2026-09-13",
+   "title": "Champions League round",
+   "total": 150,
+   "words": [],
+   "sections": {
+    "VAR": "3/3",
+    "Week quiz": "6/8",
+    "Pulse": "3/3",
+    "Referee": "+30"
+   },
+   "note": "Wrong: twins' (4th), arteries (2nd). Pulse 61/117 vs Baba 63/98."
+  },
+  "wc1": {
+   "n": 7.1,
+   "date": "2026-09-13",
+   "title": "Word Camp 1",
+   "total": 225,
+   "kind": "wordcamp",
+   "words": [],
+   "sections": {
+    "Meaning": "10/10",
+    "Spelling": "95 pts",
+    "Use": "3/6"
+   },
+   "note": "School 10 all correct. Missed spelling: frantically, reluctantly, bewildered. Use missed: hesitate, delicious, superstitious."
+  },
+  "et1": {
+   "n": 7.2,
+   "date": "2026-09-13",
+   "title": "Extra Training 1 · Adverbs of time",
+   "total": 150,
+   "kind": "extra",
+   "words": [],
+   "sections": {
+    "Spot": "4/6",
+    "Fill": "5/6",
+    "Write": "3/3",
+    "Referee": "+30"
+   },
+   "note": "4 sentences correct structure. Errors: 'haven't did', 'Real madrids'."
+  },
+  "et2": {
+   "n": 7.3,
+   "date": "2026-09-13",
+   "title": "Extra Training 2 · Place value",
+   "total": 120,
+   "kind": "extra",
+   "words": [],
+   "sections": {
+    "Columns": "6/6",
+    "Partition": "4/6",
+    "Notebook": "2/2",
+    "Referee": "—"
+   },
+   "note": "Wrong: +200,000 (one column), lookalike matching. Drew digits not counters."
+  },
+  "sw-2026-09-12": {
+   "n": 100,
+   "date": "2026-09-12",
+   "title": "Shoot Words",
+   "total": 40,
+   "kind": "shoot",
+   "words": [],
+   "sections": {
+    "Goals": "4/10",
+    "Saved": "cautiously, vicious, leisure, ominous, deserted, delicious"
+   }
+  },
+  "sw-2026-09-13": {
+   "n": 100,
+   "date": "2026-09-13",
+   "title": "Shoot Words",
+   "total": 70,
+   "kind": "shoot",
+   "words": [],
+   "sections": {
+    "Goals": "7/10",
+    "Saved": "cautious, cautiously, harass"
+   }
+  },
+  "cb1": {
+   "n": 8.5,
+   "date": "2026-10-18",
+   "title": "Comeback Camp",
+   "total": 230,
+   "words": [],
+   "sections": {
+    "Box rule": "1/3",
+    "Long division": "3/4",
+    "Fractions": "3/5",
+    "% & decimals": "4/4",
+    "Words": "7/8",
+    "Notebook": "2/3",
+    "Referee": "+30"
+   },
+   "note": "Box rule Q2,Q3 wrong (crossing out; sense check). Long div Q1. Fractions Q3,Q4 (1½×24, 1½×57 — mixed × whole). Words: leisure."
+  },
+  "sw-2026-10-18": {
+   "n": 100,
+   "date": "2026-10-18",
+   "title": "Shoot Words",
+   "total": 80,
+   "kind": "shoot",
+   "words": [],
+   "sections": {
+    "Goals": "8/10",
+    "Saved": "frantically, harass"
+   }
+  }
+ },
+ "reports": [
+  {
+   "date": "2026-09-13",
+   "file": "report-07.html",
+   "title": "Match report · Camp day + Captain"
+  },
+  {
+   "date": "2026-09-12",
+   "file": "report-06.html",
+   "title": "Match report · Matchday 6 + Week 1 review"
+  },
+  {
+   "date": "2026-09-11",
+   "file": "report-05.html",
+   "title": "Match report · Matchday 5"
+  },
+  {
+   "date": "2026-09-10",
+   "file": "report-04.html",
+   "title": "Match report · Matchday 4"
+  },
+  {
+   "date": "2026-09-09",
+   "file": "report-03.html",
+   "title": "Match report · Matchday 3"
+  },
+  {
+   "date": "2026-09-08",
+   "file": "report-02.html",
+   "title": "Match report · Matchday 2"
+  }
+ ],
+ "spellings": {
+  "test": "2026-10-23",
+  "rule": "-able / -ible",
+  "words": [
+   "adorable",
+   "applicable",
+   "considerably",
+   "tolerable",
+   "comfortable",
+   "reasonable",
+   "enjoyable",
+   "sacrifice",
+   "secretary",
+   "mischievous"
+  ],
+  "last_test": {
+   "date": "2026-10-09",
+   "score": "5/10",
+   "missed": [
+    "manageable",
+    "noticeable",
+    "committee",
+    "changeable",
+    "existence"
+   ]
+  }
+ },
+ "extras": [
+  {
+   "id": "et1",
+   "date": "2026-09-13",
+   "file": "et01.html",
+   "title": "Extra Training 1 · Adverbs of time",
+   "homework": "English · Seesaw · adverbs & adverbials of time (3 tasks)"
+  },
+  {
+   "id": "et2",
+   "date": "2026-09-13",
+   "file": "et02.html",
+   "title": "Extra Training 2 · Place value to 10 million",
+   "homework": "Maths · counters, partitioning, value of a digit, matching"
+  },
+  {
+   "id": "et3",
+   "date": "2026-10-18",
+   "file": "et03.html",
+   "title": "Extra Training 3 · Grammar & punctuation",
+   "homework": "English · Seesaw · 9-question GPS sheet"
+  },
+  {
+   "id": "et4",
+   "date": "2026-10-18",
+   "file": "et04.html",
+   "title": "Extra Training 4 · Fractions +/−",
+   "homework": "Maths · Seesaw · 12 fraction sums"
+  }
+ ],
+ "wordcamps": [
+  {
+   "id": "wc1",
+   "date": "2026-09-13",
+   "file": "wc01.html",
+   "title": "Word Camp 1 · 15 season words + -cious/-tious"
+  }
+ ],
+ "wordbank": [
+  {
+   "word": "cautiously",
+   "source": "season",
+   "from": "md1",
+   "added": "2026-09-07",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "in a careful way, worried something might go wrong"
+  },
+  {
+   "word": "peculiar",
+   "source": "season",
+   "from": "md1",
+   "added": "2026-09-07",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "strange or unusual"
+  },
+  {
+   "word": "ominous",
+   "source": "season",
+   "from": "md1",
+   "added": "2026-09-07",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "making you feel something bad is about to happen"
+  },
+  {
+   "word": "muffled",
+   "source": "season",
+   "from": "md2",
+   "added": "2026-09-08",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "a quiet, unclear sound, as if covered"
+  },
+  {
+   "word": "frantically",
+   "source": "season",
+   "from": "md2",
+   "added": "2026-09-08",
+   "status": "learning",
+   "passes": 0,
+   "misses": 2,
+   "def": "in a wild, hurried, panicky way"
+  },
+  {
+   "word": "deserted",
+   "source": "season",
+   "from": "md2",
+   "added": "2026-09-08",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "empty of people; everyone has left"
+  },
+  {
+   "word": "eerie",
+   "source": "season",
+   "from": "md3",
+   "added": "2026-09-09",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "strange and frightening in a quiet, creepy way"
+  },
+  {
+   "word": "rivalry",
+   "source": "season",
+   "from": "md3",
+   "added": "2026-09-09",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "competition between people who each want to be the best"
+  },
+  {
+   "word": "loyal",
+   "source": "season",
+   "from": "md3",
+   "added": "2026-09-09",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "always supporting someone, even when it's hard"
+  },
+  {
+   "word": "glimpse",
+   "source": "season",
+   "from": "md4",
+   "added": "2026-09-10",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "a very quick look at something"
+  },
+  {
+   "word": "bewildered",
+   "source": "season",
+   "from": "md4",
+   "added": "2026-09-10",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "completely confused"
+  },
+  {
+   "word": "reluctantly",
+   "source": "season",
+   "from": "md4",
+   "added": "2026-09-10",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "doing something you don't really want to do"
+  },
+  {
+   "word": "hesitate",
+   "source": "season",
+   "from": "md5",
+   "added": "2026-09-11",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "to pause before doing something because you're not sure"
+  },
+  {
+   "word": "fragile",
+   "source": "season",
+   "from": "md5",
+   "added": "2026-09-11",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "easily broken or damaged"
+  },
+  {
+   "word": "vanished",
+   "source": "season",
+   "from": "md5",
+   "added": "2026-09-11",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "disappeared suddenly and completely"
+  },
+  {
+   "word": "gracious",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "kind and polite, even to people who lose to you"
+  },
+  {
+   "word": "precious",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "worth a lot; very valuable to you"
+  },
+  {
+   "word": "delicious",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "tastes wonderful"
+  },
+  {
+   "word": "vicious",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "cruel and violent"
+  },
+  {
+   "word": "infectious",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "spreads easily from one person to another"
+  },
+  {
+   "word": "cautious",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "careful, not taking risks"
+  },
+  {
+   "word": "superstitious",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "believing in luck, omens and signs"
+  },
+  {
+   "word": "leisure",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 2,
+   "def": "free time when you're not working"
+  },
+  {
+   "word": "harass",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 2,
+   "def": "to keep bothering or attacking someone"
+  },
+  {
+   "word": "government",
+   "source": "school",
+   "from": "spelling wk1",
+   "added": "2026-09-12",
+   "status": "new",
+   "passes": 1,
+   "misses": 0,
+   "def": "the group of people who run a country"
+  },
+  {
+   "word": "wailing",
+   "source": "season",
+   "from": "md6 big write",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 2,
+   "def": "making a long, high crying sound (like a siren)"
+  },
+  {
+   "word": "reassuring",
+   "source": "season",
+   "from": "md6 big write",
+   "added": "2026-09-12",
+   "status": "learning",
+   "passes": 0,
+   "misses": 2,
+   "def": "making someone feel less worried"
+  },
+  {
+   "word": "exhausted",
+   "source": "season",
+   "from": "md8",
+   "added": "2026-09-14",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "extremely tired"
+  },
+  {
+   "word": "observed",
+   "source": "season",
+   "from": "md8",
+   "added": "2026-09-14",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "watched carefully; noticed"
+  },
+  {
+   "word": "ambitious",
+   "source": "season",
+   "from": "md8",
+   "added": "2026-09-14",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "wanting very much to succeed or achieve something big"
+  },
+  {
+   "word": "adorable",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "very sweet and lovable"
+  },
+  {
+   "word": "applicable",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "relevant; applies to the situation"
+  },
+  {
+   "word": "considerably",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "by a large amount"
+  },
+  {
+   "word": "tolerable",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "bearable; can be put up with"
+  },
+  {
+   "word": "comfortable",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "relaxed and at ease"
+  },
+  {
+   "word": "reasonable",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "fair and sensible"
+  },
+  {
+   "word": "enjoyable",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "giving pleasure"
+  },
+  {
+   "word": "sacrifice",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "to give something up for a greater good"
+  },
+  {
+   "word": "secretary",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "a person who keeps records and handles letters"
+  },
+  {
+   "word": "mischievous",
+   "source": "school",
+   "from": "spelling 23 Oct",
+   "added": "2026-10-18",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "playfully naughty"
+  },
+  {
+   "word": "manageable",
+   "source": "school",
+   "from": "spelling 9 Oct (missed)",
+   "added": "2026-10-18",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "able to be dealt with"
+  },
+  {
+   "word": "noticeable",
+   "source": "school",
+   "from": "spelling 9 Oct (missed)",
+   "added": "2026-10-18",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "easy to see or notice"
+  },
+  {
+   "word": "committee",
+   "source": "school",
+   "from": "spelling 9 Oct (missed)",
+   "added": "2026-10-18",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "a group chosen to make decisions"
+  },
+  {
+   "word": "changeable",
+   "source": "school",
+   "from": "spelling 9 Oct (missed)",
+   "added": "2026-10-18",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "likely to change"
+  },
+  {
+   "word": "existence",
+   "source": "school",
+   "from": "spelling 9 Oct (missed)",
+   "added": "2026-10-18",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "the state of being real or alive"
+  },
+  {
+   "word": "endeavour",
+   "source": "school",
+   "from": "One Day vocab mat",
+   "added": "2026-10-19",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "a serious attempt or effort"
+  },
+  {
+   "word": "sufficiently",
+   "source": "school",
+   "from": "One Day vocab mat",
+   "added": "2026-10-19",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "enough; to the degree needed"
+  }
+ ],
+ "wordbank_rules": {
+  "secure": "passed meaning+spelling in 2 different Word Camps",
+  "miss": "any miss → status learning, passes reset to 0; stays in every Word Camp until secure",
+  "revision": "each Word Camp also re-tests 3 random secure words"
+ },
+ "followups": [
+  "BOX RULE: one answer, last line of working, sense check",
+  "long division by 2-digit — daily until automatic",
+  "mixed number × whole number",
+  "plural possessive apostrophe",
+  "have/had + third form",
+  "writing length: paragraph 3",
+  "fragments need a verb"
+ ],
+ "arithmetic_paper": {
+  "date": "2026-10-13",
+  "paper": "2017 KS2 Paper 1 arithmetic",
+  "score": "23/40",
+  "lost_to_presentation": {
+   "marks": 10,
+   "questions": [
+    "Q3 messy mixed number",
+    "Q17 two answers in box",
+    "Q21 unreadable box",
+    "Q22 right working, wrong box (2)",
+    "Q27 unreadable",
+    "Q28 5/16 circled, 8 in box",
+    "Q29 207 beside, 120 in box",
+    "Q33 180 beside, 18000 in box",
+    "Q34 150 circled, 15000 in box"
+   ]
+  },
+  "genuine_gaps": {
+   "marks": 7,
+   "topics": [
+    "long division by 2-digit (Q20, Q36 — 4 marks)",
+    "mixed number × whole (Q35)",
+    "fraction × fraction confidence (Q15)",
+    "decimal × whole sense check (Q33)",
+    "% of amount under pressure (Q29, Q34)"
+   ]
+  },
+  "strengths": [
+   "column +/−",
+   "decimals +/−",
+   "short multiplication",
+   "long multiplication method",
+   "fraction +/− with common denominators",
+   "× ÷ by 10/100/1000",
+   "1% method"
+  ]
+ },
+ "spellingcamps": [
+  {
+   "id": "sp1",
+   "date": "2026-10-22",
+   "file": "sp01.html",
+   "title": "Spelling Camp 1 · -able/-ible + last week's five"
+  }
+ ],
+ "school_unit": {
+  "english": "One Day (Michael Rosen) — formal letter of thanks in role (Eugène to the Médards); vocab mat, synonyms/antonyms, phrases for a note of thanks, question starters",
+  "note": "Teacher pinned on Seesaw 18 Oct; Big Write 2 (Sat 24 Oct) = formal thank-you letter; daily words from the mat"
+ },
+ "weeks": [
+  {
+   "n": 1,
+   "label": "Week 1",
+   "from": "2026-09-07",
+   "to": "2026-09-13"
+  },
+  {
+   "n": 2,
+   "label": "Week 2",
+   "from": "2026-09-14",
+   "to": "2026-10-17",
+   "note": "paused for a month"
+  },
+  {
+   "n": 2.5,
+   "label": "Comeback Camp",
+   "from": "2026-10-18",
+   "to": "2026-10-18"
+  },
+  {
+   "n": 3,
+   "label": "Week 3",
+   "from": "2026-10-19",
+   "to": "2026-10-25"
+  }
+ ],
+ "mock_sats_autumn1": {
+  "date": "2026-09 (early)",
+  "gps": {
+   "grammar": "35/50",
+   "spelling": "13/20",
+   "combined": "48/70",
+   "expected": 36,
+   "gd": 55
+  },
+  "reading": {
+   "score": "20/50",
+   "expected": 24,
+   "gd": 38
+  },
+  "maths": {
+   "arithmetic": "10/40 (later 25)",
+   "reasoning2": "11/35",
+   "reasoning3": "15/35",
+   "combined": "36/110",
+   "expected": 56,
+   "gd": 94
+  },
+  "priorities": [
+   "Reading daily 10 min + Point+Evidence",
+   "Reasoning 2x/week",
+   "Box Rule",
+   "GPS → GD: plural apostrophe, semicolons, formal/informal"
+  ]
+ }
+}

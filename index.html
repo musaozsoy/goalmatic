@@ -2,938 +2,203 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Penalty">
-<meta name="theme-color" content="#0d1b3d">
-<meta name="format-detection" content="telephone=no">
-<title>Penalty Shootout – Yigit Ali</title>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="theme-color" content="#0b1f4b">
+<title>Yiğit Ali · Season 2026/27</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#0d1b3d;--gold:#e6b422;--red:#d8322f;--pitch:#1f7a3a;--pitch2:#2a9250;--white:#fff;--ink:#122036;--good:#2aa14b}
-  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
-  button,.zone,.kit{touch-action:manipulation;-webkit-user-select:none;user-select:none}
-  .wrap{touch-action:pan-y pinch-zoom}
-  textarea{-webkit-user-select:text;user-select:text}
-  html{background:var(--navy)}
-  body{margin:0;background:var(--navy);min-height:100%;color:var(--white);font-family:"Trebuchet MS","Segoe UI",Verdana,sans-serif;overflow-x:hidden;-webkit-overflow-scrolling:touch;touch-action:pan-y pinch-zoom}
-  .wrap{max-width:560px;margin:0 auto;padding:calc(10px + env(safe-area-inset-top)) calc(10px + env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) calc(10px + env(safe-area-inset-left))}
-  header{display:flex;align-items:center;gap:10px;padding:4px 2px 10px}
-  header img{width:44px;height:44px;flex:none;border-radius:50%;border:3px solid var(--gold);object-fit:cover}
-  header h1{margin:0;font-size:16px;line-height:1.1;white-space:nowrap}
-  header p{margin:2px 0 0;font-size:11px;opacity:.85;white-space:nowrap}
-  .icons{margin-left:auto;display:flex;gap:0}
-  .ico{background:transparent;border:0;color:var(--gold);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:0;padding:2px 4px;font-family:inherit}
-  .ico svg{width:20px;height:20px}
-  .ico span{font-size:9px;opacity:.85}
-  .ico.off{color:#7a8299}
-  .toast{position:fixed;left:50%;top:70px;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-weight:700;font-size:13px;padding:8px 14px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.4);z-index:9;display:none;max-width:90%;text-align:center}
-  .hud{display:flex;gap:14px;text-align:center}
-  .hud b{display:block;font-size:20px;color:var(--gold);line-height:1}
-  .hud span{font-size:10px;opacity:.85}
-
-  .screen{display:none}.screen.on{display:block}
-
-  /* menu */
-  .card{background:#fff;color:var(--ink);border-radius:16px;padding:18px 16px;margin:10px 0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-  .card h2{margin:0 0 8px;color:var(--navy);font-size:24px}
-  .levels{display:grid;gap:6px;margin:12px 0}
-  .lv{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;background:#f1f2f6;font-size:14px}
-  .lv.cur{background:var(--gold);font-weight:800}
-  .lv.locked{opacity:.45}
-  .lv .lvtxt{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;line-height:1.2}
-  .lv .lvtxt b{font-size:16px}
-  .lv .lvtxt small{flex-basis:100%;font-size:12px;color:#4a5670;font-weight:400;margin-top:2px}
-  .lv.cur .lvtxt small{color:#3b3000}
-  .lv .tier{font-style:normal;font-size:12px;font-weight:800;padding:1px 8px;border-radius:999px;background:#dfe3ec;color:#4a5670}
-  .lv .tier.t1{background:#ffe3a3;color:#7a4b00}
-  .lv .tier.t2{background:var(--red);color:#fff}
-  .lv .n{width:26px;height:26px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;flex:none}
-  .btn{background:var(--red);color:#fff;border:0;border-radius:999px;padding:14px 26px;font-size:19px;font-weight:800;cursor:pointer;font-family:inherit;width:100%}
-  .btn.alt{background:var(--navy)}
-  .btn.kick{background:var(--good);display:flex;align-items:center;justify-content:center;gap:10px;font-size:21px;box-shadow:0 4px 0 #1d7a38}
-  .btn.kick:active{transform:translateY(2px);box-shadow:0 2px 0 #1d7a38}
-  .ballico{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0 30%,#222 31% 45%,#fff 46%);box-shadow:0 2px 4px rgba(0,0,0,.4);display:inline-block}
-  .btn:focus-visible{outline:3px solid var(--gold)}
-  .btn:disabled{opacity:.45;cursor:default;box-shadow:none}
-  .exitbtn{display:none;margin:12px auto 0;background:var(--red);color:#fff;border:0;border-radius:999px;padding:9px 18px;font-weight:800;font-size:14px;cursor:pointer;font-family:inherit}
-  .small{font-size:13px;color:#4a5670;margin:8px 0 0}
-  .kits{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 14px}
-  .kit{background:#f1f2f6;border:3px solid transparent;border-radius:12px;padding:6px 4px;cursor:pointer;text-align:center;font-family:inherit;font-size:11px;font-weight:700;color:var(--ink)}
-  .kit.sel{border-color:var(--gold);background:#fff7d6}
-  .kit svg{width:100%;height:auto;display:block;margin-bottom:4px}
-  .shooter{position:absolute;left:50%;bottom:-160px;width:15%;transform:translateX(-50%);z-index:2;pointer-events:none;transition:transform .25s}
-  .shooter.kick{transform:translateX(-50%) translateY(-18px) rotate(-12deg)}
-  .shooter .leg{transform-origin:50px 90px;transition:transform .25s}
-  .shooter.kick .leg{transform:rotate(-60deg)}
-
-  /* pitch */
-  .field{position:relative;background:
-     radial-gradient(ellipse at 50% 100%,rgba(255,255,255,.08),transparent 60%),
-     repeating-linear-gradient(0deg,var(--pitch) 0 28px,var(--pitch2) 28px 56px);
-     border-radius:14px;padding:12px 10px 14px;overflow:hidden}
-  .shotno{display:flex;justify-content:space-between;font-size:13px;opacity:.9;margin-bottom:6px}
-  .pens{display:flex;gap:4px;align-items:center;flex-wrap:wrap;justify-content:flex-end;max-width:62%}
-  .pen{width:17px;height:17px;border-radius:50%;position:relative;flex:none}
-  .pen.todo{border:2px dashed rgba(255,255,255,.55);background:transparent;width:13px;height:13px}
-  .pen.hit,.pen.miss{background:radial-gradient(circle at 35% 35%,#fff 0 30%,#222 31% 45%,#fff 46%);box-shadow:0 1px 2px rgba(0,0,0,.5)}
-  .pen.hit::after,.pen.miss::after{content:'';position:absolute;right:-5px;bottom:-5px;width:11px;height:11px;border-radius:50%;background:var(--good);
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5.2l2 2 4-4.5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:8px;background-repeat:no-repeat;background-position:center;box-shadow:0 0 0 1.5px #0d1b3d}
-  .pen.miss::after{background-color:var(--red);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2.5 2.5l5 5M7.5 2.5l-5 5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E")}
-  .pen.cur{border:2px solid var(--gold);background:rgba(230,180,34,.25);width:13px;height:13px;animation:pulse 1s infinite}
-  @keyframes pulse{50%{box-shadow:0 0 0 4px rgba(230,180,34,.25)}}
-  .coach{position:absolute;right:-260px;bottom:190px;display:flex;align-items:flex-end;gap:4px;transition:right .45s cubic-bezier(.2,.9,.3,1.1);z-index:6;cursor:pointer;max-width:240px}
-  .coach.in{right:6px}
-  .coachface{width:72px;height:78px;flex:none;filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))}
-  .bubble{background:#fff;color:var(--ink);border-radius:14px 14px 4px 14px;padding:7px 9px;font-size:13px;max-width:165px;line-height:1.3;box-shadow:0 6px 16px rgba(0,0,0,.4);margin-bottom:30px;position:relative}
-  .bubble b{display:block;font-size:11px;color:var(--red);letter-spacing:.5px;margin-bottom:2px}
-  .bubble::after{content:'';position:absolute;right:-8px;bottom:10px;border:8px solid transparent;border-left-color:#fff;border-right:0}
-  .tm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .tm-ball{width:22px;height:22px}
-  .tm-date{font-size:14px;font-weight:600;color:#4a5670}
-  .motto{margin:-4px 0 12px;font-size:19px;font-weight:800;color:var(--red);line-height:1.25}
-  .coachcard{display:flex;align-items:flex-end;gap:8px;margin:10px 0 14px}
-  .coachcard svg{width:82px;height:89px;flex:none;filter:drop-shadow(0 4px 6px rgba(0,0,0,.25))}
-  .score-note{display:block;margin-top:6px;padding-top:6px;border-top:1px solid #d5dbe8;font-size:12px;color:#4a5670}
-  .coachcard .bubble{flex:1;max-width:none;margin-bottom:26px;border-radius:14px 14px 14px 4px;font-size:15px;background:#eef1f8;box-shadow:none}
-  .coachcard .bubble::after{right:auto;left:-8px;border:8px solid transparent;border-right-color:#eef1f8;border-left:0}
-
-  /* ---- tactics room ---- */
-  .locker{background:#2b2f3a;border-radius:16px;padding:14px 12px 18px;position:relative;overflow:hidden}
-  .locker::before{content:'';position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 58px,rgba(255,255,255,.04) 58px 60px)}
-  .tboard{position:relative;background:#f4f1e8;border:8px solid #8b5a2b;border-radius:8px;box-shadow:inset 0 0 0 2px #d9cbb0,0 8px 20px rgba(0,0,0,.5);padding:14px 14px 16px;min-height:170px;color:#1b2a4a;font-family:"Comic Sans MS","Chalkboard SE","Trebuchet MS",sans-serif}
-  .tboard h3{margin:0 0 8px;font-size:18px;color:#c0392b;letter-spacing:.5px}
-  .tboard p{margin:6px 0;font-size:16px;line-height:1.4}
-  .tboard .big{font-size:26px;font-weight:900;color:#1b4fa3;text-align:center;margin:8px 0}
-  .tboard .row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:6px 0}
-  .tboard .cell{border:2px solid #1b2a4a;border-radius:6px;padding:4px 8px;font-weight:800;font-size:18px;background:#fff;min-width:34px;text-align:center}
-  .tboard .cell.hl{background:#ffe9a3;border-color:#c0392b}
-  .tboard .pvhead{font-size:10px;color:#666;display:block;font-weight:400}
-  .tboard .arrow{color:#c0392b;font-weight:900;font-size:20px}
-  .tcoach{display:flex;align-items:flex-end;gap:8px;margin-top:10px}
-  .tcoach svg{width:74px;height:80px;flex:none}
-  .tcoach .bubble{flex:1;max-width:none;margin-bottom:22px;font-size:14px;background:#fff}
-  .tq{background:#fff;border-radius:12px;padding:12px;margin-top:12px;color:var(--ink)}
-  .tq .qtxt{text-align:center;font-size:30px;font-weight:900;color:var(--navy);margin:4px 0 2px;line-height:1.15}
-  .tq .qsub{text-align:center;font-size:12px;color:#4a5670;margin-bottom:10px}
-  .tq .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-  .tq .opt{padding:14px 4px;border-radius:12px;border:0;background:var(--navy);color:#fff;font-size:22px;font-weight:900;font-family:inherit;cursor:pointer}
-  .tq .opt:nth-child(4){grid-column:1/3}
-  .tq .opt:disabled{opacity:.55}.tq .opt.ok{background:var(--good);opacity:1}.tq .opt.bad{background:var(--red);opacity:1}
-  .tq .fb{text-align:center;font-weight:800;min-height:24px;margin-top:8px}
-  .tprog{display:flex;gap:4px;margin:8px 0 0}.tprog i{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.2)}.tprog i.hit{background:var(--good)}.tprog i.miss{background:var(--red)}.tprog i.cur{background:var(--gold)}
-  .tclock{color:var(--gold);font-weight:900;font-size:22px;text-align:right}
-  .tcard{background:#2b2f3a;color:#fff;border-radius:12px;padding:12px;margin:10px 0;border:2px solid #8b5a2b}
-  .tcard b{color:var(--gold)}
-  .tcard .small{color:#cfd8ff}
-  .tcard .btn{margin-top:8px}
-  .foot{display:flex;align-items:center;justify-content:center;gap:8px;margin:28px 0 0;color:#cfd8ff;font-size:14px}
-  .foot b{color:var(--gold);font-size:14px}
-  .foot span{opacity:.8}
-  .flogo{width:36px;height:36px;flex:none}
-  .heart{width:18px;height:18px;flex:none}
-  .clock{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-  .clock span{font-size:26px;font-weight:900;color:var(--gold);min-width:52px;font-variant-numeric:tabular-nums}
-  .clock i{flex:1;height:8px;background:rgba(0,0,0,.3);border-radius:4px;overflow:hidden;display:block}
-  .clock em{font-style:normal;font-size:13px;opacity:.85;min-width:44px;text-align:right}
-  .clock b{display:block;height:100%;background:var(--gold);width:0;transition:width .3s linear}
-  .problem{text-align:center;font-size:44px;font-weight:900;line-height:1;margin:6px 0 12px;text-shadow:0 3px 0 rgba(0,0,0,.35)}
-  .problem small{display:block;font-size:13px;font-weight:400;opacity:.85;margin-top:6px}
-
-  .goal{position:relative;margin:0 auto;width:100%;max-width:440px;aspect-ratio:11/6;
-    border:6px solid #fff;border-bottom:0;border-radius:6px 6px 0 0;
-    background:
-      repeating-linear-gradient(45deg,rgba(255,255,255,.25) 0 1px,transparent 1px 12px),
-      repeating-linear-gradient(-45deg,rgba(255,255,255,.25) 0 1px,transparent 1px 12px),
-      rgba(0,0,0,.25)}
-  .zones{position:absolute;inset:0;z-index:2;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr}
-  .zone{border:1px dashed rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;cursor:pointer;
-    font-size:28px;font-weight:900;color:#fff;background:transparent;text-shadow:0 2px 4px rgba(0,0,0,.7);font-family:inherit;transition:background .15s}
-  .zone:hover{background:transparent}
-  .zone:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
-  .zone:disabled{cursor:default}
-  .zone.empty{border-style:solid;border-color:rgba(255,255,255,.15);background:transparent}
-  .zone.empty:hover{background:transparent}
-  .zone.goal{color:var(--gold);text-shadow:0 0 10px rgba(230,180,34,.9),0 2px 4px rgba(0,0,0,.7)}
-  .burst{position:absolute;width:0;height:0;z-index:4;pointer-events:none}
-  .burst i{position:absolute;left:-5px;top:-5px;width:10px;height:10px;border-radius:50%;background:var(--gold);animation:fly .7s ease-out forwards}
-  .burst i:nth-child(odd){background:#fff;width:7px;height:7px}
-  .burst b{position:absolute;left:-30px;top:-30px;width:60px;height:60px;border-radius:50%;border:4px solid #fff;animation:ring .6s ease-out forwards}
-  @keyframes fly{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
-  @keyframes ring{from{transform:scale(.2);opacity:1}to{transform:scale(2.2);opacity:0}}
-  .net-shake{animation:shake .4s}
-  @keyframes shake{0%,100%{transform:none}25%{transform:translateY(3px)}50%{transform:translateY(-2px)}75%{transform:translateY(1px)}}
-  .catch{transform-box:fill-box;transform-origin:center;transition:transform .25s .3s}
-  .catch.big{transform:scale(1.9)}
-  .heldBall{display:none} .heldBall.show{display:block}
-  .keeper{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:20%;z-index:1;transition:all .35s cubic-bezier(.2,.8,.3,1);pointer-events:none}
-  .ball{position:absolute;left:50%;bottom:-62px;width:34px;height:34px;transform:translate(-50%,0);
-    border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff 0 30%,#222 31% 45%,#fff 46%);
-    box-shadow:0 3px 6px rgba(0,0,0,.5);transition:all .4s cubic-bezier(.2,.9,.3,1);pointer-events:none;z-index:3}
-  .ball.spot{bottom:-62px}
-  .board{position:relative;margin:168px auto 0;width:100%;max-width:440px;background:#0a1430;border:3px solid var(--gold);border-radius:10px;padding:6px 8px 8px;
-    box-shadow:0 6px 16px rgba(0,0,0,.5),inset 0 0 0 2px #1d2a52;font-family:"Courier New",monospace;text-align:center}
-  .bhead{display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:700;color:#9fb0e0;letter-spacing:1px;border-bottom:1px solid #1d2a52;padding-bottom:4px;margin-bottom:4px}
-  .bhead #bscore{font-size:18px;color:#fff;background:#000;padding:0 8px;border-radius:4px;font-variant-numeric:tabular-nums}
-  .msg{font-size:22px;font-weight:900;min-height:28px;color:#e6b422;letter-spacing:2px;text-shadow:0 0 8px rgba(230,180,34,.6)}
-  .msg.g{color:#7dff8a;text-shadow:0 0 8px rgba(125,255,138,.6)} .msg.s{color:#ff6b6b;text-shadow:0 0 8px rgba(255,107,107,.6)}
-  .msg small{display:block;font-size:11px;font-weight:400;letter-spacing:0;color:#fff;opacity:.9;text-shadow:none;margin-top:2px}
-  .streak{font-size:12px;color:var(--gold);min-height:16px;margin-top:2px}
-
-  /* result */
-  .big{font-size:60px;color:var(--gold);font-weight:900;line-height:1;text-align:center}
-  .stat{display:flex;justify-content:space-around;margin:12px 0}
-  .stat div{text-align:center}.stat b{display:block;font-size:26px;color:var(--navy)}.stat span{font-size:12px;color:#4a5670}
-  .badge{display:inline-block;background:var(--navy);color:var(--gold);padding:8px 18px;border-radius:999px;font-weight:800;font-size:18px}
-  textarea{width:100%;height:100px;font-family:monospace;font-size:11px;margin-top:8px;border-radius:8px;border:1px solid #ccc}
-  .center{text-align:center}
-  table.week{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:14px;color:var(--ink)}
-  table.week th{text-align:left;color:#4a5670;font-weight:600;padding:4px 6px;border-bottom:2px solid #e3e5ea}
-  table.week td{padding:6px;border-bottom:1px solid #eef0f4}
-  table.week td:last-child,table.week th:last-child{text-align:right;font-weight:800}
-  table.week tr.today td{background:#fff7d6}
-  table.week tr.total td{font-weight:800;border-top:2px solid var(--navy);border-bottom:0}
-  .weekTitle{font-weight:800;color:var(--navy);margin:14px 0 0}
-  @media(prefers-reduced-motion:reduce){.ball,.keeper{transition:none}}
+:root{--navy:#0b1f4b;--gold:#c9a227;--gold2:#f0d475;--paper:#f3f2ea;--ink:#1c2130;--green:#1e7a3a;--grey:#6f7686;--sat:env(safe-area-inset-top);--sab:env(safe-area-inset-bottom)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--navy);color:#fff;font-family:'Nunito',system-ui,sans-serif;font-size:16px;line-height:1.5}
+h1,h2,h3,.disp{font-family:'Bebas Neue',Impact,'Arial Narrow',sans-serif;font-weight:400;letter-spacing:.02em;margin:0}
+.wrap{max-width:520px;margin:0 auto;padding:calc(18px + var(--sat)) 16px calc(30px + var(--sab))}
+.kicker{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2)}
+h1{font-size:44px;line-height:.95;margin:4px 0 14px}
+/* card */
+.card{border-radius:22px;padding:18px;background:linear-gradient(160deg,#fff8dc 0%,#f4d67a 30%,#c9a227 65%,#a17d17 100%);color:var(--navy);box-shadow:0 20px 40px rgba(0,0,0,.4),inset 0 0 0 3px rgba(255,255,255,.55);display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center}
+.card img{width:110px;height:110px;border-radius:14px;object-fit:cover;object-position:center 15%;border:3px solid rgba(255,255,255,.6)}
+.card .ovr{font-family:'Bebas Neue',Impact,sans-serif;font-size:54px;line-height:.9}.card .pos{font-family:'Bebas Neue',Impact,sans-serif;font-size:18px}
+.card .name{font-family:'Bebas Neue',Impact,sans-serif;font-size:30px;line-height:1;margin-top:6px}.card .club{font-size:12px;font-weight:900}
+.attrs{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 10px;border-top:2px solid rgba(11,31,75,.3);padding-top:10px}
+.attr{display:flex;justify-content:space-between;font-weight:900;font-size:13px}.attr b{font-family:'Bebas Neue',Impact,sans-serif;font-size:20px;font-weight:400}
+/* season */
+.panel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:16px 18px;margin-top:14px}
+.panel h2{font-size:26px;color:var(--gold2)}
+.big{display:flex;align-items:baseline;gap:10px}.big .n{font-family:'Bebas Neue',Impact,sans-serif;font-size:64px;color:var(--gold2);line-height:1}.big .lv{font-weight:900}
+.bar{height:10px;background:rgba(255,255,255,.15);border-radius:5px;overflow:hidden;margin:8px 0 4px}.bar i{display:block;height:100%;background:var(--gold2)}
+.small{font-size:13px;color:#c9d0e3}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:10px}.day{background:rgba(255,255,255,.08);border-radius:10px;padding:8px 2px;text-align:center}.day.on{background:var(--green)}.day.today{outline:2px solid var(--gold2)}
+.day span{display:block;font-size:11px;font-weight:900;color:#c9d0e3}.day b{font-family:'Bebas Neue',Impact,sans-serif;font-size:20px;font-weight:400}
+/* fixtures */
+.fx{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border-radius:14px;padding:12px 14px;margin:8px 0;text-decoration:none;color:#fff;border-left:5px solid var(--gold)}
+.fx.done{border-left-color:var(--green)}.fx.locked{opacity:.45;border-left-color:#5a6480}
+.fx .d{font-family:'Bebas Neue',Impact,sans-serif;font-size:22px;line-height:1;min-width:52px}.fx .d small{display:block;font-family:'Nunito';font-size:10px;font-weight:900;color:#c9d0e3}
+.fx .t{flex:1}.fx .t b{display:block}.fx .t span{font-size:13px;color:#c9d0e3}.fx .r{font-family:'Bebas Neue',Impact,sans-serif;font-size:24px;color:var(--gold2)}
+.chip{display:inline-block;background:rgba(255,255,255,.12);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700;margin:3px 3px 0 0}
+.links a{display:block;color:var(--gold2);font-weight:900;text-decoration:none;padding:8px 0;border-top:1px solid rgba(255,255,255,.12)}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.tools button{font:inherit;font-weight:900;font-size:13px;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:12px 6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
+.tools button span{font-size:26px;line-height:1}.tools button:active{background:rgba(255,255,255,.2)}
+.legend{display:flex;gap:14px;margin-top:10px;font-size:11px;color:#8a93ab}.legend span{display:flex;align-items:center;gap:5px}.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.shootbtn{display:flex;align-items:center;gap:12px;background:linear-gradient(90deg,#1e7a3a,#2a8f45);border:2px solid var(--gold2);border-radius:14px;padding:12px 14px;margin:10px 0;text-decoration:none;color:#fff}
+.shootbtn span{font-size:30px}.shootbtn b{display:block;font-family:'Bebas Neue',Impact,sans-serif;font-size:24px;font-weight:400;line-height:1}.shootbtn small{font-size:12px;color:#dff5e3;font-weight:700}
+.wk{border-top:1px solid rgba(255,255,255,.12);padding:6px 0}.wk summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-weight:900}.wk summary::-webkit-details-marker{display:none}.wk summary b{color:var(--gold2);font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;font-size:22px}.wk summary span{font-size:12px;color:#c9d0e3}.wk summary::after{content:"▾";color:#c9d0e3;margin-left:8px}.wk[open] summary::after{content:"▴"}.wk a{padding-left:8px;border-top:none;font-size:15px}
+footer{text-align:center;font-size:12px;color:#8a93ab;margin-top:20px}footer a{color:#8a93ab}
 </style>
 </head>
 <body>
 <div class="wrap">
-<svg width="0" height="0" style="position:absolute"><symbol id="coachSym" viewBox="0 0 120 130">
-  <path d="M25 46 q35 -46 70 -6 q8 22 -2 40 l-66 0 q-14 -16 -2 -34z" fill="#eef0f2"/>
-  <ellipse cx="60" cy="78" rx="32" ry="38" fill="#f2c9a8"/>
-  <path d="M22 60 q10 -34 42 -30 q34 2 36 32 q-4 -14 -16 -16 q-22 -12 -50 4 q-8 4 -12 10z" fill="#e6e8ea"/>
-  <path d="M30 52 q8 -8 22 -2" stroke="#2a2a2a" stroke-width="5" fill="none" stroke-linecap="round"/>
-  <path d="M66 50 q14 -6 24 4" stroke="#2a2a2a" stroke-width="5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="46" cy="64" rx="6" ry="5" fill="#fff"/><ellipse cx="76" cy="64" rx="6" ry="5" fill="#fff"/>
-  <circle cx="47" cy="64" r="2.5" fill="#3d6b8a"/><circle cx="77" cy="64" r="2.5" fill="#3d6b8a"/>
-  <path d="M58 68 q4 10 -2 16" stroke="#c99a7a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="38" cy="82" rx="7" ry="4" fill="#e8a190" opacity=".7"/><ellipse cx="84" cy="82" rx="7" ry="4" fill="#e8a190" opacity=".7"/>
-  <path d="M46 96 q14 -6 28 0" stroke="#8a4a3a" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M20 130 q10 -22 40 -18 q30 -4 40 18z" fill="#12213f"/>
-  <path d="M50 112 l10 12 l10 -12 l-6 -2 h-8z" fill="#fff"/><path d="M57 114 l3 14 l3 -14z" fill="#2a2a2a"/>
-</symbol></svg>
-<div class="toast" id="toast"></div>
-<audio id="unmute" loop playsinline preload="auto" src="data:audio/wav;base64,UklGRoQJAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YWAJAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIA="></audio>
-<header>
-  <img src="data:image/jpeg;base64,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" alt="Yigit Ali">
-  <div><h1>Penalty Shootout</h1><p>Yigit Ali · Real Madrid Academy · <span id="appVer">v20</span></p></div>
-  <div class="icons">
-    <button class="ico" title="Save" onclick="exportSave()"><svg viewBox="0 0 24 24"><path d="M12 3v11m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>save</span></button>
-    <button class="ico" title="Load" onclick="document.getElementById('loadFile').click()"><svg viewBox="0 0 24 24"><path d="M12 14V3m0 0L8 7m4-4l4 4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>load</span></button>
-    <button class="ico" id="sndBtn" title="Sound" onclick="toggleSound()"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path id="sndWaves" d="M15 9a4 4 0 010 6m2.5-9a8 8 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span id="sndLbl">sound</span></button>
-  </div>
-  <input type="file" id="loadFile" accept=".json,application/json,text/plain" style="display:none" onchange="importSaveFile(this.files[0])">
-  <div class="hud"><div><b id="hPts">0</b><span>points</span></div><div><b id="hLv">1</b><span>level</span></div></div>
-</header>
+  <div class="kicker" id="kick">Season 2026/27 · Moseley Primary</div>
+  <h1>Yiğit Ali's season</h1>
 
-<!-- MENU -->
-<section class="screen on" id="menu">
   <div class="card">
-    <h2 class="tm">Today's match <span class="ballico tm-ball"></span><span class="tm-date" id="tmDate"></span></h2>
-    <p class="motto" id="motto"></p>
-    <div id="campCard" style="display:none;background:linear-gradient(135deg,#1b4fa3,#0d1b3d);border:3px solid var(--gold);border-radius:14px;padding:12px 14px;margin:0 0 12px;color:#fff"></div>
-    <div id="weekPlan" style="background:#eef1f8;border-radius:12px;padding:10px 12px;margin:0 0 12px;color:var(--ink)"></div>
-    <div class="coachcard"><svg><use href="#coachSym"/></svg><div class="bubble"><b>Ancelotti</b><span id="menuCoach">Same level all week – get fast and sharp at it. Warm up, play the match, clear the saves after. Play well all week and the Monday review moves you up a notch. Hit 85% and golden balls start appearing: harder sums worth 6, and a miss costs nothing.</span><small class="score-note"><b>Scoring:</b> 3 points per goal + 1 point for every minute left on the clock when the last penalty is taken.</small></div></div>
-    <p style="margin:10px 0 4px;font-weight:700">Choose your kit</p>
-    <div class="kits" id="kits"></div>
-    <button class="btn kick" id="kickBtn" onclick="startSession()"><span class="ballico"></span>Kick off</button>
-    <p class="small center" id="playsTxt"></p>
-    <div id="warmMenu" style="display:none;margin-top:4px"><button class="btn" style="font-size:16px;padding:11px;background:#e07b00" onclick="warmLesson()"><span id="warmMenuTxt"></span></button>
-    <p class="small">Warm-up: Ancelotti's board, 8 "split it" sums, then the ones the keeper saved before. One goal each. No clock.</p></div>
-    <div id="dayBoxMenu" style="display:none;margin-top:4px"><button class="btn alt" style="font-size:16px;padding:11px" onclick="shareReport()">Send today's report to Coach</button></div>
-    <div id="extraMenu" style="display:none;margin-top:8px"><button class="btn alt" style="font-size:16px;padding:11px" onclick="startPractice()"><span id="extraMenuTxt"></span></button>
-    <p class="small">Penalties the keeper saved before. Score each one twice and it leaves the list – the list must be empty before a match.</p></div>
-    <div class="tcard" id="tacticsCard">
-      <div style="display:flex;align-items:center;gap:8px"><span style="font-size:22px">📋</span><div><b>Tactics Room</b><br><span class="small" id="tacTopic"></span></div></div>
-      <div class="small" id="tacStatus" style="margin-top:6px"></div>
-      <button class="btn" style="background:#8b5a2b" id="tacBtn" onclick="tacticsStart()"><span id="tacBtnTxt">Enter the Tactics Room</span></button>
+    <img src="data:image/jpeg;base64,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" alt="">
+    <div><div class="ovr" id="ovr">85</div><div class="pos">CM · Playmaker</div><div class="name">Yiğit Ali</div><div class="club">Year 6 · #7</div></div>
+    <div class="attrs">
+      <div class="attr"><span>REA</span><b>93</b></div><div class="attr"><span>WRI</span><b>80</b></div><div class="attr"><span>MAT</span><b>85</b></div>
+      <div class="attr"><span>SCI</span><b>91</b></div><div class="attr"><span>SPK</span><b>82</b></div><div class="attr"><span>PHY</span><b>95</b></div>
     </div>
-    <details style="margin-top:14px"><summary class="weekTitle" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:0;height:0;border-left:7px solid var(--navy);border-top:5px solid transparent;border-bottom:5px solid transparent"></span>Level information</summary>
-    <div class="levels" id="levels"></div></details>
-    <div id="weekMenu"></div>
-    <details style="margin-top:12px"><summary class="weekTitle" style="cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px"><span style="display:inline-block;width:0;height:0;border-left:7px solid var(--navy);border-top:5px solid transparent;border-bottom:5px solid transparent"></span>Season – past weeks</summary>
-    <div id="seasonBox"></div></details>
   </div>
-</section>
 
-<!-- GAME -->
-<section class="screen" id="game">
-  <div class="field">
-    <div class="shotno"><span id="lvLbl">Level 1 · Academy</span><span class="pens" id="target"></span></div>
-    <div class="clock"><span id="clock">0'</span><i><b id="cbar"></b></i><em id="climit">/ 90'</em></div>
-    <div class="problem" id="prob">7 × 8<small id="probSub">Tap the corner with the answer</small></div>
-    <div class="goal">
-      <div class="zones" id="zones"></div>
-      <svg class="keeper" id="keeper" viewBox="0 0 100 130">
-        <circle cx="50" cy="22" r="16" fill="#f1c9a5"/><path id="kHair" d="M34 14 q16 -18 32 0" fill="#3b2a1a"/>
-        <rect id="kBody" x="30" y="40" width="40" height="52" rx="10" fill="#111"/>
-        <rect x="8" y="42" width="24" height="14" rx="7" fill="#111" id="kL" class="kArm"/><rect x="68" y="42" width="24" height="14" rx="7" fill="#111" id="kR" class="kArm"/>
-        <g class="catch" id="gL"><circle cx="10" cy="49" r="9" fill="#e6b422"/><circle class="heldBall" id="hbL" cx="10" cy="49" r="6" fill="#fff" stroke="#222" stroke-width="1.5"/></g>
-        <g class="catch" id="gR"><circle cx="90" cy="49" r="9" fill="#e6b422"/><circle class="heldBall" id="hbR" cx="90" cy="49" r="6" fill="#fff" stroke="#222" stroke-width="1.5"/></g>
-        <rect class="kLeg" x="32" y="92" width="14" height="34" rx="6" fill="#111"/><rect class="kLeg" x="54" y="92" width="14" height="34" rx="6" fill="#111"/>
-        <text id="kName" x="50" y="58" font-size="7" fill="#fff" text-anchor="middle" font-weight="bold"></text><text id="kNum" x="50" y="76" font-size="16" fill="#e6b422" text-anchor="middle" font-weight="bold">1</text>
-      </svg>
-      <svg class="shooter" id="shooter" viewBox="0 0 100 150"><g id="shooterKit"></g></svg>
-      <div class="ball spot" id="ball"></div>
-    </div>
-    <div class="board">
-      <div class="bhead"><span>YIGIT ALI</span><span id="bscore">0 – 0</span><span>KEEPER</span></div>
-      <div class="msg" id="msg">READY</div>
-      <div class="streak" id="streak"></div>
-    </div>
-    <button class="exitbtn" id="exitBtn" onclick="exitPractice()">Exit training ✕</button>
-    <div class="coach" id="coach" onclick="hideCoach()">
-      <div class="bubble"><b>Ancelotti</b><span id="coachTxt"></span></div>
-      <svg viewBox="0 0 120 130" class="coachface"><use href="#coachSym"/></svg>
-    </div>
+  <div class="panel">
+    <h2>Season points</h2>
+    <div class="big"><span class="n" id="season">0</span><span class="lv" id="lv"></span></div>
+    <div class="bar"><i id="bar" style="width:0"></i></div>
+    <div class="small" id="next"></div>
+    <div class="week" id="week"></div>
   </div>
-</section>
 
-<!-- TACTICS ROOM -->
-<section class="screen" id="tactics">
-  <div class="locker">
-    <div style="position:relative;display:flex;justify-content:space-between;align-items:center;color:#fff;margin-bottom:8px"><b id="tacTitle">Tactics Room</b><span class="tclock" id="tacClock"></span></div>
-    <div class="tprog" id="tacProg" style="position:relative"></div>
-    <div class="tboard" id="tacBoard" style="margin-top:10px"></div>
-    <div class="tcoach"><svg viewBox="0 0 120 130"><use href="#coachSym"/></svg><div class="bubble"><b>Ancelotti</b><span id="tacSay"></span></div></div>
-    <div class="tq" id="tacQ" style="display:none">
-      <div class="qtxt" id="tacQtxt"></div><div class="qsub" id="tacQsub"></div>
-      <div class="opts" id="tacOpts"></div>
-      <div class="fb" id="tacFb"></div>
-    </div>
-    <div class="center" style="position:relative"><button class="btn alt" id="tacNext" style="margin-top:12px" onclick="tacNext()">Next ▶</button>
-    <button class="btn" id="tacExit" style="margin-top:8px;background:var(--red);display:none" onclick="tacExit()">Leave the room ✕</button></div>
+  <div class="panel">
+    <h2>Fixtures</h2>
+    <div id="fixtures"></div>
   </div>
-</section>
 
-<!-- RESULT -->
-<section class="screen" id="result">
-  <div class="card">
-    <h2 class="center">Full time</h2>
-    <div class="big" id="rPts">0</div>
-    <div class="center" style="color:#4a5670">points today</div>
-    <div class="stat"><div><b id="rGoals">0</b><span>goals ×3</span></div><div><b id="rTime">0</b><span>minutes left ×1</span></div><div><b id="rLv">1</b><span>level reached</span></div></div>
-    <div class="center"><span class="badge" id="rBadge"></span></div>
-    <div class="coachcard"><svg><use href="#coachSym"/></svg><div class="bubble"><b>Ancelotti</b><span id="rTxt"></span></div></div>
-    <div id="extraBox" style="background:#eef1f8;border-radius:12px;padding:10px 12px;margin:10px 0;display:none">
-      <b style="color:var(--navy)">Extra training</b>
-      <p class="small" id="extraTxt" style="margin:4px 0 8px"></p>
-      <button class="btn" style="font-size:16px;padding:11px" onclick="startPractice()">Play the saved ones again</button>
-    </div>
-    <div id="weekResult"></div>
-    <div id="dayBox" style="display:none;background:#eef1f8;border-radius:12px;padding:10px 12px;margin:10px 0">
-      <b style="color:var(--navy)">Day complete – send the report to Coach</b>
-      <div style="display:flex;gap:8px;margin-top:8px">
-        <button class="btn alt" style="font-size:15px;padding:10px" onclick="shareReport()">Send report</button>
-        <button class="btn alt" style="font-size:15px;padding:10px;background:#6b7590" onclick="exportSave()">Save file</button>
-      </div>
-    </div>
-    <p class="small center" id="dayHint"></p>
-    <button class="btn" style="margin-top:10px" onclick="location.reload()">Back to menu</button>
+  <div class="panel">
+    <h2>Extra training</h2>
+    <div class="small">Warm-ups before school homework. Do these first, then Seesaw.</div>
+    <div id="extras"></div>
   </div>
-</section>
-<footer class="foot">
-  <svg viewBox="0 0 24 24" class="heart"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8 3.5 4.5 7 4.5c2 0 3.6 1.1 5 2.9 1.4-1.8 3-2.9 5-2.9 3.5 0 6 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill="#e0245e"/></svg>
-  <span>Musa Baba Games for my son &amp; daughter</span>
-</footer>
-<p class="center" style="margin:10px 0 0"><a href="#" onclick="resetAll();return false" style="color:#6b7590;font-size:11px;text-decoration:underline">Coach only: reset all progress</a></p>
+
+  <div class="panel">
+    <h2>Word camp</h2>
+    <div class="small">Sundays: meaning · spelling · use.</div>
+    <div id="wordcamps"></div>
+    <div class="small" style="margin-top:10px">This week's school spellings:</div>
+    <div id="spellings"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Word bank</h2>
+    <div class="small" id="wbcount"></div>
+    <a class="shootbtn" href="shoot.html"><span>⚽</span><b>Shoot Words</b><small id="shootline">10 penalties · today</small></a>
+    <div id="words"></div>
+    <div class="legend"><span><i style="background:rgba(255,255,255,.35)"></i>new</span><span><i style="background:#d98a1a"></i>learning</span><span><i style="background:#2a8f45"></i>secure</span></div>
+  </div>
+
+  <div class="panel links">
+    <h2>Club files</h2>
+    <a href="scouting.html">📋 Scouting report 2026/27</a>
+    <div id="reports"></div>
+  </div>
+
+  <div class="panel">
+    <h2>Season save</h2>
+    <div class="tools">
+      <button onclick="saveFile()"><span>💾</span>Download</button>
+      <button onclick="sendSeasonToBaba()"><span>📲</span>Send to Baba</button>
+      <button onclick="document.getElementById('loadInp').click()"><span>📂</span>Load</button>
+    </div>
+    <input type="file" id="loadInp" accept=".json,application/json" style="display:none" onchange="loadFile(this)">
+
+  </div>
+  <footer>♥ Musa Baba Games · <a href="?reset=1" onclick="return confirm('Coach only: reset ALL season progress?')">coach reset</a></footer>
 </div>
 
 <script>
-/* ---------- levels ---------- */
-const LEVELS=[
- {name:'Academy',   desc:'× 2, 5, 10',            tabs:[2,5,10],            kind:'mul'},
- {name:'Castilla',  desc:'× 3, 4 (and 2, 5, 10)', tabs:[3,4,3,4,2,5,10],    kind:'mul'},
- {name:'Squad',     desc:'× 6, 7, 8, 9',          tabs:[6,7,8,9],           kind:'mul'},
- {name:'First XI',  desc:'÷ 2, 3, 4, 5, 10',      tabs:[2,3,4,5,10],        kind:'div'},
- {name:'Starter',   desc:'÷ 6, 7, 8, 9, 11, 12',  tabs:[6,7,8,9,11,12],     kind:'div'},
- {name:'Captain',   desc:'× and ÷ mixed, up to 12',tabs:[3,4,6,7,8,9,11,12],kind:'mix'},
- {name:'Galáctico', desc:'13–25 × digit, 2-digit ÷ digit',tabs:[3,4,5,6,7,8,9],kind:'big'},
+/* ===== FIXTURES: Coach adds a line here each day ===== */
+const FIXTURES=[
+ {w:1,id:"md1",n:1,date:"2026-09-07",title:"Pre-season Trials",sub:"Reading · Maths · Grammar · Science · Writing",file:null},
+ {w:1,id:"md2",n:2,date:"2026-09-08",title:"VAR Training",sub:"Speech punctuation · Arthur's notebook",file:"md02.html"},
+ {w:1,id:"md3",n:3,date:"2026-09-09",title:"Chapter 2",sub:"Reading · Point + Evidence · WW1 causes",file:"md03.html"},
+ {w:1,id:"md4",n:4,date:"2026-09-10",title:"Numbers Day",sub:"Arithmetic · percentages · apostrophes",file:"md04.html"},
+ {w:1,id:"md5",n:5,date:"2026-09-11",title:"Science Day",sub:"The heart · Britain at war · Chapter 3",file:"md05.html"},
+ {w:1,id:"md6",n:6,date:"2026-09-12",title:"Big Write",sub:"Arthur's diary, 15 Nov 1940 · 45 min · referee",file:"md06.html"},
+ {w:1,id:"md7",n:7,date:"2026-09-13",title:"Champions League round",sub:"VAR · week quiz · pulse · Week 1 reward card",file:"md07.html"},
+ {w:2,id:"md8",n:8,date:"2026-09-14",title:"Maths Reasoning",sub:"Not played — season paused",file:null},
+ {w:2.5,id:"cb1",n:"C",date:"2026-10-18",title:"Comeback Camp",sub:"Box rule · long division · fractions · % · words · 45 min · then Extra Training 3 & 4 below",file:"cb01.html"},
+ {w:3,id:"md9",n:9,date:"2026-10-19",title:"Long Division Day",sub:"VAR · 4 divisions · Chapter 4 reading · 3 mat words",file:"md09.html"},
+ {w:3,id:"md10",n:10,date:"2026-10-20",title:"Writing sprint",sub:"Thank-you letter paragraph · semicolon list",file:null},
+ {w:3,id:"md11",n:11,date:"2026-10-21",title:"Chapter 4",sub:"Reading · model letter · Point + Evidence",file:null},
+ {w:3,id:"md12",n:12,date:"2026-10-22",title:"Arithmetic sprint + Spelling Camp",sub:"Box rule · synonyms & antonyms · then sp01 for Friday",file:null},
+ {w:3,id:"md13",n:13,date:"2026-10-23",title:"Science & Topic",sub:"School topic of the week",file:null},
+ {w:3,id:"md14",n:14,date:"2026-10-24",title:"Big Write 2 · Letter of thanks",sub:"45 min · referee · 200–250 words",file:null},
+ {w:3,id:"md15",n:15,date:"2026-10-25",title:"Camp day",sub:"Champions League · Word Camp 2 · Extra Training",file:null}
 ];
-const TIER_NAMES=['','harder','hardest'];
-const WEEK_NAMES={'2026-09-07':'Foundations','2026-10-12':'Comeback Camp','2026-10-19':'Comeback'};
-function weekName(ws,n){return WEEK_NAMES[ws]||(n===1?'Foundations':'')}
-const r=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
-const pick=a=>a[r(0,a.length-1)];
-const mulQ=(a,b)=>({txt:`${a} × ${b}`,ans:a*b,key:`${Math.min(a,b)}x${Math.max(a,b)}`,dis:[(a+1)*b,(a-1)*b,a*(b+1),a*(b-1),a*b+1,a*b-1,a*b+10,a*b-10]});
-const divQ=(q,d)=>({txt:`${q*d} ÷ ${d}`,ans:q,key:`${q*d}/${d}`,dis:[q+1,q-1,q+2,q-2,q+d,Math.abs(q-d),q*2,d]});
-const missQ=(f,d)=>({txt:`? × ${d} = ${f*d}`,ans:f,key:`?${d}=${f*d}`,dis:[f+1,f-1,f+2,f-2,d,f*d,f+10,Math.abs(f-10)]});
-function mul(t,tier){const d=pick(t);
-  if(tier>=2)return Math.random()<.5?mulQ(r(2,12)*10,d):missQ(r(2,12),d);
-  if(tier===1)return Math.random()<.5?mulQ(r(13,15),d):mulQ(d,r(13,15));
-  return Math.random()<.5?mulQ(r(2,12),d):mulQ(d,r(2,12))}
-function div(t,tier){const d=pick(t);
-  if(tier>=2)return divQ(r(2,12)*10,d);
-  if(tier===1)return divQ(r(13,15),d);
-  return divQ(r(2,12),d)}
-function big(t,tier){const d=pick(t);
-  if(tier>=2)return Math.random()<.5?mulQ(r(31,99),d):divQ(r(61,120),d);
-  if(tier===1)return Math.random()<.5?mulQ(r(26,35),d):divQ(r(25,40),d);
-  return Math.random()<.5?mulQ(r(13,25),d):divQ(r(11,24),d)}
-function genRaw(li,tier){const L=LEVELS[li];
-  if(L.kind==='mul')return mul(L.tabs,tier);if(L.kind==='div')return div(L.tabs,tier);
-  if(L.kind==='mix')return Math.random()<.5?mul(L.tabs,tier):div(L.tabs,tier);return big(L.tabs,tier)}
+/* Embedded fallback (works offline / file://). season.json on the server wins when reachable. */
+const EMBED={"season": "2026/27", "player": "Yigit Ali", "updated": "2026-10-18", "levels": [["Castilla", 0, 500], ["First XI", 500, 1500], ["Captain", 1500, 3000], ["Ballon d'Or", 3000, 5000]], "days": {"md1": {"n": 1, "date": "2026-09-07", "title": "Pre-season Trials", "total": 320, "words": ["cautiously", "peculiar", "ominous"], "sections": {"Reading": "6/6", "Words": "3/3", "Maths": "9/10", "Grammar": "6/8", "Science": "5/5", "Writing VAR": "3/6"}, "note": "Ideas GD; accuracy below expected. Q3 percentages blank."}, "md2": {"n": 2, "date": "2026-09-08", "title": "VAR Training", "total": 210, "words": ["muffled", "frantically", "deserted"], "sections": {"Notebook": "1/3", "Drills": "7/8", "Words": "3/3", "Writing VAR": "5/6", "Honest VAR": "+50"}, "note": "All 4 speech rules applied. Rule 5 missing. '!?' repeat. 45 words, no new word."}, "md3": {"n": 3, "date": "2026-09-09", "title": "Chapter 2", "total": 180, "words": ["eerie", "rivalry", "loyal"], "sections": {"VAR": "3/3", "Reading": "5/5", "WW1 causes": "6/6", "Words": "3/3", "Point+Evidence": "1/3", "Referee": "—"}, "note": "17/17 quizzes. Q6 2/2, Q7 evidence without point. Late finish 22:07."}, "md4": {"n": 4, "date": "2026-09-10", "title": "Numbers Day", "total": 250, "words": ["glimpse", "bewildered", "reluctantly"], "sections": {"VAR": "2/2", "Arithmetic": "9/10", "Percentages": "4/6", "Apostrophes": "5/6", "Words": "3/3", "Notebook": "2/2", "Referee": "—"}, "note": "Percentages gap remains. Notebook unverified (no referee/photo)."}, "md5": {"n": 5, "date": "2026-09-11", "title": "Science Day", "total": 240, "words": ["hesitate", "fragile", "vanished"], "sections": {"VAR": "3/3", "The heart": "7/8", "Britain at war": "4/4", "Chapter 3": "4/4", "Words": "3/3", "Notebook": "3/3", "Referee": "—"}, "note": "Q5 first full Point+Evidence. Pulse experiment numbers implausible (22/31) — re-run Sunday. Heart Q3 arteries/veins."}, "md6": {"n": 6, "date": "2026-09-12", "title": "Big Write", "total": 220, "words": [], "sections": {"Warm-up": "6/6", "Model text": "4/4", "VAR (8 criteria)": "7/8", "Referee": "+50"}, "note": "Simile, 2 perfect speech lines, rhetorical question, formal vocab. Wrong date (wrote 12 Sept not 15 Nov 1940), ~150 words (target 200-250), para 3 thin, fragment 'siren sound still audible', wailing/reassuring spelling."}, "md7": {"n": 7, "date": "2026-09-13", "title": "Champions League round", "total": 150, "words": [], "sections": {"VAR": "3/3", "Week quiz": "6/8", "Pulse": "3/3", "Referee": "+30"}, "note": "Wrong: twins' (4th), arteries (2nd). Pulse 61/117 vs Baba 63/98."}, "wc1": {"n": 7.1, "date": "2026-09-13", "title": "Word Camp 1", "total": 225, "kind": "wordcamp", "words": [], "sections": {"Meaning": "10/10", "Spelling": "95 pts", "Use": "3/6"}, "note": "School 10 all correct. Missed spelling: frantically, reluctantly, bewildered. Use missed: hesitate, delicious, superstitious."}, "et1": {"n": 7.2, "date": "2026-09-13", "title": "Extra Training 1 · Adverbs of time", "total": 150, "kind": "extra", "words": [], "sections": {"Spot": "4/6", "Fill": "5/6", "Write": "3/3", "Referee": "+30"}, "note": "4 sentences correct structure. Errors: 'haven't did', 'Real madrids'."}, "et2": {"n": 7.3, "date": "2026-09-13", "title": "Extra Training 2 · Place value", "total": 120, "kind": "extra", "words": [], "sections": {"Columns": "6/6", "Partition": "4/6", "Notebook": "2/2", "Referee": "—"}, "note": "Wrong: +200,000 (one column), lookalike matching. Drew digits not counters."}, "sw-2026-09-12": {"n": 100, "date": "2026-09-12", "title": "Shoot Words", "total": 40, "kind": "shoot", "words": [], "sections": {"Goals": "4/10", "Saved": "cautiously, vicious, leisure, ominous, deserted, delicious"}}, "sw-2026-09-13": {"n": 100, "date": "2026-09-13", "title": "Shoot Words", "total": 70, "kind": "shoot", "words": [], "sections": {"Goals": "7/10", "Saved": "cautious, cautiously, harass"}}, "cb1": {"n": 8.5, "date": "2026-10-18", "title": "Comeback Camp", "total": 230, "words": [], "sections": {"Box rule": "1/3", "Long division": "3/4", "Fractions": "3/5", "% & decimals": "4/4", "Words": "7/8", "Notebook": "2/3", "Referee": "+30"}, "note": "Box rule Q2,Q3 wrong (crossing out; sense check). Long div Q1. Fractions Q3,Q4 (1½×24, 1½×57 — mixed × whole). Words: leisure."}, "sw-2026-10-18": {"n": 100, "date": "2026-10-18", "title": "Shoot Words", "total": 80, "kind": "shoot", "words": [], "sections": {"Goals": "8/10", "Saved": "frantically, harass"}}}, "reports": [{"date": "2026-09-13", "file": "report-07.html", "title": "Match report · Camp day + Captain"}, {"date": "2026-09-12", "file": "report-06.html", "title": "Match report · Matchday 6 + Week 1 review"}, {"date": "2026-09-11", "file": "report-05.html", "title": "Match report · Matchday 5"}, {"date": "2026-09-10", "file": "report-04.html", "title": "Match report · Matchday 4"}, {"date": "2026-09-09", "file": "report-03.html", "title": "Match report · Matchday 3"}, {"date": "2026-09-08", "file": "report-02.html", "title": "Match report · Matchday 2"}], "spellings": {"test": "2026-10-23", "rule": "-able / -ible", "words": ["adorable", "applicable", "considerably", "tolerable", "comfortable", "reasonable", "enjoyable", "sacrifice", "secretary", "mischievous"], "last_test": {"date": "2026-10-09", "score": "5/10", "missed": ["manageable", "noticeable", "committee", "changeable", "existence"]}}, "extras": [{"id": "et1", "date": "2026-09-13", "file": "et01.html", "title": "Extra Training 1 · Adverbs of time", "homework": "English · Seesaw · adverbs & adverbials of time (3 tasks)"}, {"id": "et2", "date": "2026-09-13", "file": "et02.html", "title": "Extra Training 2 · Place value to 10 million", "homework": "Maths · counters, partitioning, value of a digit, matching"}, {"id": "et3", "date": "2026-10-18", "file": "et03.html", "title": "Extra Training 3 · Grammar & punctuation", "homework": "English · Seesaw · 9-question GPS sheet"}, {"id": "et4", "date": "2026-10-18", "file": "et04.html", "title": "Extra Training 4 · Fractions +/−", "homework": "Maths · Seesaw · 12 fraction sums"}], "wordcamps": [{"id": "wc1", "date": "2026-09-13", "file": "wc01.html", "title": "Word Camp 1 · 15 season words + -cious/-tious"}], "wordbank": [{"word": "cautiously", "source": "season", "from": "md1", "added": "2026-09-07", "status": "learning", "passes": 0, "misses": 1, "def": "in a careful way, worried something might go wrong"}, {"word": "peculiar", "source": "season", "from": "md1", "added": "2026-09-07", "status": "new", "passes": 1, "misses": 0, "def": "strange or unusual"}, {"word": "ominous", "source": "season", "from": "md1", "added": "2026-09-07", "status": "learning", "passes": 0, "misses": 1, "def": "making you feel something bad is about to happen"}, {"word": "muffled", "source": "season", "from": "md2", "added": "2026-09-08", "status": "new", "passes": 1, "misses": 0, "def": "a quiet, unclear sound, as if covered"}, {"word": "frantically", "source": "season", "from": "md2", "added": "2026-09-08", "status": "learning", "passes": 0, "misses": 2, "def": "in a wild, hurried, panicky way"}, {"word": "deserted", "source": "season", "from": "md2", "added": "2026-09-08", "status": "learning", "passes": 0, "misses": 1, "def": "empty of people; everyone has left"}, {"word": "eerie", "source": "season", "from": "md3", "added": "2026-09-09", "status": "new", "passes": 1, "misses": 0, "def": "strange and frightening in a quiet, creepy way"}, {"word": "rivalry", "source": "season", "from": "md3", "added": "2026-09-09", "status": "new", "passes": 1, "misses": 0, "def": "competition between people who each want to be the best"}, {"word": "loyal", "source": "season", "from": "md3", "added": "2026-09-09", "status": "new", "passes": 1, "misses": 0, "def": "always supporting someone, even when it's hard"}, {"word": "glimpse", "source": "season", "from": "md4", "added": "2026-09-10", "status": "new", "passes": 1, "misses": 0, "def": "a very quick look at something"}, {"word": "bewildered", "source": "season", "from": "md4", "added": "2026-09-10", "status": "learning", "passes": 0, "misses": 1, "def": "completely confused"}, {"word": "reluctantly", "source": "season", "from": "md4", "added": "2026-09-10", "status": "learning", "passes": 0, "misses": 1, "def": "doing something you don't really want to do"}, {"word": "hesitate", "source": "season", "from": "md5", "added": "2026-09-11", "status": "learning", "passes": 0, "misses": 1, "def": "to pause before doing something because you're not sure"}, {"word": "fragile", "source": "season", "from": "md5", "added": "2026-09-11", "status": "new", "passes": 1, "misses": 0, "def": "easily broken or damaged"}, {"word": "vanished", "source": "season", "from": "md5", "added": "2026-09-11", "status": "new", "passes": 1, "misses": 0, "def": "disappeared suddenly and completely"}, {"word": "gracious", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "new", "passes": 1, "misses": 0, "def": "kind and polite, even to people who lose to you"}, {"word": "precious", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "new", "passes": 1, "misses": 0, "def": "worth a lot; very valuable to you"}, {"word": "delicious", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 1, "def": "tastes wonderful"}, {"word": "vicious", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 1, "def": "cruel and violent"}, {"word": "infectious", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "new", "passes": 1, "misses": 0, "def": "spreads easily from one person to another"}, {"word": "cautious", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 1, "def": "careful, not taking risks"}, {"word": "superstitious", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 1, "def": "believing in luck, omens and signs"}, {"word": "leisure", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 2, "def": "free time when you're not working"}, {"word": "harass", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 2, "def": "to keep bothering or attacking someone"}, {"word": "government", "source": "school", "from": "spelling wk1", "added": "2026-09-12", "status": "new", "passes": 1, "misses": 0, "def": "the group of people who run a country"}, {"word": "wailing", "source": "season", "from": "md6 big write", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 2, "def": "making a long, high crying sound (like a siren)"}, {"word": "reassuring", "source": "season", "from": "md6 big write", "added": "2026-09-12", "status": "learning", "passes": 0, "misses": 2, "def": "making someone feel less worried"}, {"word": "exhausted", "source": "season", "from": "md8", "added": "2026-09-14", "status": "new", "passes": 0, "misses": 0, "def": "extremely tired"}, {"word": "observed", "source": "season", "from": "md8", "added": "2026-09-14", "status": "new", "passes": 0, "misses": 0, "def": "watched carefully; noticed"}, {"word": "ambitious", "source": "season", "from": "md8", "added": "2026-09-14", "status": "new", "passes": 0, "misses": 0, "def": "wanting very much to succeed or achieve something big"}, {"word": "adorable", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "very sweet and lovable"}, {"word": "applicable", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "relevant; applies to the situation"}, {"word": "considerably", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "by a large amount"}, {"word": "tolerable", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "bearable; can be put up with"}, {"word": "comfortable", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "relaxed and at ease"}, {"word": "reasonable", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "fair and sensible"}, {"word": "enjoyable", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "giving pleasure"}, {"word": "sacrifice", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "to give something up for a greater good"}, {"word": "secretary", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "a person who keeps records and handles letters"}, {"word": "mischievous", "source": "school", "from": "spelling 23 Oct", "added": "2026-10-18", "status": "new", "passes": 0, "misses": 0, "def": "playfully naughty"}, {"word": "manageable", "source": "school", "from": "spelling 9 Oct (missed)", "added": "2026-10-18", "status": "learning", "passes": 0, "misses": 1, "def": "able to be dealt with"}, {"word": "noticeable", "source": "school", "from": "spelling 9 Oct (missed)", "added": "2026-10-18", "status": "learning", "passes": 0, "misses": 1, "def": "easy to see or notice"}, {"word": "committee", "source": "school", "from": "spelling 9 Oct (missed)", "added": "2026-10-18", "status": "learning", "passes": 0, "misses": 1, "def": "a group chosen to make decisions"}, {"word": "changeable", "source": "school", "from": "spelling 9 Oct (missed)", "added": "2026-10-18", "status": "learning", "passes": 0, "misses": 1, "def": "likely to change"}, {"word": "existence", "source": "school", "from": "spelling 9 Oct (missed)", "added": "2026-10-18", "status": "learning", "passes": 0, "misses": 1, "def": "the state of being real or alive"}, {"word": "endeavour", "source": "school", "from": "One Day vocab mat", "added": "2026-10-19", "status": "new", "passes": 0, "misses": 0, "def": "a serious attempt or effort"}, {"word": "sufficiently", "source": "school", "from": "One Day vocab mat", "added": "2026-10-19", "status": "new", "passes": 0, "misses": 0, "def": "enough; to the degree needed"}], "wordbank_rules": {"secure": "passed meaning+spelling in 2 different Word Camps", "miss": "any miss → status learning, passes reset to 0; stays in every Word Camp until secure", "revision": "each Word Camp also re-tests 3 random secure words"}, "followups": ["BOX RULE: one answer, last line of working, sense check", "long division by 2-digit — daily until automatic", "mixed number × whole number", "plural possessive apostrophe", "have/had + third form", "writing length: paragraph 3", "fragments need a verb"], "arithmetic_paper": {"date": "2026-10-13", "paper": "2017 KS2 Paper 1 arithmetic", "score": "23/40", "lost_to_presentation": {"marks": 10, "questions": ["Q3 messy mixed number", "Q17 two answers in box", "Q21 unreadable box", "Q22 right working, wrong box (2)", "Q27 unreadable", "Q28 5/16 circled, 8 in box", "Q29 207 beside, 120 in box", "Q33 180 beside, 18000 in box", "Q34 150 circled, 15000 in box"]}, "genuine_gaps": {"marks": 7, "topics": ["long division by 2-digit (Q20, Q36 — 4 marks)", "mixed number × whole (Q35)", "fraction × fraction confidence (Q15)", "decimal × whole sense check (Q33)", "% of amount under pressure (Q29, Q34)"]}, "strengths": ["column +/−", "decimals +/−", "short multiplication", "long multiplication method", "fraction +/− with common denominators", "× ÷ by 10/100/1000", "1% method"]}, "spellingcamps": [{"id": "sp1", "date": "2026-10-22", "file": "sp01.html", "title": "Spelling Camp 1 · -able/-ible + last week's five"}], "school_unit": {"english": "One Day (Michael Rosen) — formal letter of thanks in role (Eugène to the Médards); vocab mat, synonyms/antonyms, phrases for a note of thanks, question starters", "note": "Teacher pinned on Seesaw 18 Oct; Big Write 2 (Sat 24 Oct) = formal thank-you letter; daily words from the mat"}, "weeks": [{"n": 1, "label": "Week 1", "from": "2026-09-07", "to": "2026-09-13"}, {"n": 2, "label": "Week 2", "from": "2026-09-14", "to": "2026-10-17", "note": "paused for a month"}, {"n": 2.5, "label": "Comeback Camp", "from": "2026-10-18", "to": "2026-10-18"}, {"n": 3, "label": "Week 3", "from": "2026-10-19", "to": "2026-10-25"}], "mock_sats_autumn1": {"date": "2026-09 (early)", "gps": {"grammar": "35/50", "spelling": "13/20", "combined": "48/70", "expected": 36, "gd": 55}, "reading": {"score": "20/50", "expected": 24, "gd": 38}, "maths": {"arithmetic": "10/40 (later 25)", "reasoning2": "11/35", "reasoning3": "15/35", "combined": "36/110", "expected": 56, "gd": 94}, "priorities": ["Reading daily 10 min + Point+Evidence", "Reasoning 2x/week", "Box Rule", "GPS → GD: plural apostrophe, semicolons, formal/informal"]}};
+let SEASON=EMBED;
+const KEY="ya_season_v1";
+function render(){
+const REPORTS=SEASON.reports||[];const COACH_RESULTS=SEASON.days||{};
+const WEEKS=SEASON.weeks||[];const wkOf=d=>{const w=WEEKS.find(x=>d>=x.from&&d<=x.to);return w?w.n:999};const todayIso=new Date().toISOString().slice(0,10);const curW=wkOf(todayIso);
+const wlab=w=>{const x=WEEKS.find(y=>y.n===w);return x?x.label:"Week "+w};const fmt=w=>{const x=WEEKS.find(y=>y.n===w);if(!x)return "";const o={day:"numeric",month:"short"};const s=new Date(x.from+"T12:00"),e=new Date(x.to+"T12:00");return x.from===x.to?s.toLocaleDateString("en-GB",o):`${s.toLocaleDateString("en-GB",o)} – ${e.toLocaleDateString("en-GB",o)}`};
+if(location.search.includes("reset=1")){try{localStorage.removeItem(KEY)}catch(e){}history.replaceState(null,"",location.pathname);}
+let st={days:{}};try{st=JSON.parse(localStorage.getItem(KEY))||st}catch(e){}
+Object.entries(COACH_RESULTS).forEach(([k,v])=>{st.days[k]=Object.assign({},st.days[k]||{},v)});try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}
 
-/* ---------- kits ---------- */
-const KITS=[
- {id:'cov',name:'Coventry GK', num:1, shirt:'#1fa64a',shorts:'#111',socks:'#1fa64a',stripe:null,gloves:true},
- {id:'bw', name:'Beşiktaş',    num:10,shirt:'#111',shorts:'#fff',socks:'#111',stripe:'#fff',gloves:false},
- {id:'rm', name:'Real Madrid', num:15,shirt:'#fff',shorts:'#fff',socks:'#fff',stripe:null,gloves:false,trim:'#e6b422'},
- {id:'aln',name:'Al Nassr',    num:7, shirt:'#f6d31f',shorts:'#1c3f8f',socks:'#f6d31f',stripe:null,gloves:false,trim:'#1c3f8f'},
-];
-function kitSVG(k,num){
-  const stripes=k.stripe?`<g clip-path="url(#sh${k.id})">${[0,1,2,3].map(i=>`<rect x="${26+i*12}" y="38" width="6" height="56" fill="${k.stripe}"/>`).join('')}</g>`:'';
-  const trim=k.trim?`<rect x="20" y="38" width="60" height="5" fill="${k.trim}"/>`:'';
-  const skin='#f1c9a5';
-  return `<defs><clipPath id="sh${k.id}"><rect x="20" y="38" width="60" height="56" rx="10"/></clipPath></defs>
-  <circle cx="50" cy="22" r="15" fill="${skin}"/><path d="M34 16 q16 -18 32 0 v5 h-32z" fill="#e8c547"/>
-  <rect x="20" y="38" width="60" height="56" rx="10" fill="${k.shirt}"/>${stripes}${trim}
-  <rect x="6" y="42" width="18" height="34" rx="8" fill="${k.shirt}"/><rect x="76" y="42" width="18" height="34" rx="8" fill="${k.shirt}"/>
-  <circle cx="14" cy="80" r="7" fill="${k.gloves?'#e6b422':skin}"/><circle cx="86" cy="80" r="7" fill="${k.gloves?'#e6b422':skin}"/>
-  ${k.stripe?'<rect x="36" y="62" width="28" height="22" rx="4" fill="'+k.shirt+'"/>':''}${k.stripe?'<rect x="24" y="46" width="52" height="12" rx="3" fill="'+k.shirt+'"/>':''}<text x="50" y="55" font-size="8.5" text-anchor="middle" font-weight="bold" letter-spacing="0.5" fill="${k.shirt==='#fff'||k.shirt==='#f6d31f'?'#1c3f8f':'#fff'}">YİĞİT ALİ</text><text x="50" y="80" font-size="20" text-anchor="middle" font-weight="bold" fill="${k.shirt==='#fff'||k.shirt==='#f6d31f'?'#1c3f8f':'#fff'}">${num}</text>
-  <rect x="26" y="92" width="48" height="24" rx="6" fill="${k.shorts}"/>
-  <g class="leg"><rect x="28" y="112" width="16" height="30" rx="6" fill="${k.socks}"/><rect x="26" y="138" width="20" height="9" rx="4" fill="#111"/></g>
-  <rect x="56" y="112" width="16" height="30" rx="6" fill="${k.socks}"/><rect x="54" y="138" width="20" height="9" rx="4" fill="#111"/>`;
+function level(p){return p<500?["Castilla",0,500]:p<1500?["First XI",500,1500]:p<3000?["Captain",1500,3000]:["Ballon d'Or",3000,5000];}
+const season=Object.values(st.days).reduce((a,d)=>a+(d.total||0),0);const [lv,lo,hi]=level(season);
+document.getElementById("season").textContent=season;document.getElementById("lv").textContent=lv;
+document.getElementById("bar").style.width=Math.round((season-lo)/(hi-lo)*100)+"%";
+document.getElementById("next").textContent=`${hi-season} points to ${level(hi)[0]}`;
+document.getElementById("ovr").textContent=86+Math.min(10,Math.floor(season/1500));
+/* week strip Mon–Sun */
+const today=new Date();const dow=(today.getDay()+6)%7;const mon=new Date(today);mon.setDate(today.getDate()-dow);
+const wk=document.getElementById("week");["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].forEach((n,i)=>{const d=new Date(mon);d.setDate(mon.getDate()+i);const iso=d.toISOString().slice(0,10);const dd=Object.values(st.days).filter(x=>x.date===iso);const day=dd.length?{total:dd.reduce((a,x)=>a+(x.total||0),0)}:null;
+ const el=document.createElement("div");el.className="day"+(day?" on":"")+(i===dow?" today":"");el.innerHTML=`<span>${n}</span><b>${day?day.total:"–"}</b>`;wk.appendChild(el);});
+/* fixtures */
+const pts=w=>Object.values(st.days).filter(d=>wkOf(d.date)===w).reduce((a,d)=>a+(d.total||0),0);
+const fx=document.getElementById("fixtures");
+const mkRow=f=>{const d=st.days[f.id];const dt=new Date(f.date+"T12:00");const lab=dt.toLocaleDateString("en-GB",{weekday:"short"});const a=document.createElement(f.file&&!d?"a":"div");a.className="fx"+(d?" done":f.file?"":" locked");if(f.file&&!d)a.href=f.file;const nm=typeof f.n==="number"?`Matchday ${f.n} · `:"";a.innerHTML=`<div class="d">${dt.getDate()}<small>${lab}</small></div><div class="t"><b>${nm}${f.title}</b><span>${f.sub}</span></div><div class="r">${d?d.total:f.file?"▶":"🔒"}</div>`;return a;};
+const showW=new Set([curW]);if(curW===3)showW.add(2.5);
+FIXTURES.filter(f=>showW.has(f.w)||f.w>curW).forEach(f=>fx.appendChild(mkRow(f)));
+const past=[...new Set(FIXTURES.filter(f=>f.w<curW&&!showW.has(f.w)).map(f=>f.w))].sort((a,b)=>b-a);
+past.forEach(w=>{const d=document.createElement("details");d.className="wk";d.innerHTML=`<summary><b>${wlab(w)}</b><span>${fmt(w)} · ${pts(w)} pts</span></summary>`;FIXTURES.filter(f=>f.w===w).forEach(f=>d.appendChild(mkRow(f)));fx.appendChild(d);});
+try{document.getElementById("kick").textContent=`Season 2026/27 · ${wlab(curW)} · ${fmt(curW)}`}catch(e){}
+/* words */
+const pool=(SEASON.wordbank||[]).slice();const seen=new Set(pool.map(x=>x.word));
+Object.values(st.days).sort((a,b)=>a.n-b.n).forEach(d=>(d.words||[]).forEach(w=>{if(!seen.has(w)){seen.add(w);pool.push({word:w,source:"season",status:"new"})}}));
+const col={new:"rgba(255,255,255,.12)",learning:"rgba(217,138,26,.35)",secure:"rgba(30,122,58,.45)"};
+document.getElementById("words").innerHTML=pool.map(x=>`<span class="chip" style="background:${col[x.status]||col.new}" title="${x.source}">${x.word}</span>`).join("")||"<span class='small'>No words yet.</span>";
+try{const sw=JSON.parse(localStorage.getItem("ya_shoot_v1"));const td=new Date().toISOString().slice(0,10);if(sw&&sw.date===td)document.getElementById("shootline").textContent=sw.shots>=10?`Today: ${sw.goals}/10 · back tomorrow`:`Today: ${sw.goals} goals, ${10-sw.shots} penalties left`;}catch(e){}
+const cnt=s=>pool.filter(x=>x.status===s).length;document.getElementById("wbcount").textContent=`${pool.length} words in the pool · ${cnt("secure")} secure · ${cnt("learning")} learning · ${cnt("new")} new`;
+/* reports */
+/* reports grouped by week (week 1 starts Mon 7 Sep 2026) */
+const groups={};REPORTS.forEach(r=>{(groups[wkOf(r.date)]=groups[wkOf(r.date)]||[]).push(r)});
+document.getElementById("reports").innerHTML=Object.keys(groups).map(Number).sort((a,b)=>b-a).map(w=>`<details class="wk" ${w===curW?"open":""}><summary><b>${wlab(w)}</b><span>${fmt(w)} · ${pts(w)} pts</span></summary>${groups[w].sort((a,b)=>b.date.localeCompare(a.date)).map(r=>`<a href="${r.file}">📰 ${r.title}</a>`).join("")}</details>`).join("");
+const row=(f,icon)=>{const d=st.days[f.id];const dt=new Date(f.date+"T12:00");const a=document.createElement(d?"div":"a");a.className="fx"+(d?" done":"");if(!d)a.href=f.file;a.innerHTML=`<div class="d">${dt.getDate()}<small>${dt.toLocaleDateString("en-GB",{weekday:"short"})}</small></div><div class="t"><b>${icon} ${f.title}</b><span>${f.homework||f.sub||""}</span></div><div class="r">${d?d.total:"▶"}</div>`;return a;};
+const ex=document.getElementById("extras");const exAll=SEASON.extras||[];exAll.filter(f=>wkOf(f.date)>=Math.min(curW,2.5)).forEach(f=>ex.appendChild(row(f,"🏋️")));
+const exPast=exAll.filter(f=>wkOf(f.date)<Math.min(curW,2.5));if(exPast.length){const d=document.createElement("details");d.className="wk";d.innerHTML=`<summary><b>Earlier</b><span>${exPast.length} warm-ups</span></summary>`;exPast.forEach(f=>d.appendChild(row(f,"🏋️")));ex.appendChild(d);}
+if(!ex.children.length)ex.innerHTML="<span class='small'>No homework warm-ups yet.</span>";
+const wc=document.getElementById("wordcamps");(SEASON.wordcamps||[]).forEach(f=>wc.appendChild(row(f,"🏕️")));
+document.getElementById("spellings").innerHTML=((SEASON.spellings||{}).words||[]).map(w=>`<span class="chip" style="background:rgba(201,162,39,.25)">${w}</span>`).join("");
 }
-let kit=KITS[0];
-function drawKits(){
-  const K=document.getElementById('kits');K.innerHTML='';
-  KITS.forEach(k=>{const b=document.createElement('button');b.className='kit'+(k.id===kit.id?' sel':'');
-    b.innerHTML=`<svg viewBox="0 0 100 150">${kitSVG(k,k.num)}</svg>${k.name} · ${k.num}`;
-    b.onclick=()=>{kit=k;store.kit=k.id;save();drawKits();applyKit()};K.appendChild(b)});
-}
-const OPP_KIT={id:'opp',name:'Striker',num:9,shirt:'#c8102e',shorts:'#fff',socks:'#c8102e',stripe:null,gloves:false};
-function gkMode(){return kit.id==='cov'}
-function applyKit(){const gk=gkMode();
-  document.getElementById('shooterKit').innerHTML=gk?kitSVG(OPP_KIT,9).replace('#e8c547','#2b1b10').replace('YİĞİT ALİ','STRIKER'):kitSVG(kit,kit.num);
-  const K=document.getElementById('keeper');K.querySelector('#kBody').setAttribute('fill',gk?kit.shirt:'#111');K.querySelectorAll('.kArm').forEach(a=>a.setAttribute('fill',gk?kit.shirt:'#111'));K.querySelectorAll('.kLeg').forEach(l=>l.setAttribute('fill',gk?kit.shorts:'#111'));
-  K.querySelector('#kHair').setAttribute('fill',gk?'#e8c547':'#3b2a1a');K.querySelector('#kName').textContent=gk?'YİĞİT ALİ':'';K.querySelector('#kNum').textContent=gk?kit.num:'1';K.querySelector('#kNum').setAttribute('fill',gk?'#fff':'#e6b422');
-  const bn=document.getElementById('bname');if(bn)bn.textContent=gk?'YIGIT ALI (GK)':'YIGIT ALI';const kh=document.querySelector('.bhead span:last-child');if(kh)kh.textContent=gk?'STRIKER':'KEEPER'}
+fetch("season.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.days)SEASON=j;}).catch(()=>{}).finally(render);
 
-/* ---------- sound ---------- */
-const SFX={ctx:null,on:true,crowdGain:null,
-  init(){if(!this.ctx){try{this.ctx=new (window.AudioContext||window.webkitAudioContext)();}catch(e){this.ctx=null;return}}
-    if(this.ctx.state==='suspended')this.ctx.resume();
-    try{const a=document.getElementById('unmute');if(a&&a.paused){a.volume=0.01;const p=a.play();if(p&&p.catch)p.catch(()=>{})}}catch(e){}
-    if(!this._unlocked){const b=this.ctx.createBuffer(1,1,22050),src=this.ctx.createBufferSource();src.buffer=b;src.connect(this.ctx.destination);src.start(0);this._unlocked=true}},
-  noise(len){const c=this.ctx,b=c.createBuffer(1,c.sampleRate*len,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const src=c.createBufferSource();src.buffer=b;return src},
-  crowd(start){if(!this.ctx)return;const c=this.ctx;
-    if(start&&!this.crowdGain){const src=this.noise(4);src.loop=true;const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=500;f.Q.value=0.6;
-      const g=c.createGain();g.gain.value=this.on?0.05:0;src.connect(f).connect(g).connect(c.destination);src.start();this.crowdGain=g;this.crowdSrc=src}
-    if(!start&&this.crowdSrc){this.crowdSrc.stop();this.crowdSrc=null;this.crowdGain=null}},
-  swell(peak,t){if(!this.crowdGain||!this.on)return;const g=this.crowdGain.gain,n=this.ctx.currentTime;g.cancelScheduledValues(n);g.setValueAtTime(g.value,n);g.linearRampToValueAtTime(peak,n+0.15);g.linearRampToValueAtTime(0.05,n+t)},
-  tone(freq,dur,type,vol,when){const c=this.ctx,o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.value=freq;const t=(when||0)+c.currentTime;
-    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol||0.2,t+0.01);g.gain.exponentialRampToValueAtTime(0.001,t+dur);o.connect(g).connect(c.destination);o.start(t);o.stop(t+dur+0.05)},
-  whistle(n){if(!this.ctx||!this.on)return;const c=this.ctx;for(let i=0;i<n;i++){const o=c.createOscillator(),l=c.createOscillator(),lg=c.createGain(),g=c.createGain();
-    o.type='square';o.frequency.value=2500;l.frequency.value=45;lg.gain.value=200;l.connect(lg).connect(o.frequency);
-    const t=c.currentTime+i*0.45,d=(n>1&&i===n-1)?0.9:0.35;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.12,t+0.02);g.gain.setValueAtTime(0.12,t+d-0.05);g.gain.linearRampToValueAtTime(0,t+d);
-    o.connect(g).connect(c.destination);o.start(t);l.start(t);o.stop(t+d);l.stop(t+d)}},
-  kick(){if(!this.ctx||!this.on)return;const c=this.ctx,src=this.noise(0.12),f=c.createBiquadFilter();f.type='lowpass';f.frequency.value=700;const g=c.createGain();g.gain.setValueAtTime(0.6,c.currentTime);g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+0.12);src.connect(f).connect(g).connect(c.destination);src.start();this.tone(90,0.15,'sine',0.4)},
-  goal(){if(!this.ctx||!this.on)return;this.swell(0.35,2.2);this.tone(880,0.15,'triangle',0.15);this.tone(1320,0.25,'triangle',0.15,0.12)},
-  save(){if(!this.ctx||!this.on)return;const c=this.ctx;this.swell(0.18,1.2);const src=this.noise(0.5),f=c.createBiquadFilter();f.type='lowpass';f.frequency.setValueAtTime(1200,c.currentTime);f.frequency.exponentialRampToValueAtTime(200,c.currentTime+0.5);const g=c.createGain();g.gain.setValueAtTime(0.5,c.currentTime);g.gain.exponentialRampToValueAtTime(0.001,c.currentTime+0.5);src.connect(f).connect(g).connect(c.destination);src.start();this.tone(220,0.35,'sawtooth',0.08);this.tone(180,0.4,'sawtooth',0.08,0.1)},
-  levelUp(){if(!this.ctx||!this.on)return;[523,659,784,1047].forEach((f,i)=>this.tone(f,0.25,'triangle',0.15,i*0.1))},
-};
-function toggleSound(){SFX.init();SFX.on=!SFX.on;if(SFX.crowdGain)SFX.crowdGain.gain.value=SFX.on?0.05:0;document.getElementById('sndBtn').classList.toggle('off',!SFX.on);document.getElementById('sndLbl').textContent=SFX.on?'sound':'muted';document.getElementById('sndWaves').style.display=SFX.on?'':'none';try{localStorage.setItem('yigitPenaltySound',SFX.on?'1':'0')}catch(e){}}
-try{if(localStorage.getItem('yigitPenaltySound')==='0'){SFX.on=false;document.getElementById('sndBtn').classList.add('off');document.getElementById('sndLbl').textContent='muted';document.getElementById('sndWaves').style.display='none'}}catch(e){}
-
-/* ---------- coach ---------- */
-const NUDGES=['Look at the numbers first. Then the corners.','Big number? Split off the tens.','Say the sum out loud before you shoot.','Which corner is impossible? Rule it out.','Slow is smooth, smooth is fast.','Is the answer bigger or smaller than 100? Start there.'];
-const TACTICS=['No rush. You have time in the bank – use it.','Pen and paper are allowed. Write it down.','Work it out properly. A save costs more than five seconds.','Play the clock: a goal is 3 points, a minute is 1. The goal matters more.','Breathe. Read the sum again from the start.','Not sure? Count up in steps out loud.','The keeper only wins when you guess. Do not guess.','Ronaldo never rushes a penalty. Neither do you.','Check: does your answer end in the right digit?'];
-const RUSH=['Too fast! Look before you shoot.','That was a guess. Read it next time.','You had minutes to spare – use one.','Speed is worth nothing if the keeper saves it.'];
-function hintFor(q){const m=q.txt.match(/^(\d+) × (\d+)$/);const mm=q.txt.match(/^\? × (\d+) = (\d+)$/);const dv=q.txt.match(/^(\d+) ÷ (\d+)$/);
-  if(m){const a=+m[1],b=+m[2];const big=Math.max(a,b),sm=Math.min(a,b);
-    if(big%10===0&&big>=20){return `${big} is ${big/10} tens. ${big/10} × ${sm} = ${big/10*sm}, then add a zero.`}
-    if(big>=13){const t=Math.floor(big/10)*10,u=big-t;return `Split it: ${t} × ${sm} = ${t*sm}, then ${u} × ${sm} = ${u*sm}. Add them.`}
-    if(sm===5)return `× 5: ten times ${big} is ${big*10}, then halve it.`;
-    if(sm===9)return `× 9: ten times ${big} is ${big*10}, take away ${big}.`;
-    if(sm%2===0&&sm>2)return `Do ${big} × ${sm/2} = ${big*sm/2} first, then double it.`;
-    return `Count up in ${big}s: ${big}, ${big*2}, ${big*3}… ${sm} steps.`}
-  if(mm){const d=+mm[1],n=+mm[2];return `What times ${d} makes ${n}? Count in ${d}s: ${d}, ${d*2}, ${d*3}… stop at ${n}.`}
-  if(dv){const n=+dv[1],d=+dv[2];if(n%10===0&&n/d>=10)return `${n} ÷ ${d}: do ${n/10} ÷ ${d} = ${n/10/d}, then put the zero back.`;
-    if(n>=100||n/d>12){const t=Math.floor(n/d/10)*10*d;return `Bus stop: ${d} into ${n}. ${d} × ${t/d} = ${t} is the big chunk, then ${n-t} ÷ ${d}.`}
-    return `How many ${d}s make ${n}? Count in ${d}s: ${d}, ${d*2}, ${d*3}…`}
-  return 'Read it again slowly.'}
-let coachT=null,coachStage=0;
-function showCoach(txt){document.getElementById('coachTxt').textContent=txt;document.getElementById('coach').classList.add('in')}
-function hideCoach(){document.getElementById('coach').classList.remove('in')}
-function coachWatch(){clearInterval(coachT);coachStage=0;hideCoach();
-  coachT=setInterval(()=>{if(locked||over)return;const idle=(Date.now()-t0)/1000;
-    if(mode==='practice'||mode==='warmup'){if(coachStage===0&&idle>=5){coachStage=1;showCoach('Hint: '+hintFor(cur))}}
-    else{if(coachStage===0&&idle>=5){coachStage=1;showCoach(pick(NUDGES))}else if(coachStage===1&&idle>=11){coachStage=2;showCoach(pick(TACTICS))}else if(coachStage===2&&idle>=18){coachStage=3;showCoach(hintFor(cur))}}},400)}
-
-/* ---------- adaptive difficulty ---------- */
-const MAX_MATCHES=3;
-const yday=()=>{const d=new Date();d.setDate(d.getDate()-1);return dkey(d)};
-function tierOf(li){return Math.max(0,Math.min(2,(store.tiers||[])[li]|0))}
-function shouldSkip(key){const f=(store.facts||{})[key];if(!f)return false;const today=dkey(new Date());
-  if(f.fast>=2&&f.lastCorrect!==today)return Math.random()<.9;          // mastered fast twice: rest it
-  if(f.lastCorrect===yday()&&(f.miss|0)===0)return Math.random()<.8;    // got it yesterday: mostly skip
-  return false}
-function goldenAllowed(){const wa=weekAgg();return wa.shots>=20&&wa.acc>=.85}
-function genFor(li){let q;const golden=mode==='match'&&goldenAllowed()&&tierOf(li)<2&&qi%6===0&&qi>0;
-  for(let i=0;i<15;i++){q=genRaw(li,tierOf(li)+(golden?1:0));if(golden||!shouldSkip(q.key))break}
-  if(golden)q.golden=true;return q}
-function factUpdate(q,correct,secs){store.facts=store.facts||{};const f=store.facts[q.key]||(store.facts[q.key]={seen:0,fast:0,miss:0,lastCorrect:''});
-  f.seen++;if(correct){f.lastCorrect=dkey(new Date());if(secs<3)f.fast++}else f.miss++}
-let lvStats=[];  // per level this match: {goals,fast,shots}
-function noteLevel(li,correct,secs){const s=lvStats[li]||(lvStats[li]={goals:0,fast:0,shots:0});s.shots++;if(correct){s.goals++;if(secs<3)s.fast++}}
-/* weekly plan: tiers fixed for the week, reviewed on Monday */
-function weekStart(d){const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return dkey(x)}
-function ensureWeek(){const ws=weekStart(new Date());store.weekStats=store.weekStats||{};
-  if(!store.week||store.week.start!==ws){
-    const prev=store.week;let tiers=[0,0,0,0,0,0,0],notes=[];
-    if(prev){store.seasons=store.seasons||{};store.seasons[prev.start]={number:prev.number,tiers:prev.tiers,notes:prev.notes||[]}}
-    if(prev){const st=store.weekStats[prev.start]||[];tiers=prev.tiers.slice();
-      st.forEach((x,li)=>{if(!x||x.shots<15)return;const acc=x.goals/x.shots,fast=x.goals?x.fast/x.goals:0;const t=tiers[li]|0;
-        if(acc>=.85&&fast>=.6&&t<2){tiers[li]=t+1;notes.push(`L${li+1} ↑ ${TIER_NAMES[t+1]}`)}else if(acc<.65&&t>0){tiers[li]=t-1;notes.push(`L${li+1} ↓ ${t-1?TIER_NAMES[t-1]:'normal'}`)}})}
-    if(prev)store.seasons[prev.start].notes=notes;
-    store.week={start:ws,number:prev?(prev.number|0)+1:1,tiers,notes};store.tiers=tiers.slice();
-    if(!prev)backfillWeek(ws);save()}
-  else store.tiers=store.week.tiers.slice()}
-/* one-off: rebuild this week's stats from the match logs of days played before weekly tracking existed */
-function backfillWeek(ws){if((store.weekStats[ws]||[]).length)return;const st=[];let any=false;
-  const fastTotal=Object.values(store.facts||{}).reduce((a,f)=>a+(f.fast|0),0);let goalsTotal=0;const matches=[];
-  Object.entries(store.logs||{}).forEach(([d,lines])=>{if(d<ws)return;lines.forEach(l=>{const m=l.match(/^MATCH \d+: .*?(\d+) goals×3 .*?\| shots (\d+)/);if(m){matches.push({goals:+m[1],shots:+m[2]});goalsTotal+=+m[1]}})});
-  matches.forEach(({goals,shots})=>{any=true;const fast=goalsTotal?Math.round(goals/goalsTotal*Math.min(fastTotal,goalsTotal)):0;const tot=QCOUNT.reduce((a,b)=>a+b,0);
-    QCOUNT.forEach((q,li)=>{const share=Math.min(shots,tot)?q/tot:0;const e=st[li]=st[li]||{shots:0,goals:0,fast:0};e.shots+=Math.round(shots*share);e.goals+=Math.round(goals*share);e.fast+=Math.round(fast*share)})});
-  if(any)store.weekStats[ws]=st}
-function weekSummary(ws){const days=store.days||{},td=(store.tactics||{}).days||{};const st=(store.weekStats||{})[ws]||[];let sh=0,g=0,f=0;st.forEach(x=>{if(!x)return;sh+=x.shots;g+=x.goals;f+=x.fast});
-  const cols=[0,1,2,3,4,5,6].map(i=>{const d=new Date(ws);d.setDate(d.getDate()+i);const k=dkey(d);return {m:(days[k]&&days[k].pts)|0,t:(td[k]||{}).pts|0}});
-  const m=cols.reduce((a,c)=>a+c.m,0),t=cols.reduce((a,c)=>a+c.t,0);const arc=(store.seasons||{})[ws]||{};
-  return {ws,cols,m,t,grand:m+t,acc:sh?g/sh:0,fastR:g?f/g:0,shots:sh,goals:g,days:cols.filter(c=>c.m).length,tiers:arc.tiers,number:arc.number,notes:arc.notes,weekend:((store.tactics||{}).weekend||{})[ws]}}
-function drawSeason(){const B=document.getElementById('seasonBox');if(!B)return;const cur=weekStart(new Date());const weeks=new Set(Object.keys(store.days||{}).map(k=>weekStart(new Date(k+'T12:00:00'))));Object.keys(store.seasons||{}).forEach(k=>weeks.add(k));
-  const list=[...weeks].filter(w=>w<cur).sort().reverse();if(!list.length){B.innerHTML='<p class="small">The first finished week appears here next Monday.</p>';return}
-  B.innerHTML=list.map(ws=>{const w=weekSummary(ws);const d=new Date(ws);const e=new Date(ws);e.setDate(e.getDate()+6);const fmt=x=>`${x.getDate()}/${x.getMonth()+1}`;
-    return `<div style="background:#eef1f8;border-radius:12px;padding:10px 12px;margin:8px 0;color:var(--ink)"><b style="color:var(--navy)">Week ${w.number||'?'} · ${fmt(d)}–${fmt(e)}</b> <span style="float:right;font-weight:900;color:var(--navy)">Grand ${w.grand}</span>
-    <table style="width:100%;border-collapse:collapse;margin:6px 0 4px;font-size:12px;text-align:center;table-layout:fixed"><tr>${['M','T','W','T','F','S','S'].map((n,i)=>`<td style="padding:2px;color:#4a5670;font-weight:700">${n}</td>`).join('')}</tr><tr>${w.cols.map(c=>`<td style="font-weight:800;color:var(--navy)">${c.m||'–'}</td>`).join('')}</tr><tr>${w.cols.map(c=>`<td style="font-size:11px;color:#8b5a2b;font-weight:700">${c.t?'📋'+c.t:''}</td>`).join('')}</tr></table>
-    <span class="small">Match ${w.m} · 📋 Tactics ${w.t} · ${w.days} match day${w.days===1?'':'s'} · ${w.shots?`${Math.round(w.acc*100)}% accuracy, ${Math.round(w.fastR*100)}% under 3s`:'no penalty stats'}${w.weekend?' · weekend ✓':''}${w.tiers?` · levels ${w.tiers.map(t=>['N','★','★★'][t]).join(' ')}`:''}${w.notes&&w.notes.length?`<br>Monday review: ${w.notes.join(', ')}`:''}</span></div>`}).join('')}
-function weekAgg(){const ws=weekStart(new Date());const st=store.weekStats[ws]||[];let sh=0,g=0,f=0;st.forEach(x=>{if(!x)return;sh+=x.shots;g+=x.goals;f+=x.fast});return {shots:sh,goals:g,fast:f,acc:sh?g/sh:0,fastR:g?f/g:0}}
-function recordWeek(){const ws=weekStart(new Date());const st=store.weekStats[ws]=store.weekStats[ws]||[];lvStats.forEach((x,li)=>{if(!x)return;const e=st[li]=st[li]||{shots:0,goals:0,fast:0};e.shots+=x.shots;e.goals+=x.goals;e.fast+=x.fast})}
-function daysPlayedThisWeek(){const ws=weekStart(new Date());return Object.keys(store.days||{}).filter(k=>k>=ws&&(store.days[k].pts|0)>0).length}
-function retierOLD(){store.tiers=store.tiers||[0,0,0,0,0,0,0];store.tierGood=store.tierGood||[0,0,0,0,0,0,0];const ch=[];const td=dkey(new Date());let upToday=(store.tierUpDate===td);
-  lvStats.forEach((st,li)=>{if(!st||st.shots<4)return;const t=store.tiers[li]|0;const good=st.goals/st.shots>=.85&&st.fast/st.goals>=.7;
-    if(good){store.tierGood[li]=(store.tierGood[li]|0)+1;
-      if(store.tierGood[li]>=2&&t<2&&!upToday){store.tiers[li]=t+1;store.tierGood[li]=0;store.tierUpDate=td;upToday=true;ch.push(`L${li+1} ↑ ${TIER_NAMES[t+1]}`)}}
-    else{store.tierGood[li]=0;if(st.goals/st.shots<.6&&t>0){store.tiers[li]=t-1;ch.push(`L${li+1} ↓ ${t-1?TIER_NAMES[t-1]:'normal'}`)}}});
-  return ch}
-function dayLog(line){store.logs=store.logs||{};const t=dkey(new Date());(store.logs[t]=store.logs[t]||[]).push(line);const keep=Object.keys(store.logs).sort().slice(-7);for(const k of Object.keys(store.logs))if(!keep.includes(k))delete store.logs[k]}
-function buildDayReport(){const t=dkey(new Date());const d=(store.days||{})[t]||{};const lines=(store.logs||{})[t]||[];
-  return `PENALTY SHOOTOUT – ${new Date().toLocaleDateString('en-GB')}\nBest of the day: ${d.pts|0} pts (${d.goals|0} goals, level ${d.level|0}, ${d.left|0} min left) | matches ${d.plays|0}/${MAX_MATCHES} | tactics ${(((store.tactics||{}).days||{})[t]||{}).pts|0} pts | practice list now ${bankCount()} | tiers ${(store.tiers||[]).join('')}\n`+lines.join('\n')}
-function shareReport(){const t=buildDayReport();if(navigator.share){navigator.share({title:'Penalty Shootout report',text:t}).catch(()=>copyText(t,'Report copied – paste it to Coach.'))}else copyText(t,'Report copied – paste it to Coach.')}
-function dayDone(){return playsToday()>=MAX_MATCHES}
-function resetAll(){const a=prompt('This wipes the week table, practice list, difficulty and today\'s matches on this phone. Type RESET to confirm.');if(a!=='RESET')return;try{localStorage.removeItem('yigitPenalty_v2')}catch(e){}store={};location.reload()}
-function playsToday(){const d=(store.days||{})[dkey(new Date())];return d?(d.plays|0):0}
-
-/* ---------- warm-up (yesterday's weak spots) ---------- */
-function qFromKey(k){const m=k.match(/^(\d+)x(\d+)$/),d=k.match(/^(\d+)\/(\d+)$/),q=k.match(/^\?(\d+)=(\d+)$/);
-  if(m)return mulQ(+m[1],+m[2]);if(d)return divQ(+d[1]/+d[2],+d[2]);if(q)return missQ(+q[2]/+q[1],+q[1]);return null}
-function weakFacts(){const f=store.facts||{};return Object.entries(f).filter(([k,v])=>v.miss>0&&(v.fast<2||v.miss>=2)&&(()=>{const q=qFromKey(k);return q&&inLevel(q.txt)})()).map(([k,v])=>({k,w:v.miss*2-v.fast})).sort((a,b)=>b.w-a.w).slice(0,15).map(x=>x.k)}
-function warmDone(){return !!((store.warm||{})[dkey(new Date())])}
-function warmNeeded(){return !warmDone()&&(weakFacts().length>0||(store.days&&Object.keys(store.days).length>0))}
-function partQ(){const d=r(3,6),a=r(13,19);return Math.random()<.6?mulQ(a,d):divQ(a,d)}
-function lessonHTML(){const ex=[[14,3],[16,4],[75,5]];return `<b>Split it, then add.</b><br>
- <span style="font-family:monospace;display:block;margin:6px 0">14 × 3 → 10×3 = 30, 4×3 = 12 → <b>42</b><br>16 × 4 → 10×4 = 40, 6×4 = 24 → <b>64</b><br>75 ÷ 5 → 50÷5 = 10, 25÷5 = 5 → <b>15</b></span>
- Big number? Break off the tens first. The rest is a times table you already know.`}
-let wQueue=[],wDone=0,wGoals=0;
-function warmLesson(){show('tactics');tac.phase='warmlesson';document.getElementById('tacTitle').textContent='Warm-up · Ancelotti\'s board';document.getElementById('tacClock').textContent='';document.getElementById('tacProg').innerHTML='';
-  document.getElementById('tacBoard').innerHTML='<h3>Split it, then add</h3>'+lessonHTML().replace(/<b>Split it, then add.<\/b><br>/,'');document.getElementById('tacSay').textContent='Read the board once. Then we warm up – tap Start.';
-  document.getElementById('tacQ').style.display='none';const n=document.getElementById('tacNext');n.style.display='';n.textContent='Start the warm-up ▶';document.getElementById('tacExit').style.display='none'}
-function startWarmup(){document.getElementById('tacNext').textContent='Next ▶';
-  const keys=weakFacts();
-  const weak=keys.map(qFromKey).filter(Boolean).sort(()=>Math.random()-.5).slice(0,7);
-  const part=[];const seen=new Set();while(part.length<8){const q=partQ();if(!seen.has(q.txt)){seen.add(q.txt);part.push(q)}}
-  mode='warmup';wQueue=part.concat(weak);wDone=0;wGoals=0;lvRes=[];
-  goals=0;shots=0;streak=0;log=[];over=false;
-  document.getElementById('exitBtn').style.display='none';window.onbeforeunload=null;
-  show('game');SFX.init();SFX.crowd(true);SFX.whistle(1);
-  document.getElementById('lvLbl').textContent='Warm-up';document.getElementById('clock').textContent='';document.getElementById('climit').textContent='';document.getElementById('cbar').style.width='0';
-  document.getElementById('bscore').textContent='0 – 0';
-  nextShot();
+/* ---- Save / Load (JSON file, like Goal Matics) ---- */
+function seasonText(){let st={days:{}};try{st=JSON.parse(localStorage.getItem(KEY))||st}catch(e){}return JSON.stringify({app:"ya-season",exported:new Date().toISOString(),data:st},null,1);}
+function saveFile(){const text=seasonText();const name=`yigit-season-${new Date().toISOString().slice(0,10)}.json`;const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type:"application/json"}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1000);}
+const COACH_WHATSAPP="447341974350";
+function sendSeasonToBaba(){window.location.href="https://wa.me/"+COACH_WHATSAPP+"?text="+encodeURIComponent(seasonText());}
+function loadFile(inp){
+  const f=inp.files[0];if(!f)return;const rd=new FileReader();
+  rd.onload=()=>{try{const j=JSON.parse(rd.result);const data=j.data||j;if(!data.days)throw 0;
+    let st={days:{}};try{st=JSON.parse(localStorage.getItem(KEY))||st}catch(e){}
+    Object.entries(data.days).forEach(([k,v])=>{st.days[k]=Object.assign({},st.days[k]||{},v)});
+    localStorage.setItem(KEY,JSON.stringify(st));alert("Season loaded ✓");location.reload();}catch(e){alert("That file isn't a season save.");}};
+  rd.readAsText(f);inp.value="";
 }
-function finishWarmup(){
-  clearInterval(clockT);clearInterval(coachT);hideCoach();over=true;SFX.whistle(3);setTimeout(()=>SFX.crowd(false),2500);
-  store.warm=store.warm||{};store.warm[dkey(new Date())]=true;save();show('result');
-  document.getElementById('rPts').textContent=wGoals;document.querySelector('#result .big + div').textContent='goals in the warm-up';
-  document.getElementById('rGoals').textContent=wGoals;document.getElementById('rTime').textContent=wDone-wGoals;document.getElementById('rLv').textContent=weakFacts().length;
-  document.querySelector('#rTime + span').textContent='saved';document.querySelector('#rLv + span').textContent='still weak';
-  document.getElementById('rBadge').textContent='Warmed up – match unlocked';
-  document.getElementById('rTxt').textContent=wDone-wGoals===0?'Every one of yesterday\'s saves went in. Now the real thing.':'Good. The ones that got saved again will be back tomorrow morning.';
-  document.getElementById('weekResult').innerHTML=weekTable();document.getElementById('extraBox').style.display='none';
-  dayLog(`WARM-UP: ${wGoals}/${wDone} goals`);save();document.getElementById('dayBox').style.display='none';document.getElementById('dayHint').textContent='';
-}
-
-
-/* ---------- update check (GitHub Pages caches hard) ---------- */
-const APP_VERSION='v20';
-(function(){if(location.protocol!=='https:'&&location.protocol!=='http:')return;
-  fetch(location.pathname+'?_='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/id="appVer">(v\d+)</);if(m&&m[1]!==APP_VERSION){const tt=document.getElementById('toast');tt.innerHTML=`New version ${m[1]} is ready – <u>tap to update</u>`;tt.style.display='block';tt.style.cursor='pointer';tt.onclick=()=>location.replace(location.pathname+'?v='+m[1]+'&_='+Date.now())}}).catch(()=>{})})();
-
-/* ================= TACTICS ROOM ================= */
-const fmtN=n=>Number.isInteger(n)?String(n):String(+n.toFixed(3));
-const TOPICS=[
- {id:'x10-100-1000',week:'2026-09-07',title:'Multiplying by 10, 100 and 1000',
-  slides:[
-   `<h3>Multiplying by 10, 100, 1000</h3><p>The digits move to the <b>LEFT</b>. ×10 = one place, ×100 = two, ×1000 = three.</p><div class="row"><span class="cell">5.13</span><span class="arrow">×10 →</span><span class="cell hl">51.3</span><span class="arrow">×10 →</span><span class="cell hl">513</span><span class="arrow">×10 →</span><span class="cell hl">5130</span></div><p>When a column empties, fill it with a <b>0</b>.</p>`,
-   `<h3>Decimals do the same</h3><div class="big">72.5 × 100 = 7250</div><div class="row"><span class="cell"><span class="pvhead">T</span>7</span><span class="cell"><span class="pvhead">O</span>2</span><span class="cell"><span class="pvhead">.</span>.</span><span class="cell"><span class="pvhead">t</span>5</span></div><p class="center">two places left ↓</p><div class="row"><span class="cell hl"><span class="pvhead">Th</span>7</span><span class="cell hl"><span class="pvhead">H</span>2</span><span class="cell hl"><span class="pvhead">T</span>5</span><span class="cell hl"><span class="pvhead">O</span>0</span></div><p>The point never moves – the <b>digits</b> move.</p>`,
-   `<h3>Place value</h3><div class="big">5,967,431.32</div><div class="row"><span class="cell"><span class="pvhead">M</span>5</span><span class="cell"><span class="pvhead">HTh</span>9</span><span class="cell hl"><span class="pvhead">TTh</span>6</span><span class="cell"><span class="pvhead">Th</span>7</span><span class="cell"><span class="pvhead">H</span>4</span><span class="cell"><span class="pvhead">T</span>3</span><span class="cell"><span class="pvhead">O</span>1</span><span class="cell"><span class="pvhead">t</span>3</span><span class="cell"><span class="pvhead">h</span>2</span></div><p>Ten thousands column → <b>6</b>. Read the columns from the point outwards.</p>`,
-   `<h3>Square numbers to 100</h3><div class="row">${[1,2,3,4,5,6,7,8,9,10].map(n=>`<span class="cell">${n*n}</span>`).join('')}</div><p>A square number is <b>n × n</b>: 7² = 7 × 7 = 49. √64 asks "what times itself makes 64?" → 8.</p>`,
-   `<h3>Round-up problems</h3><p>One table seats 8. How many tables for 40 people? <b>40 ÷ 8 = 5</b>.</p><p>For 42 people: 42 ÷ 8 = 5 remainder 2 → you need <b>6</b> tables. A person can't sit at half a table – round UP.</p>`
-  ],
-  gens:[
-   ()=>{const a=r(12,999),m=pick([10,100,1000]);return {txt:`${a} × ${m}`,ans:a*m,dis:[a*10,a*100,a*1000,a*m*10,a*m/10,a*m+a],why:`${a} × ${m}: move the digits ${m===10?'one place':m===100?'two places':'three places'} left and fill with zeros → ${a*m}.`}},
-   ()=>{const a=+(r(11,999)/pick([10,100])).toFixed(2),m=pick([10,100,1000]);const ans=+(a*m).toFixed(3);return {txt:`${a} × ${m}`,ans,dis:[+(a*10).toFixed(3),+(a*100).toFixed(3),+(a*1000).toFixed(3),+(a*m*10).toFixed(3),+(a*m/10).toFixed(3),+(a*m/100).toFixed(3)],why:`${a} × ${m}: the digits move ${m===10?'one place':m===100?'two places':'three places'} left. ${a} → ${ans}. The point stays, the digits move.`}},
-   ()=>{const n=r(1000000,9999999);const cols=[['millions',6],['hundred thousands',5],['ten thousands',4],['thousands',3],['hundreds',2],['tens',1],['ones',0]];const [name,pos]=pick(cols);const str=String(n);const digit=+str[str.length-1-pos];const others=[...new Set(str.split('').map(Number))].filter(d=>d!==digit);return {txt:`Which digit is in the ${name} column?`,sub:n.toLocaleString('en-GB'),ans:digit,dis:others.length?others:[digit+1,digit-1,9-digit],why:`${n.toLocaleString('en-GB')}: count columns from the right – ones, tens, hundreds, thousands, ten thousands… The ${name} column holds ${digit}.`}},
-   ()=>{const n=r(2,12);return Math.random()<.5?{txt:`${n}²`,ans:n*n,dis:[n*2,n*n+1,n*n-1,(n+1)*(n+1),(n-1)*(n-1),n*n+10],why:`${n}² means ${n} × ${n} = ${n*n}.`}:{txt:`√${n*n}`,ans:n,dis:[n+1,n-1,n*2,n*n/2,n+2,Math.abs(n-2)],why:`√${n*n}: which number times itself makes ${n*n}? ${n} × ${n} = ${n*n}, so ${n}.`}},
-   ()=>{const sq=[1,4,9,16,25,36,49,64,81,100];const ans=pick(sq);const non=[r(2,99)].filter(x=>!sq.includes(x));const dis=[];while(dis.length<5){const x=r(2,99);if(!sq.includes(x)&&!dis.includes(x))dis.push(x)}return {txt:'Which is a square number?',ans,dis,why:`Square numbers: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100. ${ans} = ${Math.sqrt(ans)} × ${Math.sqrt(ans)}.`}},
-   ()=>{const a=r(2000,9999),b=r(100,999);return {txt:`${a} − ${b}`,ans:a-b,dis:[a-b+10,a-b-10,a-b+100,a-b-100,a-b+1,a+b],why:`${a} − ${b}: column subtraction. Take ${Math.floor(b/100)*100} first → ${a-Math.floor(b/100)*100}, then the rest ${b%100} → ${a-b}.`}},
-   ()=>{const seat=pick([4,6,8]),people=r(3,12)*seat+pick([0,0,1,2,3]);const ans=Math.ceil(people/seat);return {txt:`Tables seat ${seat}. How many tables for ${people} people?`,ans,dis:[ans-1,ans+1,Math.floor(people/seat)-1,ans+2,people-seat,seat],why:`${people} ÷ ${seat} = ${Math.floor(people/seat)}${people%seat?` remainder ${people%seat} → round UP to ${ans}`:` exactly`}. Nobody sits at half a table.`}},
-  ]},
-];
-function currentTopics(){return TOPICS}  // all packs stay active; newest first in briefing
-let tac={mode:'',slides:[],si:0,queue:[],qi:0,cur:null,hits:0,miss:[],pts:0,clockT:null,left:0,total:0,locked:false};
-function tacIsWeekend(){const d=new Date().getDay();return d===0||d===6}
-function tacDone(){return ((store.tactics||{}).days||{})[dkey(new Date())]}
-function drawTactics(){const T=TOPICS[TOPICS.length-1];document.getElementById('tacTopic').textContent=`This week at school: ${T.title}`;
-  const d=tacDone(),we=tacIsWeekend();const wk=(store.tactics||{}).weekend||{};const weDone=wk[weekStart(new Date())];
-  document.getElementById('tacStatus').innerHTML=(d?`Done today: ${d.hits}/${d.shots} in the quiz, +${d.pts} tactics points. `:'')+(we?(weDone?'Weekend Tactics ✓ complete.':'<b>Weekend Tactics</b> – all topics mixed, 15 questions.'):'Weekday: briefing on the board + 10 set-pieces + 8-question match plan.')+` · Tactics points this week: <b>${tacWeekPts()}</b>`;
-  document.getElementById('tacBtnTxt').textContent=we&&!weDone?'Weekend Tactics – kick it off':d?'Tactics Room – play again (optional)':'Enter the Tactics Room';}
-function tacWeekPts(){const ws=weekStart(new Date());return Object.entries((store.tactics||{}).days||{}).filter(([k])=>k>=ws).reduce((a,[,v])=>a+(v.pts|0),0)}
-function tacGen(all){const T=all?TOPICS:[TOPICS[TOPICS.length-1]];const t=pick(T);let q;for(let i=0;i<10;i++){q=pick(t.gens)();if(q)break}q.ans=+(+q.ans).toFixed(3);return q}
-function tacticsStart(){
-  const we=tacIsWeekend();const ws=weekStart(new Date());const firstThisWeek=!Object.keys((store.tactics||{}).days||{}).some(k=>k>=ws);
-  tac={mode:we?'weekend':'weekday',slides:(we&&!firstThisWeek)?[]:TOPICS[TOPICS.length-1].slides.slice(),si:0,queue:[],qi:0,cur:null,hits:0,miss:[],pts:0,clockT:null,left:0,total:0,locked:false,phase:'brief'};
-  // missed from previous tactics sessions first
-  const prev=((store.tactics||{}).missed||[]).slice(0,4).map(x=>Object.assign({},x));
-  tac.drill=prev.concat(Array.from({length:(we&&!firstThisWeek)?0:10-prev.length},()=>tacGen(false)));
-  tac.quiz=Array.from({length:we?15:8},()=>tacGen(we));
-  show('tactics');SFX.init();document.getElementById('tacExit').style.display='block';document.getElementById('tacClock').textContent='';
-  document.getElementById('tacTitle').textContent=we?'Weekend Tactics':'Tactics Room · '+TOPICS[TOPICS.length-1].title;
-  if(tac.slides.length)tacShowSlide();else if(tac.drill.length)tacStartDrill();else tacStartQuiz();
-}
-function tacShowSlide(){tac.phase='brief';document.getElementById('tacQ').style.display='none';document.getElementById('tacNext').style.display='';
-  document.getElementById('tacBoard').innerHTML=tac.slides[tac.si];document.getElementById('tacSay').textContent=['Read the board. Tap Next when it makes sense.','Every column has a name. Say them out loud.','Digits move, the point stays. Simple.','Learn these ten like you know the 5 times table.','Last one, then we train.'][tac.si]||'Next.';
-  tacProg(tac.slides.length,tac.si,[]);}
-function tacNext(){if(tac.phase==='warmlesson'){startWarmup();return}if(tac.phase==='brief'){tac.si++;if(tac.si<tac.slides.length)tacShowSlide();else tacStartDrill()}else if(tac.phase==='explain'){tacAsk()}}
-function tacStartDrill(){tac.phase='drill';tac.queue=tac.drill;tac.qi=0;tac.res=[];document.getElementById('tacSay').textContent='Set-pieces. No clock. Get one wrong and I show you on the board.';document.getElementById('tacBoard').innerHTML='<h3>Set-pieces</h3><p>10 questions from the board. Take your time.</p>';tacAsk()}
-function tacStartQuiz(){tac.phase='quiz';tac.queue=tac.quiz;tac.qi=0;tac.res=[];tac.total=tac.mode==='weekend'?90:60;tac.left=tac.total;
-  document.getElementById('tacSay').textContent=tac.mode==='weekend'?'All the week\'s topics, 15 questions, 90 seconds. Match plan.':'Match plan: 8 questions, 60 seconds. This one counts.';
-  document.getElementById('tacBoard').innerHTML=`<h3>${tac.mode==='weekend'?'Weekend Tactics':'Match plan'}</h3><p>Points: 3 per correct + 1 per second left at the end.</p>`;
-  const st=Date.now();clearInterval(tac.clockT);tac.clockT=setInterval(()=>{tac.left=Math.max(0,tac.total-(Date.now()-st)/1000);document.getElementById('tacClock').textContent=Math.ceil(tac.left)+'s';if(tac.left<=0){clearInterval(tac.clockT);if(!tac.locked)tacFinish()}},200);tacAsk()}
-function tacProg(n,i,res){const P=document.getElementById('tacProg');P.innerHTML='';for(let k=0;k<n;k++){const e=document.createElement('i');e.className=k<res.length?(res[k]?'hit':'miss'):k===i?'cur':'';P.appendChild(e)}}
-function tacAsk(){
-  if(tac.phase==='quiz'&&tac.left<=0)return tacFinish();
-  if(tac.qi>=tac.queue.length){if(tac.phase==='drill')return tacStartQuiz();return tacFinish()}
-  tac.cur=tac.queue[tac.qi];tac.phase=tac.phase==='explain'?'drill':tac.phase;tac.locked=false;
-  const q=tac.cur;document.getElementById('tacQ').style.display='block';document.getElementById('tacNext').style.display='none';
-  document.getElementById('tacQtxt').textContent=q.txt;document.getElementById('tacQsub').textContent=q.sub||'';document.getElementById('tacFb').textContent='';
-  const set=new Set([q.ans]);const ds=q.dis.map(x=>+(+x).toFixed(3)).filter(x=>isFinite(x)&&x!==q.ans&&x>=0).sort(()=>Math.random()-.5);for(const d of ds){if(set.size>=5)break;set.add(d)}let k=1;while(set.size<5){set.add(q.ans+k);k++}
-  const opts=[...set].sort(()=>Math.random()-.5);const O=document.getElementById('tacOpts');O.innerHTML='';opts.forEach(o=>{const b=document.createElement('button');b.className='opt';b.textContent=fmtN(o);b.onclick=()=>tacAnswer(o,b);O.appendChild(b)});
-  tacProg(tac.queue.length,tac.qi,tac.res);tac.t0=Date.now();
-}
-function tacAnswer(val,btn){
-  if(tac.locked)return;tac.locked=true;const q=tac.cur;const ok=val===q.ans;tac.res.push(ok);
-  document.querySelectorAll('#tacOpts .opt').forEach(b=>{b.disabled=true;if(b.textContent===fmtN(q.ans))b.classList.add('ok')});if(!ok)btn.classList.add('bad');
-  const fb=document.getElementById('tacFb');
-  if(ok){tac.hits++;fb.style.color='var(--good)';fb.textContent='Correct!';SFX.goal();tac.qi++;setTimeout(tacAsk,700)}
-  else{fb.style.color='var(--red)';fb.textContent=`Not quite – it is ${fmtN(q.ans)}`;SFX.save();tac.miss.push({txt:q.txt,sub:q.sub,ans:q.ans,dis:q.dis,why:q.why});
-    if(tac.phase==='drill'){tac.phase='explain';document.getElementById('tacBoard').innerHTML=`<h3>On the board</h3><p>${q.why}</p>`;document.getElementById('tacSay').textContent='Look at the board, then we go again.';tac.queue.splice(tac.qi+1,0,Object.assign({},q,{retry:true}));tac.qi++;document.getElementById('tacNext').style.display='';}
-    else{tac.qi++;setTimeout(tacAsk,1200)}}
-}
-function tacFinish(){
-  clearInterval(tac.clockT);tac.locked=true;const quizRes=tac.res;const hits=quizRes.filter(Boolean).length,shots=quizRes.length;const pts=hits*3+(tac.phase==='quiz'&&tac.qi>=tac.queue.length?Math.floor(tac.left):0);
-  store.tactics=store.tactics||{days:{},missed:[],weekend:{}};const t=dkey(new Date());const prev=store.tactics.days[t];
-  if(!prev||pts>prev.pts)store.tactics.days[t]={hits,shots,pts,mode:tac.mode};
-  if(tac.mode==='weekend'&&hits>=Math.ceil(shots*.6))store.tactics.weekend[weekStart(new Date())]=true;
-  // missed bank: keep unique, drop ones answered now
-  const m=(store.tactics.missed||[]).filter(x=>!tac.res.length||true);const seen=new Set(tac.miss.map(x=>x.txt));store.tactics.missed=tac.miss.concat(m.filter(x=>!seen.has(x.txt))).slice(0,20);
-  dayLog(`TACTICS (${tac.mode}): quiz ${hits}/${shots} | ${pts} pts`);save();
-  document.getElementById('tacQ').style.display='none';document.getElementById('tacNext').style.display='none';document.getElementById('tacClock').textContent='';
-  document.getElementById('tacBoard').innerHTML=`<h3>${tac.mode==='weekend'?'Weekend Tactics':'Match plan'} – done</h3><div class="big">${hits} / ${shots}</div><p class="center"><b>+${pts} tactics points</b></p>${tac.miss.length?`<p><b>To look at again:</b> ${[...new Set(tac.miss.map(x=>x.txt))].slice(0,6).join(' · ')}</p>`:'<p class="center">Nothing missed. Perfect plan.</p>'}`;
-  document.getElementById('tacSay').textContent=hits===shots?'Perfect. The plan is in your head now.':hits>=shots*.75?'Good session. The ones you missed come back next time.':'We go again tomorrow. Read the board once more before you leave.';
-  document.getElementById('tacExit').textContent='Back to the dressing room ▶';
-}
-function tacExit(){clearInterval(tac.clockT);show('menu');drawMenu();}
-
-/* ---------- practice bank ---------- */
-function bankAdd(q){store.practice=store.practice||[];const e=store.practice.find(x=>x.txt===q.txt);if(e){e.misses++;e.streak=0}else store.practice.push({txt:q.txt,ans:q.ans,misses:1,streak:0,added:dkey(new Date())})}
-function bankHit(q){const b=store.practice||[];const e=b.find(x=>x.txt===q.txt);if(!e)return null;e.streak++;if(e.streak>=2){store.practice=b.filter(x=>x!==e);store.cleared=store.cleared||{};const t=dkey(new Date());store.cleared[t]=(store.cleared[t]|0)+1;return 'cleared'}return 'progress'}
-function bankCount(){return (store.practice||[]).length}
-const GATE_MAX=12;
-/* items above this week's level are parked, not practised */
-function inLevel(txt){const t=store.tiers||[0,0,0,0,0,0,0];const m=txt.match(/^(\d+) × (\d+)$/),d=txt.match(/^(\d+) ÷ (\d+)$/),q=txt.match(/^\? × (\d+) = (\d+)$/);
-  if(m){const a=+m[1],b=+m[2],big=Math.max(a,b),sm=Math.min(a,b);if(big<=12)return true;if([2,5,10].includes(sm)&&big<=25)return true;if(sm>=3&&sm<=9&&big>=13&&big<=(t[6]>=2?99:t[6]===1?35:25))return true;if(big>=13&&big<=15&&sm<=12&&Math.max(t[0],t[1],t[2],t[5])>=1)return true;if(big%10===0&&Math.max(t[0],t[1],t[2],t[5])>=2)return true;return false}
-  if(d){const n=+d[1],dv=+d[2],qq=n/dv;if(qq<=12&&dv<=12)return true;if([2,5,10].includes(dv)&&qq<=25)return true;if(dv>=3&&dv<=9&&qq>=11&&qq<=(t[6]>=2?120:t[6]===1?40:24))return true;if(qq>=13&&qq<=15&&dv<=12&&Math.max(t[3],t[4],t[5])>=1)return true;return false}
-  if(q)return +q[1]<=12&&(+q[2]/+q[1])<=12;return true}
-function pruneParked(){const b=store.practice||[];const keep=[],park=store.parked||[];b.forEach(x=>{(inLevel(x.txt)?keep:park).push(x)});
-  const back=[];const rest=[];park.forEach(x=>{(inLevel(x.txt)?back:rest).push(x)});store.practice=keep.concat(back.filter(x=>!keep.some(k=>k.txt===x.txt)));const seen=new Set();store.parked=rest.filter(x=>seen.has(x.txt)?false:(seen.add(x.txt),true));save()}
-function gateList(){return (store.practice||[]).slice().sort((a,b)=>(b.misses-a.misses)||(a.streak-b.streak)).slice(0,GATE_MAX)}
-function clearedToday(){return ((store.cleared||{})[dkey(new Date())]|0)}
-function gateCount(){if(clearedToday()>=GATE_MAX)return 0;return Math.min(gateList().length,GATE_MAX-clearedToday())}
-function disFor(txt,ans){const m=txt.match(/(\d+)\s*([×÷])\s*(\d+)/);if(!m)return[ans+1,ans-1,ans+2,ans-2,ans+10];const a=+m[1],b=+m[3];
-  return m[2]==='×'?[(a+1)*b,(a-1)*b,a*(b+1),a*(b-1),ans+1,ans-1,ans+10,ans-10]:[ans+1,ans-1,ans+2,ans-2,ans+b,Math.abs(ans-b),ans*2,b]}
-function updateExtraUI(){const n=bankCount();const m=document.getElementById('extraMenu');if(m){m.style.display=n?'block':'none';m.style.opacity=clearedToday()>=GATE_MAX?'.6':'1';document.getElementById('extraMenuTxt').textContent=clearedToday()>=GATE_MAX?`Extra training done for today ✓ – ${n} left, optional`:`Extra training – ${Math.min(n,GATE_MAX-clearedToday())} to clear today (${n} on the list)`}}
-let mode='match',pQueue=[],pDone=0,pCleared=0,pGoals=0,lvRes=[],pOptional=false;
-function drawPens(total){const t=document.getElementById('target');let h='';for(let i=0;i<total;i++){h+=`<span class="pen ${i<lvRes.length?(lvRes[i]?'hit':'miss'):i===lvRes.length?'cur':'todo'}"></span>`}t.innerHTML=h}
-function startPractice(){
-  const b=store.practice||[];if(!b.length)return;
-  pOptional=clearedToday()>=GATE_MAX;
-  mode='practice';lvRes=[];pQueue=(pOptional?b.slice():gateList().slice(0,Math.max(1,GATE_MAX-clearedToday()))).sort(()=>Math.random()-.5).map(x=>({txt:x.txt,ans:x.ans,dis:disFor(x.txt,x.ans)}));pDone=0;pCleared=0;pGoals=0;
-  goals=0;shots=0;streak=0;log=[];over=false;
-  document.getElementById('exitBtn').style.display='block';document.getElementById('exitBtn').style.marginLeft='auto';document.getElementById('exitBtn').style.marginRight='auto';window.onbeforeunload=null;
-  show('game');SFX.init();SFX.crowd(true);SFX.whistle(1);
-  document.getElementById('lvLbl').textContent='Extra training';document.getElementById('clock').textContent='';document.getElementById('climit').textContent='';document.getElementById('cbar').style.width='0';
-  document.getElementById('bscore').textContent='0 – 0';
-  nextShot();
-}
-function exitPractice(){locked=true;over=true;clearInterval(coachT);hideCoach();finishPractice()}
-function finishPractice(){
-  document.getElementById('exitBtn').style.display='none';clearInterval(clockT);over=true;SFX.whistle(3);setTimeout(()=>SFX.crowd(false),2500);save();show('result');
-  document.getElementById('rPts').textContent=pGoals;document.querySelector('#result .big + div').textContent='goals in extra training';
-  document.getElementById('rGoals').textContent=pGoals;document.getElementById('rTime').textContent=pCleared;document.getElementById('rLv').textContent=bankCount();
-  document.querySelector('#rTime + span').textContent='cleared from list';document.querySelector('#rLv + span').textContent='still to practise';
-  document.getElementById('rBadge').textContent=pCleared?`${pCleared} cleared`:'Keep at it';
-  document.getElementById('rTxt').textContent=bankCount()?'Good extra work. The ones still on the list come back tomorrow.':'List empty. Nothing left for the keeper to save.';
-  document.getElementById('weekResult').innerHTML=weekTable();
-  const eb=document.getElementById('extraBox');eb.style.display=bankCount()?'block':'none';document.getElementById('extraTxt').textContent=clearedToday()>=GATE_MAX||!bankCount()?`Today's ${Math.min(GATE_MAX,clearedToday())} cleared – match unlocked. ${bankCount()} wait on the list for another day.`:`${GATE_MAX-clearedToday()} more to clear today to unlock the match.`;
-  dayLog(`EXTRA TRAINING: goals ${pGoals}/${pDone} | cleared ${pCleared} | remaining ${bankCount()}`);save();
-  document.getElementById('dayBox').style.display=dayDone()?'block':'none';document.getElementById('dayHint').textContent='';
-}
-
-/* ---------- state ---------- */
-const LEVEL_TIME=90;                 // seconds per level, shown as minutes
-const QCOUNT=[12,12,12,10,10,8,6];   // penalties per level (harder = fewer)
-let level=0,qi=0,pts=0,goals=0,shots=0,streak=0,best=0,log=[],missed=[],clockT=null,timeLeft=LEVEL_TIME,levelLimit=LEVEL_TIME,lastTick=0,t0=0,locked=false,cur=null,over=false;
-const SEED={"format": "yigit-penalty-save", "version": 1, "player": "Yigit Ali", "savedAt": "2026-09-12T20:03:29.508Z", "kit": "rm", "days": {"2026-09-08": {"pts": 606, "goals": 66, "level": 7, "left": 408, "plays": 3}, "2026-09-09": {"pts": 348, "goals": 31, "level": 7, "left": 255, "plays": 1}, "2026-09-11": {"pts": 495, "goals": 57, "level": 7, "left": 324, "plays": 1}}, "practice": [{"txt": "140 ÷ 7", "ans": 20, "misses": 1, "streak": 0, "added": "2026-09-11"}], "facts": {"6x10": {"seen": 3, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "10x11": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "5x9": {"seen": 3, "fast": 3, "miss": 0, "lastCorrect": "2026-09-08"}, "10x12": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "2x10": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-08"}, "4x10": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-08"}, "2x4": {"seen": 2, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "9x10": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-08"}, "7x10": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-08"}, "2x7": {"seen": 2, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "2x3": {"seen": 4, "fast": 4, "miss": 0, "lastCorrect": "2026-09-11"}, "4x11": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "4x4": {"seen": 2, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "3x3": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "3x12": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-08"}, "5x11": {"seen": 5, "fast": 4, "miss": 0, "lastCorrect": "2026-09-11"}, "8x12": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-08"}, "8x8": {"seen": 3, "fast": 2, "miss": 1, "lastCorrect": "2026-09-11"}, "7x8": {"seen": 3, "fast": 3, "miss": 0, "lastCorrect": "2026-09-08"}, "7x11": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "6x8": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-08"}, "6x6": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "3x6": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-08"}, "2x8": {"seen": 2, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "9x12": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-08"}, "8x9": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-08"}, "50/5": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "36/4": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "18/2": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "24/2": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "30/10": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "10/2": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "110/10": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "12/4": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "40/10": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "80/10": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "22/11": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "45/9": {"seen": 3, "fast": 1, "miss": 1, "lastCorrect": "2026-09-11"}, "108/9": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "42/6": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "77/11": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "28/7": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "30/6": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-10"}, "72/8": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-08"}, "96/12": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "132/12": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "3x10": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "4x6": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "36/9": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "48/12": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "64/8": {"seen": 4, "fast": 1, "miss": 2, "lastCorrect": "2026-09-11"}, "24/8": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "4x25": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-08"}, "4x14": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-08"}, "8x21": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-08"}, "33/3": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "90/6": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-08"}, "9x19": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "10x17": {"seen": 2, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "2x17": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-08"}, "10x19": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "5x16": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-09"}, "10x15": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-11"}, "5x14": {"seen": 2, "fast": 0, "miss": 1, "lastCorrect": "2026-09-09"}, "10x13": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "2x14": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "2x16": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-09"}, "5x18": {"seen": 3, "fast": 0, "miss": 1, "lastCorrect": "2026-09-11"}, "2x18": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "2x19": {"seen": 2, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "4x19": {"seen": 3, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "3x13": {"seen": 3, "fast": 0, "miss": 1, "lastCorrect": "2026-09-11"}, "3x18": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-09"}, "3x14": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "3x19": {"seen": 2, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "3x17": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "2x15": {"seen": 3, "fast": 0, "miss": 2, "lastCorrect": "2026-09-10"}, "3x16": {"seen": 2, "fast": 0, "miss": 1, "lastCorrect": "2026-09-11"}, "9x14": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "7x16": {"seen": 2, "fast": 0, "miss": 1, "lastCorrect": "2026-09-09"}, "8x18": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-09"}, "7x19": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-09"}, "6x19": {"seen": 2, "fast": 1, "miss": 1, "lastCorrect": "2026-09-11"}, "6x16": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-09"}, "9x18": {"seen": 3, "fast": 0, "miss": 1, "lastCorrect": "2026-09-11"}, "8x14": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "9x17": {"seen": 4, "fast": 0, "miss": 2, "lastCorrect": "2026-09-11"}, "8x17": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "9x15": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "170/10": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-09"}, "160/10": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "80/5": {"seen": 2, "fast": 0, "miss": 1, "lastCorrect": "2026-09-09"}, "60/3": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "75/5": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "65/5": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "42/3": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "56/4": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "209/11": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "143/11": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "152/8": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "165/11": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "108/6": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-09"}, "114/6": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "133/7": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "144/8": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "84/6": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "135/9": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "120/6": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "39/3": {"seen": 2, "fast": 0, "miss": 1, "lastCorrect": "2026-09-10"}, "7x14": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "4x13": {"seen": 2, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "126/7": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "52/4": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "48/3": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "12x17": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "119/7": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "8x25": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "84/7": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-09"}, "7x15": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-09"}, "8x20": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-09"}, "4x15": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-10"}, "5x17": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-10"}, "64/4": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-10"}, "4x17": {"seen": 2, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "70/5": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-10"}, "57/3": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "3x15": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "2x11": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "5x7": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "5x8": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "5x10": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "2x5": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "5x12": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "2x9": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "4x5": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "4x7": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "3x11": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "4x12": {"seen": 2, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "4x9": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "8x11": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "7x7": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "6x12": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "7x9": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "2x6": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "12/2": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "48/4": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "10/5": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "24/4": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "50/10": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "15/5": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "8/4": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "70/7": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "96/8": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "84/12": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "121/11": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "16/8": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "80/8": {"seen": 2, "fast": 2, "miss": 0, "lastCorrect": "2026-09-11"}, "48/6": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "54/9": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "18/9": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "35/7": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "120/12": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "3x7": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "48/8": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "6x11": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "90/9": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "32/8": {"seen": 1, "fast": 1, "miss": 0, "lastCorrect": "2026-09-11"}, "90/5": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "105/7": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "5x20": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "36/3": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}, "95/5": {"seen": 1, "fast": 0, "miss": 0, "lastCorrect": "2026-09-11"}, "140/7": {"seen": 1, "fast": 0, "miss": 1, "lastCorrect": ""}}, "tiers": [0, 0, 0, 0, 0, 0, 0], "week": {"start": "2026-09-07", "number": 1, "tiers": [0, 0, 0, 0, 0, 0, 0], "notes": []}, "weekStats": {"2026-09-07": [{"shots": 37, "goals": 29, "fast": 24}, {"shots": 37, "goals": 29, "fast": 21}, {"shots": 37, "goals": 24, "fast": 16}, {"shots": 31, "goals": 23, "fast": 17}, {"shots": 31, "goals": 20, "fast": 17}, {"shots": 24, "goals": 18, "fast": 11}, {"shots": 18, "goals": 12, "fast": 6}]}, "logs": {"2026-09-08": ["MATCH 1: 606 pts = 66 goals×3 + 408 min | shots 70 | reached L7 (all levels) | streak 26 | L1 ↑ harder, L2 ↑ harder, L3 ↑ harder, L4 ↑ harder, L5 ↑ harder, L6 ↑ harder | saved: 8 × 8, 45 ÷ 9, 30 ÷ 6, 64 ÷ 8", "EXTRA TRAINING: goals 9/11 | cleared 4 | remaining 0", "MATCH 2: 9 pts = 3 goals×3 + 0 min | shots 4 | reached L1 (time out) | streak 3 | saved: none"], "2026-09-09": ["MATCH 1: 348 pts = 31 goals×3 + 255 min | shots 70 | reached L7 (all levels) | streak 4 | L2 ↓ normal, L3 ↓ normal, L4 ↓ normal, L5 ↓ normal, L6 ↓ normal | saved: 5 × 16, 10 × 15, 14 × 5, 5 × 18, 13 × 3, 3 × 18, 14 × 3, 14 × 4, 2 × 15, 16 × 3, 15 × 2, 7 × 16, 19 × 6, 9 × 18, 8 × 14, 17 × 9, 8 × 17, 160 ÷ 10, 80 ÷ 5, 60 ÷ 3, 75 ÷ 5, 65 ÷ 5, 42 ÷ 3, 209 ÷ 11, 152 ÷ 8, 114 ÷ 6, 133 ÷ 7, 144 ÷ 8, 84 ÷ 6, 120 ÷ 6, 39 ÷ 3, 7 × 14, 126 ÷ 7, 52 ÷ 4, 48 ÷ 3, 17 × 12, 119 ÷ 7, 25 × 8, 17 × 9"], "2026-09-10": ["EXTRA TRAINING: goals 25/27 | cleared 12 | remaining 24", "EXTRA TRAINING: goals 0/2 | cleared 0 | remaining 24", "EXTRA TRAINING: goals 2/6 | cleared 0 | remaining 24", "EXTRA TRAINING: goals 24/36 | cleared 12 | remaining 12", "EXTRA TRAINING: goals 0/1 | cleared 0 | remaining 12", "EXTRA TRAINING: goals 1/2 | cleared 0 | remaining 12", "EXTRA TRAINING: goals 21/24 | cleared 12 | remaining 0", "WARM-UP: 15/16 goals"], "2026-09-11": ["WARM-UP: 15/15 goals", "MATCH 1: 495 pts = 57 goals×3 + 324 min | shots 70 | reached L7 (all levels) | streak 24 | saved: 9 × 8, 7 × 7, 6 × 3, 8 × 12, 7 × 9, 121 ÷ 11, 48 ÷ 6, 54 ÷ 9, 120 ÷ 12, 48 ÷ 8, 105 ÷ 7, 36 ÷ 3, 140 ÷ 7"], "2026-09-12": ["EXTRA TRAINING: goals 25/28 | cleared 12 | remaining 1"]}, "warm": {"2026-09-10": true, "2026-09-11": true}, "parked": [{"txt": "209 ÷ 11", "ans": 19, "misses": 1, "streak": 0, "added": "2026-09-09"}, {"txt": "17 × 12", "ans": 204, "misses": 1, "streak": 0, "added": "2026-09-09"}], "cleared": {"2026-09-11": 0, "2026-09-12": 12}, "tactics": {"days": {}, "missed": [], "weekend": {}}};
-let store={};try{if(location.search.includes('reset=1')){localStorage.removeItem('yigitPenalty_v2');history.replaceState(null,'',location.pathname)}store=JSON.parse(localStorage.getItem('yigitPenalty_v2')||'{}')}catch(e){}
-if(!store.days||!Object.keys(store.days).length){try{applySaveSilent(SEED)}catch(e){}}
-kit=KITS.find(k=>k.id===store.kit)||KITS[0];
-function save(){try{localStorage.setItem('yigitPenalty_v2',JSON.stringify(store))}catch(e){}}
-const dkey=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-if(!store.cleared){store.cleared={};const t0d=dkey(new Date());let c=0;((store.logs||{})[t0d]||[]).forEach(l=>{const m=l.match(/cleared (\d+)/);if(m)c+=+m[1]});store.cleared[t0d]=c;save()}
-function weekTable(){
-  const days=store.days||{};const now=new Date();const dow=(now.getDay()+6)%7; // Mon=0
-  const mon=new Date(now);mon.setHours(0,0,0,0);mon.setDate(now.getDate()-dow);
-  const names=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];let tot=0,rows='';
-  for(let i=0;i<7;i++){const d=new Date(mon);d.setDate(mon.getDate()+i);const k=dkey(d);const r0=days[k];const r=r0&&(r0.pts||r0.goals)?r0:null;const isT=k===dkey(now);
-    if(r)tot+=r.pts;
-    rows+=`<tr class="${isT?'today':''}"><td>${names[i]} ${d.getDate()}/${d.getMonth()+1}</td><td>${r?`${r.goals} goals · L${r.level} · ${r.left}' left`:'–'}</td><td>${r?r.pts:''}</td></tr>`}
-  return `<p class="weekTitle">This week's table</p><table class="week"><tr><th>Day</th><th>Match</th><th>Pts</th></tr>${rows}<tr class="total"><td>Week total</td><td></td><td>${tot}</td></tr></table>`;
-}
-const MOTTOS=[
- 'Ready for the match?','Warmed up? Let\'s go!','Let\'s see how sharp your brain is today.',
- 'The keeper is waiting. Make him work.','Real Madrid didn\'t win 15 by guessing. Neither will you.',
- 'Fast feet, faster brain.','Every goal is a step to the top of the league.','No pressure. Just 70 penalties.',
- 'Champions train when nobody is watching.','Today\'s minutes are tomorrow\'s points.','Head up, eyes on the corners.',
- 'Show the keeper who\'s boss.','One more day, one more level.','Ronaldo practised 1,000 free kicks. You get 70 penalties.',
- 'Beat yesterday\'s score. That\'s the only rival.','Deep breath. Then score.','The clock is on your side today. Use it.',
- 'Tables in your head, ball in the net.','Coach is watching from the touchline.','Big game today. Bring your A-game.',
- 'Miss less, think more, score more.','Top bins or nothing!','Your best day is still ahead. Maybe today.',
- 'Every save is a lesson. Every goal is proof.','Play the ball, play the clock, play smart.',
- 'Legends are built at training.','Focus. Corner. Goal. Repeat.','Numbers are just players. Put them in position.',
- 'Make the keeper regret showing up.','Believe. Then prove it.','New day, new tables, new goals.'];
-function ordinal(n){const s=['th','st','nd','rd'],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0])}
-function drawDate(){const d=new Date();document.getElementById('tmDate').textContent=`${ordinal(d.getDate())} ${d.toLocaleDateString('en-GB',{month:'long'})} ${d.toLocaleDateString('en-GB',{weekday:'long'})}`}
-function drawMotto(){drawDate();if(daysSinceMatch()>=14&&playsToday()===0){document.getElementById('motto').textContent='Welcome back. Boots on.';return}const d=new Date();const idx=(d.getFullYear()*372+d.getMonth()*31+d.getDate())%MOTTOS.length;document.getElementById('motto').textContent=MOTTOS[idx]}
-function lastMatchDay(){return Object.keys(store.days||{}).filter(k=>(store.days[k].pts|0)>0).sort().pop()||''}
-function daysSinceMatch(){const l=lastMatchDay();return l?Math.round((new Date(dkey(new Date()))-new Date(l))/86400000):99}
-function drawCamp(){const C=document.getElementById('campCard');const t=dkey(new Date());const gap=daysSinceMatch();
-  const show=gap>=14&&playsToday()<2;if(!show){C.style.display='none';return}
-  const steps=[['Extra Training – the old list',bankCount()===0||clearedToday()>=GATE_MAX||gateCount()===0],['Warm-up – the old weak sums',warmDone()],['Match 1 – shake off the rust',playsToday()>=1],['Match 2 – find the rhythm',playsToday()>=2],['Weekend Tactics – ×10, ×100, ×1000',!!tacDone()]];
-  C.style.display='block';C.innerHTML=`<div style="display:flex;align-items:center;gap:10px"><span style="font-size:28px">🏕️</span><div><b style="font-size:18px;color:var(--gold)">Comeback Camp</b><br><span style="font-size:13px;opacity:.9">${gap} days since your last match. No pressure today – boots back on, that is all.</span></div></div>
-  <div style="margin-top:10px;display:grid;gap:5px">${steps.map(([n,d])=>`<div style="display:flex;gap:8px;align-items:center;font-size:14px;${d?'opacity:.7':''}"><span style="width:20px;height:20px;border-radius:50%;background:${d?'var(--good)':'rgba(255,255,255,.15)'};display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:900;flex:none">${d?'✓':''}</span>${d?'<s>'+n+'</s>':n}</div>`).join('')}</div>
-  <div style="margin-top:8px;font-size:12px;opacity:.85">Ancelotti: "A month off is nothing. The tables are still in there – we go and find them."</div>`}
-function drawMenu(){drawMotto();ensureWeek();pruneParked();drawTactics();drawSeason();drawCamp();const wk=store.week,dp=daysPlayedThisWeek(),wa=weekAgg();
-  const dayPts=i=>{const dd=new Date(wk.start);dd.setDate(dd.getDate()+i);const k=dkey(dd);const dm=(store.days||{})[k];const tp=(((store.tactics||{}).days||{})[k]||{}).pts|0;return {k,m:dm&&dm.pts?dm.pts:0,t:tp}};
-  const cols=[0,1,2,3,4,5,6].map(dayPts);const mSum=cols.reduce((a,c)=>a+c.m,0),tSum=cols.reduce((a,c)=>a+c.t,0);
-  document.getElementById('weekPlan').innerHTML=`<b style="color:var(--navy)">Week ${wk.number}${weekName(wk.start,wk.number)?' · '+weekName(wk.start,wk.number):''}</b> <span class="small">– level for the whole week, reviewed on Monday</span>
-  <table style="width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:12px;text-align:center;table-layout:fixed"><colgroup><col span="7"><col style="width:16%"></colgroup><tr>${['M','T','W','T','F','S','S'].map((d,i)=>{const c=cols[i];const played=c.m>0||c.t>0;const isT=c.k===dkey(new Date());return `<td style="padding:0 2px"><div style="padding:4px 0;border-radius:6px;font-weight:800;background:${c.m>0?'var(--good)':isT?'var(--gold)':'#dfe3ec'};color:${c.m>0?'#fff':'#4a5670'}">${d}</div></td>`}).join('')}<td style="padding:0 2px;font-weight:800;color:#4a5670;font-size:11px">Total</td></tr>
-  <tr>${cols.map(c=>`<td style="padding:3px 0;font-weight:800;color:var(--navy)">${c.m||'–'}</td>`).join('')}<td style="font-weight:900;color:var(--navy)">${mSum}</td></tr>
-  <tr>${cols.map(c=>`<td style="padding:1px 0;font-size:11px;color:#8b5a2b;font-weight:700">${c.t?'📋'+c.t:''}</td>`).join('')}<td style="font-size:11px;color:#8b5a2b;font-weight:800">📋 ${tSum}</td></tr></table>
-  <div style="display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--navy);padding-top:6px"><span class="small">${wa.shots?`${Math.round(wa.acc*100)}% accuracy · ${Math.round(wa.fastR*100)}% under 3s`:'No penalties yet this week.'}${((store.tactics||{}).weekend||{})[wk.start]?' · weekend ✓':''}${wk.notes&&wk.notes.length?` · Monday review: ${wk.notes.join(', ')}`:''}</span><span style="font-weight:900;color:var(--navy);font-size:15px;white-space:nowrap">Grand total ${mSum+tSum}</span></div>`;
-  const L=document.getElementById('levels');L.innerHTML='';
-  LEVELS.forEach((l,i)=>{const d=document.createElement('div');d.className='lv'+(i===0?' cur':'');
-    const t=tierOf(i);d.innerHTML=`<span class="n">${i+1}</span><span class="lvtxt"><b>${l.name}</b><em class="tier t${t}">${t?'★'.repeat(t)+' '+TIER_NAMES[t]:'normal'}</em><small>${l.desc} · ${QCOUNT[i]} penalties</small></span>`;L.appendChild(d)});
-  const p=playsToday(),n=gateCount(),wn=warmNeeded();const kb=document.getElementById('kickBtn');kb.disabled=p>=MAX_MATCHES||n>0||wn;
-  const wm=document.getElementById('warmMenu');wm.style.display=(wn&&n===0)?'block':'none';if(wn&&n===0){const em=document.getElementById('extraMenu');em.parentNode.insertBefore(wm,em)}if(wn){document.getElementById('warmMenuTxt').textContent=`Warm-up – 8 split-it sums + ${Math.min(7,weakFacts().length)} from yesterday`}
-  document.getElementById('playsTxt').innerHTML=n>0?`<b style="color:var(--red)">Extra Training first.</b> ${n} more to clear today (two goals each) to unlock the match – ${clearedToday()} of ${GATE_MAX} done${bankCount()>n?`, ${bankCount()-n} wait for another day`:''}${(store.parked||[]).length?` · ${(store.parked||[]).length} harder ones parked until the level goes up`:''}.`:wn?`<b style="color:var(--red)">Warm-up first.</b> Yesterday's weak sums – one goal each unlocks today's match.`:p>=MAX_MATCHES?`Today's ${MAX_MATCHES} matches are used up – tomorrow is a new day.`:`Match ${p+1} of ${MAX_MATCHES} today. Best score of the day counts.`;
-  document.getElementById('weekMenu').innerHTML=weekTable();document.getElementById('dayBoxMenu').style.display=dayDone()?'block':'none';
-  document.getElementById('hLv').textContent=1;
-}
-ensureWeek();drawMenu();drawKits();applyKit();updateExtraUI();
-
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo(0,0)}
-function drawClock(){const el=Math.max(0,levelLimit-timeLeft);document.getElementById('clock').textContent=Math.floor(el)+"'";document.getElementById('climit').textContent='/ '+Math.round(levelLimit)+"'";document.getElementById('cbar').style.width=Math.min(100,el/levelLimit*100)+'%'}
-function startSession(){
-  if(playsToday()>=MAX_MATCHES||gateCount()>0||warmNeeded())return;
-  const today=dkey(new Date());store.days=store.days||{};store.days[today]=store.days[today]||{pts:0,goals:0,level:0,left:0,plays:0};store.days[today].plays=(store.days[today].plays|0)+1;save();
-  mode='match';lvStats=[];document.getElementById('exitBtn').style.display='none';if(/iPhone|iPad/.test(navigator.userAgent)&&SFX.on)setMsg('No sound? Turn the volume up and flip the side switch off silent.');window.onbeforeunload=()=>'Match in progress';window.addEventListener('pagehide',()=>save(),{once:true});
-  show('game');over=false;timeLeft=LEVEL_TIME;levelLimit=LEVEL_TIME;lastTick=Date.now();SFX.init();SFX.crowd(true);SFX.whistle(1);
-  clockT=setInterval(()=>{const n=Date.now();timeLeft-=(n-lastTick)/1000;lastTick=n;if(timeLeft<=0){timeLeft=0;drawClock();clearInterval(clockT);over=true;if(!locked)finish()}else drawClock()},200);
-  nextShot();
-}
-function nextShot(){
-  if(mode==='warmup'){
-    if(!wQueue.length)return finishWarmup();
-    cur=wQueue.shift();locked=false;shots++;wDone++;
-    drawPens(wDone+wQueue.length);
-    document.getElementById('prob').innerHTML=`${cur.txt}<small>${wDone<=8&&!cur.key?'':''}Warm-up – ${cur.txt.match(/1\d|[2-9]\d/)?'split it: tens first, then the rest':'the keeper saved this before'}</small>`;
-    buildZones();resetPitch();t0=Date.now();coachWatch();return;
-  }
-  if(mode==='practice'){
-    if(!pQueue.length||(!pOptional&&clearedToday()>=GATE_MAX))return finishPractice();
-    cur=pQueue.shift();locked=false;shots++;pDone++;
-    drawPens(pDone+pQueue.length);
-    const st=(store.practice||[]).find(x=>x.txt===cur.txt);document.getElementById('prob').innerHTML=`${cur.txt}<small>${st&&st.streak?'Once more to clear it':'Saved before – score it this time'}</small>`;
-    buildZones();resetPitch();t0=Date.now();coachWatch();return;
-  }
-  if(over)return finish();
-  if(qi>=QCOUNT[level]){ // level complete
-    if(level===LEVELS.length-1)return finish(true);
-    level++;qi=0;lvRes=[];timeLeft+=LEVEL_TIME;levelLimit=timeLeft;SFX.levelUp();
-    document.getElementById('streak').textContent=`⬆ Level ${level+1} ${LEVELS[level].name} – spare minutes carried over!`;
-  }else if(qi===0){document.getElementById('streak').textContent='';}
-  qi++;shots++;locked=false;
-  const L=LEVELS[level];cur=genFor(level);
-  document.getElementById('lvLbl').textContent=`Level ${level+1} · ${L.name}`;
-  drawPens(QCOUNT[level]);
-  document.getElementById('hLv').textContent=level+1;
-  document.getElementById('prob').innerHTML=`${cur.golden?'⭐ ':''}${cur.txt}<small>${cur.golden?'GOLDEN BALL – worth 6, a miss costs nothing':gkMode()?'Dive to the corner with the answer':'Tap the corner with the answer'}</small>`;
-  buildZones();resetPitch();
-  if(qi>1&&streak>=2)document.getElementById('streak').textContent=`🔥 ${streak} in a row`;
-  t0=Date.now();coachWatch();
-}
-function burstAt(zi){const g=document.querySelector('.goal');const d=document.createElement('div');d.className='burst';d.style.left=ZPOS[zi][0];d.style.bottom=ZPOS[zi][1];
-  let h='<b></b>';for(let i=0;i<14;i++){const a=i/14*Math.PI*2,r=40+Math.random()*40;h+=`<i style="--dx:${Math.cos(a)*r}px;--dy:${Math.sin(a)*r}px;animation-delay:${Math.random()*.1}s"></i>`}
-  d.innerHTML=h;g.appendChild(d);g.classList.add('net-shake');setTimeout(()=>{d.remove();g.classList.remove('net-shake')},800)}
-function keeperCatch(zi){const side=zi%3===0?'L':'R';document.getElementById('g'+side).classList.add('big');document.getElementById('hb'+side).classList.add('show');document.getElementById('ball').style.opacity='0'}
-function keeperReset(){['L','R'].forEach(s=>{document.getElementById('g'+s).classList.remove('big');document.getElementById('hb'+s).classList.remove('show')});document.getElementById('ball').style.opacity='1'}
-function buildZones(){
-  const set=new Set([cur.ans]);const ds=cur.dis.filter(x=>x>0&&x!==cur.ans).sort(()=>Math.random()-.5);
-  for(const d of ds){if(set.size>=5)break;set.add(d)}
-  let k=1;while(set.size<5){set.add(cur.ans+k*3);k++}
-  const opts=[...set].sort(()=>Math.random()-.5);
-  const Z=document.getElementById('zones');Z.innerHTML='';
-  let oi=0;
-  for(let i=0;i<6;i++){const b=document.createElement('button');b.className='zone';
-    if(i===4){b.classList.add('empty');b.disabled=true;b.setAttribute('aria-hidden','true');}
-    else{const o=opts[oi++];b.textContent=o;b.onclick=()=>shoot(i,o,b);}
-    Z.appendChild(b)}
-}
-function resetPitch(){
-  const ball=document.getElementById('ball');ball.style.transition='none';ball.className='ball spot';ball.style.left='50%';ball.style.bottom='';setTimeout(()=>ball.style.transition='',20);
-  const kp=document.getElementById('keeper');kp.style.left='50%';kp.style.bottom='0';kp.style.transform='translateX(-50%) rotate(0)';keeperReset();
-  document.getElementById('msg').textContent='SHOOT!';document.getElementById('msg').className='msg';
-}
-const ZPOS=[['17%','62%'],['50%','62%'],['83%','62%'],['17%','18%'],['50%','18%'],['83%','18%']];
-function shoot(zi,val,btn){
-  if(locked)return;locked=true;SFX.init();clearInterval(coachT);hideCoach();
-  const secs=(Date.now()-t0)/1000;
-  document.querySelectorAll('.zone').forEach(z=>z.disabled=true);
-  const ball=document.getElementById('ball'),kp=document.getElementById('keeper'),msg=document.getElementById('msg');
-  const correct=val===cur.ans;
-  SFX.kick();
-  const sh=document.getElementById('shooter');sh.classList.add('kick');setTimeout(()=>sh.classList.remove('kick'),350);
-  const gk=gkMode();let ansZi=zi;if(gk){document.querySelectorAll('.zone').forEach((z,i)=>{if(+z.textContent===cur.ans)ansZi=i})}
-  ball.style.left=ZPOS[gk?ansZi:zi][0];ball.style.bottom=ZPOS[gk?ansZi:zi][1];
-  const tilt=`translateX(-50%) rotate(${zi%3===0?-35:zi%3===2?35:0}deg)`;
-  if(gk){ // Yiğit is the keeper: dive to the chosen corner
-    kp.style.left=ZPOS[zi][0];kp.style.bottom=ZPOS[zi][1]==='62%'?'28%':'0';kp.style.transform=tilt;
-    if(correct){setTimeout(()=>keeperCatch(zi),300);streak++;best=Math.max(best,streak);goals++;setTimeout(()=>SFX.goal(),380);
-      const bh=bankHit(cur);if(bh==='cleared')pCleared++;if(mode==='practice'&&bh==='progress')pQueue.push(cur);
-      if(mode==='practice'){pGoals++}else if(mode==='warmup'){wGoals++}else{pts+=cur.golden?6:3}
-      msg.className='msg g';msg.innerHTML=`${secs<3?'WHAT A SAVE!':'SAVED!'}<small>${cur.txt} = ${cur.ans} · ${mode==='practice'?(bh==='cleared'?'cleared from the list!':'once more and it is cleared'):mode==='warmup'?'warmed up':cur.golden?'+6 GOLDEN':'+3'} (${secs.toFixed(1)}s)</small>`;
-      log.push(`L${level+1} ${cur.golden?'⭐':''}${cur.txt}=${cur.ans} ✔ ${secs.toFixed(1)}s`);document.getElementById('target').textContent='';}
-    else{setTimeout(()=>burstAt(ansZi),380);streak=0;setTimeout(()=>SFX.save(),380);if(mode!=='warmup'&&!cur.golden)bankAdd(cur);if(mode==='practice')pQueue.push(cur);if(mode==='warmup')wQueue.push(cur);
-      if(secs<2.5&&!cur.golden)setTimeout(()=>showCoach(pick(RUSH)),500);
-      msg.className='msg s';msg.innerHTML=`GOAL AGAINST<small>${cur.txt} = <b>${cur.ans}</b> · wrong corner</small>`;
-      document.querySelectorAll('.zone').forEach(z=>{if(+z.textContent===cur.ans)z.classList.add('goal')});
-      log.push(`L${level+1} ${cur.golden?'⭐':''}${cur.txt}=${cur.ans} ✘ (chose ${val})`);if(!cur.golden)missed.push(cur.txt);}
-  }else if(correct){
-    setTimeout(()=>burstAt(zi),380);
-    const wrong=pick([0,1,2,3,5].filter(i=>i!==zi));kp.style.left=ZPOS[wrong][0];kp.style.bottom=ZPOS[wrong][1]==='62%'?'28%':'0';kp.style.transform=tilt;
-    streak++;best=Math.max(best,streak);goals++;setTimeout(()=>SFX.goal(),380);
-    const bh=bankHit(cur);if(bh==='cleared')pCleared++;
-    if(mode==='practice'&&bh==='progress')pQueue.push(cur);
-    if(mode==='practice'){pGoals++}else if(mode==='warmup'){wGoals++}else{pts+=cur.golden?6:3}
-    msg.className='msg g';msg.innerHTML=`${secs<3?'TOP BINS!':'GOAL!'}<small>${cur.txt} = ${cur.ans} · ${mode==='practice'?(bh==='cleared'?'cleared from the list!':'once more and it is cleared'):'+3'} (${secs.toFixed(1)}s)</small>`;
-    log.push(`L${level+1} ${cur.txt}=${cur.ans} ✔ ${secs.toFixed(1)}s`);
-  }else{
-    setTimeout(()=>keeperCatch(zi),300);
-    kp.style.left=ZPOS[zi][0];kp.style.bottom=ZPOS[zi][1]==='62%'?'28%':'0';kp.style.transform=tilt;
-    streak=0;setTimeout(()=>SFX.save(),380);if(mode!=='warmup'&&!cur.golden)bankAdd(cur);
-    if(secs<2.5&&!cur.golden)setTimeout(()=>showCoach(pick(RUSH)),500);
-    if(mode==='practice')pQueue.push(cur);if(mode==='warmup')wQueue.push(cur);
-    msg.className='msg s';msg.innerHTML=`SAVED!<small>${cur.txt} = <b>${cur.ans}</b> · say it out loud</small>`;
-    document.querySelectorAll('.zone').forEach(z=>{if(+z.textContent===cur.ans)z.classList.add('goal')});
-    log.push(`L${level+1} ${cur.golden?'⭐':''}${cur.txt}=${cur.ans} ✘ (chose ${val})`);if(!cur.golden)missed.push(cur.txt);
-  }
-  if(mode==='match'&&!cur.golden){factUpdate(cur,correct,secs);noteLevel(level,correct,secs)}else if(mode==='warmup'&&cur.key){factUpdate(cur,correct,secs)}
-  lvRes.push(correct);drawPens(mode==='practice'?pDone+pQueue.length:mode==='warmup'?wDone+wQueue.length:QCOUNT[level]);
-  document.getElementById('hPts').textContent=pts;document.getElementById('bscore').textContent=`${goals} – ${shots-goals}`;
-  setTimeout(nextShot,correct?900:2000);
-}
-function finish(complete){
-  clearInterval(clockT);clearInterval(coachT);hideCoach();over=true;window.onbeforeunload=null;SFX.whistle(3);setTimeout(()=>SFX.crowd(false),2500);show('result');
-  recordWeek();const tierChanges=[];const wa=weekAgg();
-  const left=complete?Math.floor(timeLeft):0;const total=goals*3+left;
-  document.getElementById('rPts').textContent=total;document.getElementById('hPts').textContent=total;
-  document.getElementById('rGoals').textContent=goals;document.getElementById('rTime').textContent=left;document.getElementById('rLv').textContent=level+1;
-  document.getElementById('rBadge').textContent=complete?(left>=120?'Ballon d\'Or – all 7 levels with time to spare':'Galáctico – all 7 levels done'):level>=5?'Captain – ran out of time at level '+(level+1):level>=3?'First XI – ran out of time at level '+(level+1):'Academy – ran out of time at level '+(level+1);
-  document.getElementById('rTxt').textContent=complete?'Full house. Every spare minute is a point – get faster tomorrow.':'The clock beat you. Faster on the easy levels tomorrow – that is where the spare minutes come from.';
-  const eb=document.getElementById('extraBox');eb.style.display=bankCount()?'block':'none';document.getElementById('extraTxt').textContent=`${missed.length} saved today, ${bankCount()} on the list in total. Clear the list (two goals each) before the next match – no clock, no points.`;
-  const today=dkey(new Date());store.days=store.days||{};
-  const prev=store.days[today];
-  const plays=prev?prev.plays|0:0;
-  if(!prev||total>prev.pts)store.days[today]={pts:total,goals,level:level+1,left,plays};else prev.plays=plays;
-  save();updateExtraUI();
-  document.getElementById('weekResult').innerHTML=`<p class="small"><b>Week ${store.week.number}:</b> ${Math.round(wa.acc*100)}% accuracy, ${Math.round(wa.fastR*100)}% fast · ${wa.acc>=.85&&wa.fastR>=.6?'on track to move up next Monday ⬆':wa.acc<.65?'let\'s steady the ship – same level next week':'solid – keep this up and next week gets a notch harder'}</p>`+weekTable()+(prev&&prev.pts&&prev.pts>=total?`<p class="small">Today's best stays ${prev.pts} (this match: ${total}).</p>`:'');
-  dayLog(`MATCH ${plays}: ${total} pts = ${goals} goals×3 + ${left} min | shots ${shots} | reached L${level+1} ${complete?'(all levels)':'(time out)'} | streak ${best}${tierChanges.length?' | '+tierChanges.join(', '):''} | saved: ${missed.join(', ')||'none'}`);save();
-  document.getElementById('dayBox').style.display=dayDone()?'block':'none';document.getElementById('dayHint').textContent=dayDone()?'':`Report goes to Coach after match ${MAX_MATCHES}. Progress is saved on this phone – use the save icon if you change phones.`;
-}
-/* ---------- save / load ---------- */
-function buildSave(){
-  return {format:'yigit-penalty-save',version:1,player:'Yigit Ali',savedAt:new Date().toISOString(),
-    kit:store.kit||'cov',days:store.days||{},practice:store.practice||[],facts:store.facts||{},tiers:store.tiers||[0,0,0,0,0,0,0],week:store.week||null,weekStats:store.weekStats||{},logs:store.logs||{},warm:store.warm||{},parked:store.parked||[],cleared:store.cleared||{},tactics:store.tactics||{days:{},missed:[],weekend:{}},seasons:store.seasons||{}};
-}
-async function exportSave(){
-  const data=JSON.stringify(buildSave(),null,2);const name=`yigit-penalty-save-${dkey(new Date())}.json`;
-  try{const file=new File([data],name,{type:'application/json'});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Penalty Shootout save'});setMsg('Save file shared.');return}}catch(e){if(e&&e.name==='AbortError')return}
-  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download=name;document.body.appendChild(a);a.click();a.remove();
-  setMsg('Save file downloaded.');
-}
-function copySaveText(){copyText(JSON.stringify(buildSave()),'Save text copied.')}
-function setMsg(m){const t=document.getElementById('toast');t.textContent=m;t.style.display='block';clearTimeout(t._h);t._h=setTimeout(()=>t.style.display='none',3500)}
-function applySave(obj){
-  if(!obj||obj.format!=='yigit-penalty-save'||typeof obj.days!=='object')throw new Error('Not a valid save file');
-  store.days=store.days||{};let added=0;
-  for(const [d,r] of Object.entries(obj.days)){
-    if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||typeof r.pts!=='number')continue;
-    const cur=store.days[d];
-    if(!cur||r.pts>cur.pts){store.days[d]={pts:r.pts|0,goals:r.goals|0,level:r.level|0,left:r.left|0,plays:Math.max(r.plays|0,cur?cur.plays|0:0)};added++}else if(cur){cur.plays=Math.max(cur.plays|0,r.plays|0)}
-  }
-  if(obj.facts&&typeof obj.facts==='object'){store.facts=store.facts||{};for(const [k,f] of Object.entries(obj.facts)){const e=store.facts[k];if(!e)store.facts[k]={seen:f.seen|0,fast:f.fast|0,miss:f.miss|0,lastCorrect:f.lastCorrect||''};else{e.seen=Math.max(e.seen,f.seen|0);e.fast=Math.max(e.fast,f.fast|0);e.miss=Math.max(e.miss,f.miss|0);if((f.lastCorrect||'')>e.lastCorrect)e.lastCorrect=f.lastCorrect}}}
-  if(obj.logs&&typeof obj.logs==='object'){store.logs=store.logs||{};for(const [k,v] of Object.entries(obj.logs))if(Array.isArray(v)&&!(store.logs[k]||[]).length)store.logs[k]=v.slice(0,20)}
-  if(obj.tactics)store.tactics=obj.tactics;if(obj.seasons)store.seasons=Object.assign(store.seasons||{},obj.seasons);
-  if(Array.isArray(obj.parked))store.parked=obj.parked;if(obj.cleared)store.cleared=Object.assign(store.cleared||{},obj.cleared);
-  if(obj.warm&&typeof obj.warm==='object'){store.warm=Object.assign(store.warm||{},obj.warm)}
-  if(obj.week&&obj.week.start)store.week=obj.week;if(obj.weekStats)store.weekStats=Object.assign(store.weekStats||{},obj.weekStats);
-  if(Array.isArray(obj.practice)){store.practice=store.practice||[];for(const p of obj.practice){if(!p||typeof p.txt!=='string'||typeof p.ans!=='number')continue;const e=store.practice.find(x=>x.txt===p.txt);if(e){e.misses=Math.max(e.misses,p.misses|0);e.streak=Math.min(e.streak,p.streak|0)}else store.practice.push({txt:p.txt,ans:p.ans,misses:p.misses|0,streak:p.streak|0,added:p.added||dkey(new Date())})}}
-  if(KITS.some(k=>k.id===obj.kit)){store.kit=obj.kit;kit=KITS.find(k=>k.id===obj.kit)}
-  save();ensureWeek();drawMenu();drawKits();applyKit();updateExtraUI();
-  setMsg(`Loaded: ${Object.keys(obj.days).length} days in file, ${added} new or better day(s) added.`);
-}
-function applySaveSilent(obj){store.days=obj.days||{};store.cleared=obj.cleared||{};store.week=obj.week||null;store.weekStats=obj.weekStats||{};store.parked=obj.parked||[];store.practice=obj.practice||[];store.facts=obj.facts||{};store.kit=obj.kit;store.logs=obj.logs||{};store.warm=obj.warm||{};save()}
-function importSaveText(txt){try{applySave(JSON.parse(txt))}catch(e){setMsg('Could not load: '+e.message)}}
-function importSaveFile(f){if(!f)return;const r=new FileReader();r.onload=()=>importSaveText(r.result);r.readAsText(f)}
-
-function copyText(t,okMsg){const done=()=>setMsg(okMsg);
-  const legacy=()=>{const ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.top='0';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.setSelectionRange(0,t.length);try{document.execCommand('copy')}catch(e){}ta.remove();done()};
-  if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done).catch(legacy);else legacy()}
-function copyReport(){copyText(buildDayReport(),'Report copied.')}
 </script>
 </body>
 </html>
