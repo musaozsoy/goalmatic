@@ -1,7 +1,7 @@
 {
  "season": "2026/27",
  "player": "Yigit Ali",
- "updated": "2026-10-18",
+ "updated": "2026-10-26",
  "levels": [
   [
    "Castilla",
@@ -22,6 +22,11 @@
    "Ballon d'Or",
    3000,
    5000
+  ],
+  [
+   "Galáctico",
+   5000,
+   8000
   ]
  ],
  "days": {
@@ -250,6 +255,68 @@
     "Goals": "8/10",
     "Saved": "frantically, harass"
    }
+  },
+  "md9": {
+   "n": 9,
+   "date": "2026-10-19",
+   "title": "Long Division Day",
+   "total": 150,
+   "words": [
+    "endeavour",
+    "sufficiently",
+    "gracious"
+   ],
+   "sections": {
+    "VAR": "3/4",
+    "Long division": "3/4",
+    "Reading": "4/4",
+    "Words": "3/3",
+    "Q5": "2/2",
+    "Referee": "—"
+   },
+   "note": "Q5 full Point+Evidence 2/2. Missed 1½×36 and div Q4 (2002÷26)."
+  },
+  "md11": {
+   "n": 11,
+   "date": "2026-10-21",
+   "title": "Chapter 5 · Reading day",
+   "total": 130,
+   "words": [
+    "relentless",
+    "resolute",
+    "sanctuary"
+   ],
+   "sections": {
+    "VAR": "3/4",
+    "Reading": "6/6",
+    "Words": "2/3",
+    "Q7+Q8": "1/3 → 1/4 marks",
+    "Referee": "+30"
+   },
+   "note": "Q7: quotation doesn't match 'how' question (1/2). Q8: reason not from text (0/2). Rule: how→technique+quote; why→character's own words. 0.25×80 missed; resolute missed."
+  },
+  "nc1": {
+   "n": "C",
+   "date": "2026-10-25",
+   "title": "New Season Camp",
+   "total": 440,
+   "kind": "camp",
+   "words": [
+    "awestruck",
+    "solemn",
+    "gratitude"
+   ],
+   "sections": {
+    "VAR": "4/4",
+    "Chapter 6": "6/6",
+    "Arithmetic": "8/14",
+    "Grammar": "7/10",
+    "Word pool": "8/8",
+    "New words": "3/3",
+    "Notebook": "5/5",
+    "Referee": "+30"
+   },
+   "note": "Reading + how/why fix landed (VAR 4/4, Ch6 6/6). Arithmetic misses: inverse missing number (☐−48=152), 0.5×86, 1½×44, 5/6÷5, 2,397÷51, 0.7×500 sense check. Grammar misses: children's (plural apostrophe), antonym danger→safety, 'have done'. Re-tested in hc1 VAR."
   }
  },
  "reports": [
@@ -819,6 +886,126 @@
    "passes": 0,
    "misses": 0,
    "def": "enough; to the degree needed"
+  },
+  {
+   "word": "compassion",
+   "source": "school",
+   "from": "One Day vocab mat",
+   "added": "2026-10-20",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "deep care for someone who is suffering"
+  },
+  {
+   "word": "benevolence",
+   "source": "school",
+   "from": "One Day vocab mat",
+   "added": "2026-10-20",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "kindness and generosity"
+  },
+  {
+   "word": "indebted",
+   "source": "school",
+   "from": "One Day vocab mat",
+   "added": "2026-10-20",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "owing thanks to someone"
+  },
+  {
+   "word": "relentless",
+   "source": "season",
+   "from": "md11",
+   "added": "2026-10-21",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "never stopping"
+  },
+  {
+   "word": "resolute",
+   "source": "season",
+   "from": "md11",
+   "added": "2026-10-21",
+   "status": "learning",
+   "passes": 0,
+   "misses": 1,
+   "def": "firmly decided"
+  },
+  {
+   "word": "sanctuary",
+   "source": "season",
+   "from": "md11",
+   "added": "2026-10-21",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "a safe place; refuge"
+  },
+  {
+   "word": "valour",
+   "source": "school",
+   "from": "One Day synonyms",
+   "added": "2026-10-22",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "great bravery"
+  },
+  {
+   "word": "apprehension",
+   "source": "school",
+   "from": "One Day synonyms",
+   "added": "2026-10-22",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "worry about what might happen"
+  },
+  {
+   "word": "refuge",
+   "source": "school",
+   "from": "One Day synonyms",
+   "added": "2026-10-22",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "a safe place"
+  },
+  {
+   "word": "awestruck",
+   "source": "season",
+   "from": "nc1",
+   "added": "2026-10-25",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "filled with amazement and wonder"
+  },
+  {
+   "word": "solemn",
+   "source": "season",
+   "from": "nc1",
+   "added": "2026-10-25",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "serious and thoughtful"
+  },
+  {
+   "word": "gratitude",
+   "source": "school",
+   "from": "nc1",
+   "added": "2026-10-25",
+   "status": "new",
+   "passes": 0,
+   "misses": 0,
+   "def": "the feeling of being thankful"
   }
  ],
  "wordbank_rules": {
@@ -827,13 +1014,17 @@
   "revision": "each Word Camp also re-tests 3 random secure words"
  },
  "followups": [
-  "BOX RULE: one answer, last line of working, sense check",
-  "long division by 2-digit — daily until automatic",
-  "mixed number × whole number",
-  "plural possessive apostrophe",
-  "have/had + third form",
-  "writing length: paragraph 3",
-  "fragments need a verb"
+  "READING: HOW → technique + quote; WHY → character's own words",
+  "BOX RULE",
+  "long division (3-step)",
+  "mixed number × whole",
+  "inverse operations",
+  "0.5/0.25",
+  "squares & cubes",
+  "long mult 2nd-row carry",
+  "% via 10%",
+  "plural apostrophe",
+  "Big Write 2: full letter of thanks"
  ],
  "arithmetic_paper": {
   "date": "2026-10-13",
@@ -909,7 +1100,13 @@
    "n": 3,
    "label": "Week 3",
    "from": "2026-10-19",
-   "to": "2026-10-25"
+   "to": "2026-10-24"
+  },
+  {
+   "n": 4,
+   "label": "Week 4 · Half-term camp",
+   "from": "2026-10-25",
+   "to": "2026-11-01"
   }
  ],
  "mock_sats_autumn1": {
@@ -940,5 +1137,26 @@
    "Box Rule",
    "GPS → GD: plural apostrophe, semicolons, formal/informal"
   ]
- }
+ },
+ "arithmetic_paper_2018": {
+  "date": "2026-10",
+  "paper": "2018 KS2 Paper 1",
+  "score": "25/40",
+  "box_errors_seen": 0,
+  "long_division": "Q22 2/2 — first full 2-digit division",
+  "gaps": [
+   "inverse missing number (Q10)",
+   "0.5×28 blank (Q23)",
+   "20% via decimal fraction failed (Q21)",
+   "6²=12 (Q8)",
+   "long mult carry 2nd row (Q29)"
+  ]
+ },
+ "unreported": [
+  "md10 (20 Oct)",
+  "et3, et4 (18 Oct)",
+  "md12 (22 Oct)",
+  "sp01 + school spelling test (23 Oct)",
+  "Big Write 2 (24 Oct) — moved to Tue 27 Oct"
+ ]
 }
